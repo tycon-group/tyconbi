@@ -1,24 +1,5 @@
 # tyconbi
+electron-vue 是 vue-cli2.0的版本，该版本为vue3+vue-cli-plugin-electron-builder。
 
 ## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+yarn electron:serve
