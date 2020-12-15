@@ -1,9 +1,12 @@
 {
   "name": "tyconbi",
-  "version": "0.2.0",
-  "description": "tyconbi",
-  "author": "tyconcps",
-  "private": true,
+  "version": "0.2.2",
+  "author": {
+    "email": "info@tyconcps.com",
+    "name": "tyconcps"
+  },
+  "description": "tyconBI是由一款太江信息科技团队制作的数据分析系统。",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
