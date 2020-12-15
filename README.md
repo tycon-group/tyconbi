@@ -18,10 +18,11 @@ electron-vue 是 vue-cli2.0的版本，该版本为vue3+vue-cli-plugin-electron-
 4. 发布到Github，需要先获取[GitHub个人访问令牌](https://github.com/settings/tokens)
     Linux/Mac: 
     > export GH_TOKEN=TOKEN-GOES-HERE
+    > yarn electron:build -p always
                                               
     Windows: 
     > set GH_TOKEN=TOKEN-GOES-HERE
-    
+    > yarn electron:build -p always
 
 
 
