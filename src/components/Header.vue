@@ -25,57 +25,60 @@ export default {
 
 <style>
   .mod {
-    width: 1440px;
-    height: 64px;
+    width: 19.2rem;
+    height: 0.85rem;
   }
-  .mod .box {
+  .box {
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: #0080CC;
-    width: 1440px;
+    background-color: #0080cc;
+    width: 19.2rem;
     height: 64px;
   }
-  .mod .info {
-    margin-right: 105px;
-    margin-left: 73px;
-    max-width: 419px;
-    height: 28px;
+  .info {
+    margin-right: 1.4rem;
+    margin-left: 0.97rem;
+    max-width: 5.59rem;
+    height: 0.37rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 28px;
+    line-height: 0.37rem;
+    white-space: nowrap;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 0.27rem;
     font-weight: 400;
   }
-  .mod .primary {
+  .primary {
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: row;
-    margin-right: 697px;
-    width: 359px;
-    height: 23px;
+    margin-right: 9.29rem;
+    width: 4.79rem;
+    height: 0.31rem;
   }
-  .mod .word {
+  .word {
     position: absolute;
-    top: 0px;
-    right: 92px;
-    line-height: 20px;
+    top: 0;
+    right: 1.23rem;
+    line-height: 0.27rem;
+    white-space: nowrap;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 0.21rem;
     font-weight: 400;
   }
-  .mod .desc {
+  .desc {
     position: relative;
-    margin-right: 11px;
-    line-height: 20px;
+    margin-right: 0.15rem;
+    line-height: 0.27rem;
+    white-space: nowrap;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 0.21rem;
     font-weight: 400;
   }
-  .mod .icon {
-    width: 30px;
-    height: 30px;
+  .icon {
+    width: 0.4rem;
+    height: 0.4rem;
   }
 </style>
