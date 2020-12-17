@@ -1,18 +1,21 @@
 # tyconbi
+使用Vue2 + Electron9 开发。
+[教程](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
 
 ## Project setup
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+yarn electron:build
+yarn electron:build --linux deb --win nsis
 ```
 
 ### Run your unit tests
