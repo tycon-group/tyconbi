@@ -18,9 +18,4 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': 'off',
   },
-
-  'extends': [
-    'plugin:vue/recommended',
-    '@vue/airbnb'
-  ]
 };
