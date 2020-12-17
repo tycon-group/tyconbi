@@ -1,7 +1,13 @@
 {
   "name": "tyconbi",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
+  "author": {
+    "name": "tyconcps",
+    "email": "info@tyconcps.com",
+    "url": "www.tyconcps.com"
+  },
+  "description": "tyconbi 数据分析软件",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
