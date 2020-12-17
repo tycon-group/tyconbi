@@ -2,6 +2,7 @@ import { app, protocol, BrowserWindow } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 import { autoUpdater } from 'electron-updater';
+import path from 'path';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -21,6 +22,8 @@ async function createWindow() {
       // for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
     },
+    /* global __static */
+    icon: path.join(__static, 'icon.png'),
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
