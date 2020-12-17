@@ -1,6 +1,7 @@
 # tyconbi
-使用Vue2 + Electron9 开发。
-[教程](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
+使用Vue2 + Electron9 + ElementUI开发。
+[vue-cli-plugin-electron-builder](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
+
 
 ## Project setup
 ```
