@@ -25,6 +25,7 @@
     "electron": "^9.0.0",
     "electron-devtools-installer": "^3.1.0",
     "electron-updater": "^4.3.5",
+    "serve": "^11.3.2",
     "vue": "^3.0.0",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
     "vue-router": "^4.0.0-0",
