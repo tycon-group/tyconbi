@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../views/Home.vue';
+import none from '../views/404.vue';
 
 const routes = [
   {
@@ -7,10 +8,15 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/404',
+    component: none,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
+  base: 'tyconbi',
   routes,
 });
 
