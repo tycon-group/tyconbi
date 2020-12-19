@@ -8,7 +8,7 @@
         marginTop: '84px',
         background: '#fff'}"
     >
-      Content
+      Content 2.0.3
     </a-layout-content>
   </a-layout>
 </template>
