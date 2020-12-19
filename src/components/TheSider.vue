@@ -16,3 +16,9 @@
     </a-layout-sider>
   </a-layout>
 </template>
+
+<script>
+export default {
+  name: 'the-sider',
+};
+</script>

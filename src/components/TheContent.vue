@@ -12,3 +12,9 @@
     </a-layout-content>
   </a-layout>
 </template>
+
+<script>
+export default {
+  name: 'the-content',
+};
+</script>

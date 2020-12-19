@@ -1,9 +1,9 @@
 <template>
   <div id="home">
-    <TheHeader/>
-    <TheSider/>
-    <TheContent/>
-    <TheFooter/>
+    <the-header/>
+    <the-sider/>
+    <the-content/>
+    <the-footer/>
   </div>
 </template>
 

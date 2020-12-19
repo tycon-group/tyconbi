@@ -5,3 +5,9 @@
     </a-layout-footer>
   </a-layout>
 </template>
+
+<script>
+export default {
+  name: 'the-footer',
+};
+</script>
