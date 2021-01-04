@@ -69,12 +69,6 @@ export default {
   color: #1890ff;
 }
 
-#components-layout-demo-custom-trigger .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-}
-
 .trigger {
   position:fixed;
   z-index :100;

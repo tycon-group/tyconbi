@@ -1,7 +1,7 @@
 <template>
   <a-layout-header
     style="background: #1890ff; padding: 0; display: flex;">
-    <img class="logo" src="#">
+    <img class="logo" src="#" alt="logo">
     <div
       class="name">
       太江数据分析系统
