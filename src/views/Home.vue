@@ -1,9 +1,7 @@
 <template>
   <a-layout id="components-layout-demo-custom-trigger">
     <!--    这是header-->
-    <a-layout-header style="background: #1890ff; padding: 0">
-      <div class="logo" style="height: 32px; width: 128px; background-color: aqua"/>
-    </a-layout-header>
+    <the-header />
     <a-layout>
 <!--      这是侧边栏-->
       <a-layout-sider
@@ -41,12 +39,14 @@ import {
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
 import TheFooter from '../components/TheFooter.vue';
+import TheHeader from '../components/TheHeader.vue';
 
 export default {
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     TheFooter,
+    TheHeader,
   },
   data() {
     return {
