@@ -1,9 +1,11 @@
 <template>
   <a-layout id="components-layout-demo-custom-trigger">
+    <!--    这是header-->
     <a-layout-header style="background: #1890ff; padding: 0">
       <div class="logo" style="height: 32px; width: 128px; background-color: aqua"/>
     </a-layout-header>
     <a-layout>
+<!--      这是侧边栏-->
       <a-layout-sider
         :style="{backgroundColor: '#fff' }"
         v-model:collapsed="collapsed"
@@ -17,6 +19,7 @@
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-sider>
       <a-layout>
+<!--        这是内容-->
         <a-layout-content
           :style="{
            marginTop: '24px',
@@ -26,11 +29,8 @@
         >
           Content
         </a-layout-content>
-        <a-layout-footer
-          :style="{ margin: '16px', background: '#fff'}"
-        >
-          footer
-        </a-layout-footer>
+<!--        这是页脚-->
+        <the-footer :style="{ margin: '16px', background: '#fff'}" />
       </a-layout>
     </a-layout>
   </a-layout>
@@ -40,11 +40,13 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
+import TheFooter from '../components/TheFooter.vue';
 
 export default {
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    TheFooter,
   },
   data() {
     return {
