@@ -1,10 +1,12 @@
 <template>
   <a-layout-header
     style="background: #1890ff; padding: 0; display: flex;">
-    <img class="logo" src="#" alt="logo">
+    <div class="logo">
+      <img style="width: 32px; height: 32px; margin: 0 auto" src="../assets/logo.png" alt="logo">
+    </div>
     <div
       class="name">
-      太江数据分析系统
+      <span>太江数据分析系统</span>
     </div>
     <div class="deadline">
       倒计时
@@ -32,11 +34,12 @@ export default {
 }
 
 .name{
-  width: 150px;
+  width: 200px;
   height: 64px;
-  margin-left: 50px;
   background-color: red;
   text-align: center;
+  font-size: 20px;
+  color: #fff;
 }
 
 .deadline {
