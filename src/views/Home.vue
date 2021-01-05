@@ -17,7 +17,7 @@
           Content
         </a-layout-content>
 <!--        这是页脚-->
-        <the-footer :style="{ margin: '16px', background: '#fff'}" />
+        <the-footer />
       </a-layout>
     </a-layout>
   </a-layout>
