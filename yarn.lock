@@ -29,18 +29,7 @@
   resolved "https://registry.npm.taobao.org/@ant-design/icons-svg/download/@ant-design/icons-svg-4.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Ficons-svg%2Fdownload%2F%40ant-design%2Ficons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
   integrity sha1-SAsCX0sg73/o9H1KSEbk/uhOoGw=
 
-"@ant-design/icons-vue@^5.1.7":
-  version "5.1.8"
-  resolved "https://registry.npm.taobao.org/@ant-design/icons-vue/download/@ant-design/icons-vue-5.1.8.tgz#77d75bf2f0d35af50cf8d0bf689fb13760eff2ec"
-  integrity sha1-d9db8vDTWvUM+NC/aJ+xN2Dv8uw=
-  dependencies:
-    "@ant-design/colors" "^5.0.0"
-    "@ant-design/icons-svg" "^4.0.0"
-    "@babel/runtime" "^7.10.4"
-    "@types/lodash" "^4.14.165"
-    lodash "^4.17.15"
-
-"@ant-design/icons-vue@^5.1.8":
+"@ant-design/icons-vue@^5.1.7", "@ant-design/icons-vue@^5.1.8":
   version "5.1.8"
   resolved "https://registry.yarnpkg.com/@ant-design/icons-vue/-/icons-vue-5.1.8.tgz#77d75bf2f0d35af50cf8d0bf689fb13760eff2ec"
   integrity sha512-Ml3/+ZQtrCNPV/S8rMKON6eLOkPQwZHwKMdxRPm93Hw3SKc/LYacGpESdTeYOlShE90iHqt+zWZxzrb28ga0sw==
@@ -2249,10 +2238,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ant-design-vue@^2.0.0-rc.5:
-  version "2.0.0-rc.5"
-  resolved "https://registry.npm.taobao.org/ant-design-vue/download/ant-design-vue-2.0.0-rc.5.tgz?cache=0&sync_timestamp=1607921239965&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fant-design-vue%2Fdownload%2Fant-design-vue-2.0.0-rc.5.tgz#cad07b4f9d8153cd399f1e374f438a2322b74b37"
-  integrity sha1-ytB7T52BU805nx43T0OKIyK3Szc=
+ant-design-vue@^2.0.0-rc.6:
+  version "2.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/ant-design-vue/-/ant-design-vue-2.0.0-rc.7.tgz#5d83a7f13275574ec1fc1ea8c1fe8d9aa6de067c"
+  integrity sha512-QMStvwaLfV1Q3RaQ8D926aCkW6iqWBHXlNv7dBdTPvU8eeFXPaPKenLu1OTpSi+wpCncJqgumFOEcENPvh0nKw==
   dependencies:
     "@ant-design-vue/use" "^0.0.1-0"
     "@ant-design/icons-vue" "^5.1.7"

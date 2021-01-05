@@ -8,8 +8,13 @@
       class="name">
       <span>太江数据分析系统</span>
     </div>
-    <div class="deadline">
-      倒计时
+    <div class="deadline" style="display: flex">
+      <div class="text" style="width: 200px">
+        本期评分倒计时
+      </div>
+      <div style="background-color: red; width: 200px; height: 100px">
+        <a-progress :percent="50" size="small" status="active" />
+      </div>
     </div>
   </a-layout-header>
 </template>
@@ -19,7 +24,7 @@ export default {
   name: 'the-header',
   data() {
     return {
-      constants: {},
+      value: 30,
     };
   },
   methods: {},
@@ -43,7 +48,7 @@ export default {
 }
 
 .deadline {
-  width: 300px;
+  width: 500px;
   height: 64px;
   margin:0 auto;
   background-color: aquamarine;

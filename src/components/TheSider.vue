@@ -4,6 +4,18 @@
     v-model:collapsed="collapsed"
     :trigger="null" collapsible
   >
+<!--    这是菜单栏-->
+    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
+      <a-menu-item key="1">
+        <DatabaseOutlined />
+        <span>所有日志</span>
+      </a-menu-item>
+      <a-menu-item key="2">
+        <PieChartOutlined />
+        <span>KPI分析</span>
+      </a-menu-item>
+    </a-menu>
+<!--    这是底部收缩按钮-->
     <menu-unfold-outlined
       v-if="collapsed"
       class="trigger"
@@ -17,6 +29,8 @@
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  DatabaseOutlined,
+  PieChartOutlined,
 } from '@ant-design/icons-vue';
 
 export default {
@@ -24,10 +38,13 @@ export default {
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    DatabaseOutlined,
+    PieChartOutlined,
   },
   data() {
     return {
-      collapsed: false,
+      selectedKeys: ['1'],
+      collapsed: true,
     };
   },
 };

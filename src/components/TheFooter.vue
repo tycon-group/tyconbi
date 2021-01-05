@@ -1,5 +1,5 @@
 <template>
-  <a-layout-footer :style="{ margin: '16px'}">
+  <a-layout-footer>
     tyconbi ©2021 tyconcps.com
   </a-layout-footer>
 </template>
