@@ -2,7 +2,7 @@
   <a-layout id="components-layout-demo-custom-trigger">
     <!--    这是header-->
     <the-header />
-    <a-layout>
+    <a-layout style="display: flex">
 <!--      这是侧边栏-->
       <the-sider />
       <a-layout>

@@ -1,6 +1,6 @@
 <template>
   <a-layout-sider
-    :style="{backgroundColor: '#fff' }"
+    :style="{ backgroundColor: '#fff', marginTop: '64px' }"
     v-model:collapsed="collapsed"
     :trigger="null" collapsible
   >

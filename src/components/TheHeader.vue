@@ -1,6 +1,7 @@
 <template>
   <a-layout-header
-    style="background: #1890ff; padding: 0; display: flex;">
+    style="background: #1890ff; position: fixed; padding: 0; display: flex;
+      z-index: 1; width: 100vw" >
     <div class="logo">
       <img style="width: 32px; height: 32px; margin: 0 auto" src="../assets/logo.png" alt="logo">
     </div>
@@ -10,9 +11,9 @@
     </div>
     <div class="deadline" style="display: flex">
       <div class="text" style="width: 200px">
-        本期评分倒计时
+        本期评分倒计时：
       </div>
-      <div style="background-color: red; width: 200px; height: 100px">
+      <div style=" width: 200px; height: 100px">
         <a-progress :percent="50" size="small" status="active" />
       </div>
     </div>
