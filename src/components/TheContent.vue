@@ -4,9 +4,9 @@
            marginTop: '24px',
            marginRight: '16px',
            marginLeft: '16px',
-           padding: '24px', background: '#fff', height: '75vh' }"
+           padding: '24px', background: '#fff', minHeight: '75vh' }"
   >
-    Content
+    <router-view></router-view>
   </a-layout-content>
 </template>
 
