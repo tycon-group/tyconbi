@@ -7,15 +7,7 @@
       <the-sider />
       <a-layout>
 <!--        这是内容-->
-        <a-layout-content
-          :style="{
-           marginTop: '24px',
-           marginRight: '16px',
-           marginLeft: '16px',
-           padding: '24px', background: '#fff', height: '75vh' }"
-        >
-          Content
-        </a-layout-content>
+        <the-content />
 <!--        这是页脚-->
         <the-footer />
       </a-layout>
@@ -26,16 +18,14 @@
 import TheFooter from '../components/TheFooter.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheSider from '../components/TheSider.vue';
+import TheContent from '../components/TheContent.vue';
 
 export default {
   components: {
+    TheContent,
     TheFooter,
     TheHeader,
     TheSider,
-  },
-  data() {
-    return {
-    };
   },
 };
 </script>

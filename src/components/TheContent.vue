@@ -1,16 +1,13 @@
 <template>
-  <a-layout>
-    <a-layout-content
-      :style="{
-        height: '100vh',
-        marginLeft: '180px',
-        marginRight: '20px',
-        marginTop: '84px',
-        background: '#fff'}"
-    >
-      Content 2.0.3
-    </a-layout-content>
-  </a-layout>
+  <a-layout-content
+    :style="{
+           marginTop: '24px',
+           marginRight: '16px',
+           marginLeft: '16px',
+           padding: '24px', background: '#fff', height: '75vh' }"
+  >
+    Content
+  </a-layout-content>
 </template>
 
 <script>
