@@ -17,5 +17,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
+    'global-require': 0,
   },
 };
