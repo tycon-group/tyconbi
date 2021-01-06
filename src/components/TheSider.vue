@@ -5,15 +5,15 @@
     :trigger="null" collapsible
   >
 <!--    这是菜单栏-->
-    <a-menu mode="inline" v-model:selectedKeys="selectedKeys">
-      <a-menu-item key="/AllWorklogs">
-        <router-link to="/AllWorklogs" ondragstart="return false">
+    <a-menu mode="inline" :defaultSelectedKeys="[$route.path]">
+      <a-menu-item key="/worklogs">
+        <router-link to="/worklogs" ondragstart="return false">
           <DatabaseOutlined />
           <span>所有日志</span>
         </router-link>
       </a-menu-item>
-      <a-menu-item key="/Analysis">
-        <router-link to="/Analysis" ondragstart="return false">
+      <a-menu-item key="/analysis">
+        <router-link to="/analysis" ondragstart="return false">
           <PieChartOutlined />
           <span>KPI分析</span>
         </router-link>
@@ -47,7 +47,6 @@ export default {
   },
   data() {
     return {
-      selectedKeys: ['/AllWorklogs'],
       collapsed: true,
     };
   },

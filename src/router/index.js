@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import none from '../views/404.vue';
-import AllWorklogs from '../views/AllWorklogs.vue';
+import Worklogs from '../views/Worklogs.vue';
 import Analysis from '../views/Analysis.vue';
 
 const routes = [
@@ -9,21 +9,23 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    redirect: '/worklogs',
     children: [
       {
-        path: 'Analysis',
-        name: 'analysis',
-        component: Analysis,
+        path: 'worklogs',
+        name: 'Worklogs',
+        component: Worklogs,
       },
       {
-        path: 'AllWorklogs',
-        name: 'allworklogs',
-        component: AllWorklogs,
+        path: 'analysis',
+        name: 'Analysis',
+        component: Analysis,
       },
     ],
   },
   {
     path: '/404',
+    name: '404',
     component: none,
   },
 ];

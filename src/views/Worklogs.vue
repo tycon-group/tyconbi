@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'AllWorklogs',
+  // 这是日志页面
 };
 </script>
 

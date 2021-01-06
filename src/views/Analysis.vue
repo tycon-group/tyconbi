@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Analysis',
+  // 这分析页面
 };
 </script>
 
