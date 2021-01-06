@@ -1,19 +1,17 @@
 <template>
-  <a-layout-header
-    style="background: #1890ff; position: fixed; padding: 0; display: flex;
-      z-index: 1; width: 100vw" >
-    <div class="logo">
-      <img style="width: 32px; height: 32px; margin: 0 auto" src="../assets/logo.png" alt="logo">
+  <a-layout-header class="header">
+    <div class="logo-box">
+      <img class="logo" src="../assets/logo_anti_white.png"
+           alt="logo">
     </div>
-    <div
-      class="name">
+    <div class="title">
       <span>太江数据分析系统</span>
     </div>
-    <div class="deadline" style="display: flex">
-      <div class="text" style="width: 200px">
-        本期评分倒计时：
+    <div class="deadline">
+      <div class="text">
+        距离本期打分最终期限还有:
       </div>
-      <div style=" width: 200px; height: 100px">
+      <div style="width: 200px; height: 100px">
         <a-progress :percent="50" size="small" status="active" />
       </div>
     </div>
@@ -33,25 +31,52 @@ export default {
 </script>
 
 <style scoped>
-.logo{
-  height: 64px;
-  width: 64px;
-  background-color: aqua;
+.header {
+  background: #0080CC;
+  position: fixed;
+  padding: 0;
+  display: flex;
+  z-index: 1;
+  width: 100vw
 }
 
-.name{
-  width: 200px;
+.logo-box{
   height: 64px;
-  background-color: red;
-  text-align: center;
+  width: 32px;
+  margin-left: 20px;
+}
+
+.title{
+}
+
+.title span{
+  font-family: SourceHanSansSC-Medium, serif;
   font-size: 20px;
-  color: #fff;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  margin-left: 20px;
 }
 
 .deadline {
+  display: flex;
   width: 500px;
   height: 64px;
   margin:0 auto;
-  background-color: aquamarine;
+  /*background-color: aquamarine;*/
+}
+
+.text {
+  font-family: SourceHanSansSC-Regular, serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto
 }
 </style>
