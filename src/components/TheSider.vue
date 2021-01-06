@@ -5,14 +5,18 @@
     :trigger="null" collapsible
   >
 <!--    这是菜单栏-->
-    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-      <a-menu-item key="1">
-        <DatabaseOutlined />
-        <span>所有日志</span>
+    <a-menu mode="inline" v-model:selectedKeys="selectedKeys">
+      <a-menu-item key="/AllWorklogs">
+        <router-link to="/AllWorklogs" ondragstart="return false">
+          <DatabaseOutlined />
+          <span>所有日志</span>
+        </router-link>
       </a-menu-item>
-      <a-menu-item key="2">
-        <PieChartOutlined />
-        <span>KPI分析</span>
+      <a-menu-item key="/Analysis">
+        <router-link to="/Analysis" ondragstart="return false">
+          <PieChartOutlined />
+          <span>KPI分析</span>
+        </router-link>
       </a-menu-item>
     </a-menu>
 <!--    这是底部收缩按钮-->
@@ -43,7 +47,7 @@ export default {
   },
   data() {
     return {
-      selectedKeys: ['1'],
+      selectedKeys: ['/AllWorklogs'],
       collapsed: true,
     };
   },
