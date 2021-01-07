@@ -9,7 +9,7 @@
       <a-menu-item key="/worklogs">
         <router-link to="/worklogs" ondragstart="return false">
           <FileWordOutlined />
-          <span>所有日志</span>
+          <span>日志</span>
         </router-link>
       </a-menu-item>
       <a-menu-item key="/analysis">

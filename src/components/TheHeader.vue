@@ -72,7 +72,7 @@ export default {
 
 .title{
   height: 64px;
-  width: 160px;
+  width: 200px;
   font-family: SourceHanSansSC-Medium, serif;
   font-size: 20px;
   color: #FFFFFF;
