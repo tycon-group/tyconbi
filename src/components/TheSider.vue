@@ -3,19 +3,20 @@
     :style="{ backgroundColor: '#fff', marginTop: '64px' }"
     v-model:collapsed="collapsed"
     :trigger="null" collapsible
+    width="160px"
   >
 <!--    这是菜单栏-->
     <a-menu mode="inline" :defaultSelectedKeys="[$route.path]">
-      <a-menu-item key="/worklogs">
+      <a-menu-item key="/worklogs" class="menu-item">
         <router-link to="/worklogs" ondragstart="return false">
-          <FileWordOutlined />
-          <span>日志</span>
+            <FileWordOutlined />
+            <span>日志</span>
         </router-link>
       </a-menu-item>
-      <a-menu-item key="/analysis">
+      <a-menu-item key="/analysis" class="menu-item">
         <router-link to="/analysis" ondragstart="return false">
-          <PieChartOutlined />
-          <span>KPI分析</span>
+            <PieChartOutlined />
+            <span>KPI分析</span>
         </router-link>
       </a-menu-item>
     </a-menu>
@@ -53,7 +54,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .trigger:hover {
   color: #1890ff;
 }
@@ -70,5 +70,9 @@ export default {
   bottom:10px;
   height:50px;
   display:flex;
+}
+
+.menu-item {
+  text-align: left;
 }
 </style>
