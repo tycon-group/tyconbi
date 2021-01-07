@@ -12,14 +12,22 @@
       </div>
     </div>
     <div class="footer">
-      <img class="header-icon" src="../assets/search.png">
-      <img class="avatar" src="../assets/avatar.png">
+      <SearchOutlined class="icon"/>
+      <a-avatar size="30"
+                class="avatar"
+                alt="Avatar"
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
     </div>
   </a-layout-header>
 </template>
 
 <script>
+import { SearchOutlined } from '@ant-design/icons-vue';
+
 export default {
+  components: {
+    SearchOutlined,
+  },
   name: 'the-header',
   data() {
     return {
@@ -90,16 +98,14 @@ export default {
   justify-content: flex-end;
 }
 
-.header-icon{
-  width: 26px;
-  height: 26px;
-  margin: 10px;
+.icon{
+  font-size: 26px;
+  color: white;
+  margin-right: 10px;
 }
 
 .avatar{
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
   margin-left: 10px;
+  margin-right: 20px;
 }
 </style>

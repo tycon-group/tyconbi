@@ -1,14 +1,10 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger">
-    <!--    这是header-->
+  <a-layout>
     <the-header />
-    <a-layout style="display: flex">
-<!--      这是侧边栏-->
+    <a-layout>
       <the-sider />
       <a-layout>
-<!--        这是内容-->
         <the-content />
-<!--        这是页脚-->
         <the-footer />
       </a-layout>
     </a-layout>
@@ -30,5 +26,4 @@ export default {
 };
 </script>
 <style scoped>
-
 </style>
