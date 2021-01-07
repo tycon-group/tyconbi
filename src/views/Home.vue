@@ -1,11 +1,11 @@
 <template>
   <a-layout>
-    <the-header />
-    <a-layout>
+    <the-header hidden="true"/>
+    <a-layout style="display: flex; padding-top: 64px">
       <the-sider />
-      <a-layout>
-        <the-content />
-        <the-footer />
+      <a-layout style="display: flex; flex-direction: column;flex: auto;">
+        <the-content style="flex: auto;"/>
+        <the-footer style="height: 30px"/>
       </a-layout>
     </a-layout>
   </a-layout>

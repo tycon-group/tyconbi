@@ -1,10 +1,12 @@
 <template>
   <a-layout-content
     :style="{
-           marginTop: '80px',
+           marginTop: '16px',
            marginRight: '16px',
            marginLeft: '16px',
-           padding: '16px', background: '#fff', height: '80vh', overflow: 'scroll' }"
+           padding: '16px',
+           background: '#fff',
+           overflow: 'scroll' }"
   >
     <router-view />
   </a-layout-content>
