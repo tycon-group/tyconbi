@@ -43,7 +43,7 @@ export default {
 }
 
 .navigation {
-  background: #13c2c2;
+  background: white;
   width: 178px;
 }
 
@@ -53,6 +53,11 @@ export default {
   flex: auto;
 }
 
-  .button-group{
-  }
+.button-group{
+  display: flex;
+}
+
+.button-item{
+  width: 50%;
+}
 </style>
