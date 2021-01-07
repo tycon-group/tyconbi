@@ -5,28 +5,40 @@
            alt="logo">
       <span class="title">太江数据分析系统</span>
       <div class="deadline">
-        <span class="text">本轮进度：</span>
-        <div style="width: 200px; height: 100px">
-          <a-progress :percent="50" size="small" status="active" />
+        <span>本月考评进度：</span>
+        <div class="process-group">
+          <span>16天</span>
+          <div>
+            <a-progress  :stroke-color="{'0%': '#24A4F0','100%': '#00CCBF'}"
+                         :percent="50"
+                         size="small"
+                         :show-info="false"
+                         status="active" />
+          </div>
+        </div>
+        <div>
+          <TrophyFilled />
         </div>
       </div>
     </div>
     <div class="footer">
-      <SearchOutlined class="icon"/>
-      <a-avatar size="30"
-                class="avatar"
-                alt="Avatar"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+      <div class="search_bar">
+        <a-input v-model:value="value" placeholder="请输入查询内容">
+        </a-input>
+      </div>
+      <div class="avatar">
+        <a-avatar alt="Avatar"/>
+      </div>
     </div>
   </a-layout-header>
 </template>
 
 <script>
-import { SearchOutlined } from '@ant-design/icons-vue';
+import { TrophyFilled } from '@ant-design/icons-vue';
 
 export default {
   components: {
-    SearchOutlined,
+    TrophyFilled,
   },
   name: 'the-header',
   data() {
@@ -52,7 +64,7 @@ export default {
 
 .header{
   height: 64px;
-  width: 760px;
+  width: 580px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -60,6 +72,7 @@ export default {
 
 .title{
   height: 64px;
+  width: 160px;
   font-family: SourceHanSansSC-Medium, serif;
   font-size: 20px;
   color: #FFFFFF;
@@ -72,12 +85,11 @@ export default {
   width: 400px;
   height: 64px;
   margin-left: 20px;
-  /*background-color: aquamarine;*/
 }
 
-.text {
+.deadline span {
   font-family: SourceHanSansSC-Regular, serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
   text-align: center;
@@ -92,20 +104,29 @@ export default {
 
 .footer{
   height: 64px;
-  width: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.icon{
-  font-size: 26px;
-  color: white;
-  margin-right: 10px;
+.search_bar {
+  width: 140px;
 }
 
 .avatar{
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 20px;
+}
+.process-group {
+  width: 200px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process-group span {
+  font-size: 12px;
+  height: 17px;
 }
 </style>
