@@ -8,7 +8,7 @@
     <a-menu mode="inline" :defaultSelectedKeys="[$route.path]">
       <a-menu-item key="/worklogs">
         <router-link to="/worklogs" ondragstart="return false">
-          <DatabaseOutlined />
+          <FileWordOutlined />
           <span>所有日志</span>
         </router-link>
       </a-menu-item>
@@ -33,7 +33,7 @@
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  DatabaseOutlined,
+  FileWordOutlined,
   PieChartOutlined,
 } from '@ant-design/icons-vue';
 
@@ -42,7 +42,7 @@ export default {
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    DatabaseOutlined,
+    FileWordOutlined,
     PieChartOutlined,
   },
   data() {
