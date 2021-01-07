@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import none from '../views/404.vue';
 import Worklogs from '../views/Worklogs.vue';
 import Analysis from '../views/Analysis.vue';
+import Login from '../views/Login.vue';
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
         component: Analysis,
       },
     ],
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
   },
   {
     path: '/404',
