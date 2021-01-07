@@ -68,7 +68,7 @@ export default {
   position:fixed;
   z-index :100;
   bottom:10px;
-  height:50px;
+  height:18px;
   display:flex;
 }
 </style>

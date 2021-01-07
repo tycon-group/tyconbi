@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
-import { Layout, Menu, Slider } from 'ant-design-vue';
+import {
+  Layout, Menu, Slider, Button, Progress,
+} from 'ant-design-vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -8,5 +10,7 @@ const app = createApp(App);
 app.use(Layout);
 app.use(Menu);
 app.use(Slider);
+app.use(Button);
+app.use(Progress);
 app.use(store).use(router).mount('#app');
 app.config.productionTip = false;

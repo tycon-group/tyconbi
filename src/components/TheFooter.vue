@@ -9,3 +9,7 @@ export default {
   name: 'the-footer',
 };
 </script>
+
+<style>
+
+</style>

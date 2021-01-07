@@ -17,6 +17,11 @@
         <a-progress :percent="50" size="small" status="active" />
       </div>
     </div>
+    <router-link to="/login" ondragstart="return false">
+      <a-button type="primary">
+        登陆
+      </a-button>
+    </router-link>
   </a-layout-header>
 </template>
 
