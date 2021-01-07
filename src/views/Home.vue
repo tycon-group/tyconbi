@@ -4,7 +4,7 @@
     <a-layout style="display: flex; flex-direction: row;
      padding-top: 64px;">
       <the-sider style="width: 120px;" />
-      <the-content style="flex: auto; display: flex; flex-direction: column;" />
+      <the-content style="flex: auto;" />
     </a-layout>
   </a-layout>
 </template>
