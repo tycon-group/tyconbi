@@ -12,7 +12,7 @@
 <template>
   <!--    <the-header hidden="true"/>-->
   <div style="display: flex; padding-top: 64px; background: #13c2c2; height: 100vh">
-    <div style="width: 200px; background: #52c41a;height: 100vh " />
+    <div style="width: 200px; background: #52c41a;" />
     <div style="flex:auto;display: flex; flex-direction: column; background: #40a9ff">
       <div style="flex: auto; background: #2c3e50"/>
       <div style="height: 30px; background: #46a6ff"/>
