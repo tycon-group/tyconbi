@@ -4,7 +4,7 @@
            marginTop: '80px',
            marginRight: '16px',
            marginLeft: '16px',
-           padding: '24px', background: '#fff', height: '75vh', overflow: 'scroll' }"
+           padding: '16px', background: '#fff', height: '80vh', overflow: 'scroll' }"
   >
     <router-view />
   </a-layout-content>

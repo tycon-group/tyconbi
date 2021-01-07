@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import {
-  Layout, Menu, Slider, Avatar, Input, Progress,
+  Layout, Menu, Slider, Avatar, Input, Progress, Button,
 } from 'ant-design-vue';
 import App from './App.vue';
 import router from './router';
@@ -13,5 +13,6 @@ app.use(Slider);
 app.use(Avatar);
 app.use(Input);
 app.use(Progress);
+app.use(Button);
 app.use(store).use(router).mount('#app');
 app.config.productionTip = false;
