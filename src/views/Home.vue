@@ -1,19 +1,15 @@
 <template>
-  <a-layout>
+  <a-layout style="display: flex; height: 100vh">
     <the-header/>
     <a-layout style="display: flex; flex-direction: row;
-     padding-top: 64px; height: 100vh">
+     padding-top: 64px;">
       <the-sider style="width: 120px;" />
-      <a-layout style="flex:auto; display: flex; flex-direction: column;">
-        <the-content style="flex: auto;" />
-        <the-footer style="height: 30px;" />
-      </a-layout>
+      <the-content style="flex: auto; display: flex; flex-direction: column;" />
     </a-layout>
   </a-layout>
 </template>
 
 <script>
-import TheFooter from '../components/TheFooter.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheSider from '../components/TheSider.vue';
 import TheContent from '../components/TheContent.vue';
@@ -21,7 +17,6 @@ import TheContent from '../components/TheContent.vue';
 export default {
   components: {
     TheContent,
-    TheFooter,
     TheHeader,
     TheSider,
   },

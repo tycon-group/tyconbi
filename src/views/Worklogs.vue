@@ -39,7 +39,7 @@ export default {
 .contanier {
   display: flex;
   justify-content: flex-start;
-  height: 100vh;
+  height: 100%;
 }
 
 .navigation {
