@@ -2,7 +2,8 @@
   <a-layout-sider
     :style="{ backgroundColor: '#fff' }"
     v-model:collapsed="collapsed"
-    :trigger="null" collapsible
+    :trigger="null"
+    collapsible
     width="160px"
   >
 <!--    这是菜单栏-->

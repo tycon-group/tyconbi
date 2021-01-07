@@ -1,10 +1,10 @@
 <template>
   <a-layout style="display: flex; height: 100vh">
     <the-header/>
-    <a-layout style="display: flex; flex-direction: row;
+    <a-layout style="display: flex;
      padding-top: 64px;">
-      <the-sider style="width: 120px;" />
-      <the-content style="flex: auto;" />
+      <the-sider />
+      <the-content />
     </a-layout>
   </a-layout>
 </template>
