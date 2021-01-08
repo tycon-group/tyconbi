@@ -5,13 +5,13 @@
                 background: #13c2c2;
                 margin: 10px 0;
                 text-align: left;">
-      <a-badge :count="200">
-        <div style="width: 178px; padding: 12px 16px;">
+      <a-badge :count="20" :offset="[-8, 10]">
+        <div style="padding: 12px 16px; width: 178px">
           <div style="font-size: 14px; margin-bottom: 8px">
-            顾晓群(人事行政部)
+            顾晓群
           </div>
           <div style="font-size: 12px">
-            本月测评(12/24)
+            本月测评
           </div>
         </div>
       </a-badge>

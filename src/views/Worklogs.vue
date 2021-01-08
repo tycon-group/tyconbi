@@ -10,6 +10,12 @@
         </base-worklog-user-list-item>
         <base-worklog-user-list-item>
         </base-worklog-user-list-item>
+        <base-worklog-user-list-item>
+        </base-worklog-user-list-item>
+        <base-worklog-user-list-item>
+        </base-worklog-user-list-item>
+        <base-worklog-user-list-item>
+        </base-worklog-user-list-item>
       </div>
     </div>
     <div class="content">
@@ -50,25 +56,32 @@ export default {
   justify-content: flex-start;
   height: 100%;
 }
-
 .navigation {
   background: white;
   width: 178px;
+  height: 100%;
+  display: flex;
+  overflow: auto;
 }
-
 .content {
   background: #52c41a;
+  display: flex;
   margin-left: 16px;
   flex: auto;
+  height: 100%;
 }
-
 .button-group{
   display: flex;
-  margin-bottom: 10px;
+  position: fixed;
   width: 178px;
+  z-index: 2;
+  margin-bottom: 10px;
+  background: white;
 }
-
 .button-item{
   width: 50%;
+}
+.user-list{
+  padding-top: 32px;
 }
 </style>
