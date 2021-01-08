@@ -2,8 +2,8 @@
   <div class="contanier">
     <div class="navigation">
       <div class="button-group">
-        <base-button-left class="button-item" />
-        <base-button-right class="button-item" />
+        <base-button-left class="button-item" >本部门</base-button-left>
+        <base-button-right class="button-item" >其他部门</base-button-right>
       </div>
       <div class="user-picker">
         <base-select />

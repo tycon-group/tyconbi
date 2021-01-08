@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-button block="true" loading="true">
-      Left
+    <a-button block="true">
+      <slot>Left</slot>
     </a-button>
   </div>
 </template>
