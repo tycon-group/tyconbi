@@ -1,6 +1,9 @@
+<!--TYCONCPS Header样式-->
+<!--含LOGO、标题、Deadline、搜索、Avatar-->
+
 <template>
-  <a-layout-header class="box">
-    <div class="header">
+  <base-layout-header>
+    <template #header>
       <img class="logo" src="../assets/logo_anti_white.png"
            alt="logo">
       <span class="title">太江数据分析系统</span>
@@ -20,29 +23,30 @@
           <TrophyFilled />
         </div>
       </div>
-    </div>
-    <div class="footer">
+    </template>
+    <template #main>
+    </template>
+    <template #footer>
       <div class="search_bar">
         <a-input v-model:value="value" placeholder="请输入查询内容">
         </a-input>
       </div>
-      <div class="avatar">
-        <a-avatar alt="Avatar"/>
-      </div>
-    </div>
-    <router-link to="/login" ondragstart="return false">
-      <a-button type="primary">
-        登陆
-      </a-button>
-    </router-link>
-  </a-layout-header>
+        <div class="avatar">
+          <router-link to="/login" ondragstart="return false">
+          <a-avatar alt="Avatar"/>
+          </router-link>
+        </div>
+    </template>
+  </base-layout-header>
 </template>
 
 <script>
 import { TrophyFilled } from '@ant-design/icons-vue';
+import BaseLayoutHeader from './BaseLayoutHeader.vue';
 
 export default {
   components: {
+    BaseLayoutHeader,
     TrophyFilled,
   },
   name: 'the-header',
@@ -56,25 +60,6 @@ export default {
 </script>
 
 <style scoped>
-.box {
-  background: #0080CC;
-  position: fixed;
-  padding: 0;
-  display: flex;
-  z-index: 1;
-  width: 100vw;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header{
-  height: 64px;
-  width: 580px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .title{
   height: 64px;
   width: 200px;
@@ -84,14 +69,12 @@ export default {
   letter-spacing: 0;
   text-align: center;
 }
-
 .deadline {
   display: flex;
   width: 400px;
   height: 64px;
   margin-left: 20px;
 }
-
 .deadline span {
   font-family: SourceHanSansSC-Regular, serif;
   font-size: 14px;
@@ -99,25 +82,15 @@ export default {
   letter-spacing: 0;
   text-align: center;
 }
-
 .logo {
   width: 36px;
   height: 36px;
   margin-left: 20px;
   margin-right: 20px;
 }
-
-.footer{
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .search_bar {
   width: 140px;
 }
-
 .avatar{
   margin-left: 20px;
   margin-right: 20px;
@@ -129,7 +102,6 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
-
 .process-group span {
   font-size: 12px;
   height: 17px;
