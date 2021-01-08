@@ -1,6 +1,8 @@
 <template>
   <div>
-    <a-button block="true">
+    <a-button block="true"
+              style="font-size: 12px"
+              type="default">
       <slot>Left</slot>
     </a-button>
   </div>
@@ -11,7 +13,3 @@ export default {
   name: 'base-button-left',
 };
 </script>
-
-<style scoped>
-
-</style>

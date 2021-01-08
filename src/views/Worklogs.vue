@@ -5,11 +5,11 @@
         <base-button-left class="button-item" >本部门</base-button-left>
         <base-button-right class="button-item" >其他部门</base-button-right>
       </div>
-      <div class="user-picker">
-        <base-select />
-      </div>
       <div class="user-list">
-        <base-list-item />
+        <base-worklog-user-list-item>
+        </base-worklog-user-list-item>
+        <base-worklog-user-list-item>
+        </base-worklog-user-list-item>
       </div>
     </div>
     <div class="content">
@@ -23,15 +23,24 @@
 
 <script>
 import BaseButtonLeft from '../components/BaseButtonLeft.vue';
-import BaseSelect from '../components/BaseSelect.vue';
-import BaseListItem from '../components/BaseListItem.vue';
 import BaseButtonRight from '../components/BaseButtonRight.vue';
+import BaseWorklogUserListItem from '../components/BaseWorklogUserListItem.vue';
 
 export default {
   components: {
-    BaseButtonRight, BaseButtonLeft, BaseListItem, BaseSelect,
+    BaseWorklogUserListItem,
+    BaseButtonRight,
+    BaseButtonLeft,
   },
-  // 这是日志页面
+  data() {
+    return {
+    };
+  },
+  methods: {
+    handleChange(value) {
+      console.log(`selected ${value}`);
+    },
+  },
 };
 </script>
 
@@ -55,6 +64,8 @@ export default {
 
 .button-group{
   display: flex;
+  margin-bottom: 10px;
+  width: 178px;
 }
 
 .button-item{
