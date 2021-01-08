@@ -1,21 +1,23 @@
 <template>
   <a-layout-sider
-    :style="{ backgroundColor: '#fff', marginTop: '64px' }"
+    :style="{ backgroundColor: '#fff' }"
     v-model:collapsed="collapsed"
-    :trigger="null" collapsible
+    :trigger="null"
+    collapsible
+    width="160px"
   >
 <!--    这是菜单栏-->
     <a-menu mode="inline" :defaultSelectedKeys="[$route.path]">
-      <a-menu-item key="/worklogs">
+      <a-menu-item key="/worklogs" class="menu-item">
         <router-link to="/worklogs" ondragstart="return false">
-          <DatabaseOutlined />
-          <span>所有日志</span>
+            <FileWordOutlined />
+            <span>日志</span>
         </router-link>
       </a-menu-item>
-      <a-menu-item key="/analysis">
+      <a-menu-item key="/analysis" class="menu-item">
         <router-link to="/analysis" ondragstart="return false">
-          <PieChartOutlined />
-          <span>KPI分析</span>
+            <PieChartOutlined />
+            <span>KPI分析</span>
         </router-link>
       </a-menu-item>
     </a-menu>
@@ -33,7 +35,7 @@
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  DatabaseOutlined,
+  FileWordOutlined,
   PieChartOutlined,
 } from '@ant-design/icons-vue';
 
@@ -42,7 +44,7 @@ export default {
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    DatabaseOutlined,
+    FileWordOutlined,
     PieChartOutlined,
   },
   data() {
@@ -53,7 +55,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .trigger:hover {
   color: #1890ff;
 }
@@ -70,5 +71,9 @@ export default {
   bottom:10px;
   height:18px;
   display:flex;
+}
+
+.menu-item {
+  text-align: left;
 }
 </style>
