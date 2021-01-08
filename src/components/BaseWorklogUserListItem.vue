@@ -2,7 +2,6 @@
     <div style="display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                background: #13c2c2;
                 margin: 10px 0;
                 text-align: left;">
       <a-badge :count="20" :offset="[-8, 10]">

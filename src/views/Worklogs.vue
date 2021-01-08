@@ -20,8 +20,13 @@
     </div>
     <div class="content">
       <div class="tool-bar">
+        <a-range-picker v-model:value="value3" @change="onChange" />
       </div>
       <div class="list-content">
+        <base-worklog-prew-list-item />
+        <base-worklog-prew-list-item />
+        <base-worklog-prew-list-item />
+        <base-worklog-prew-list-item />
       </div>
     </div>
   </div>
@@ -31,15 +36,18 @@
 import BaseButtonLeft from '../components/BaseButtonLeft.vue';
 import BaseButtonRight from '../components/BaseButtonRight.vue';
 import BaseWorklogUserListItem from '../components/BaseWorklogUserListItem.vue';
+import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
 
 export default {
   components: {
+    BaseWorklogPrewListItem,
     BaseWorklogUserListItem,
     BaseButtonRight,
     BaseButtonLeft,
   },
   data() {
     return {
+      value3: [],
     };
   },
   methods: {
@@ -64,11 +72,12 @@ export default {
   overflow: auto;
 }
 .content {
-  background: #52c41a;
   display: flex;
-  margin-left: 16px;
+  flex-direction: column;
+  padding: 16px 16px 0;
   flex: auto;
-  height: 100%;
+  align-items: flex-start;
+  overflow: auto;
 }
 .button-group{
   display: flex;
@@ -83,5 +92,12 @@ export default {
 }
 .user-list{
   padding-top: 32px;
+}
+.list-content {
+  background: #F6F6F6;
+  width: 100%;
+  flex: auto;
+  overflow: auto;
+  margin-top: 16px;
 }
 </style>
