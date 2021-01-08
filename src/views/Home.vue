@@ -1,8 +1,7 @@
 <template>
-  <a-layout style="display: flex; height: 100vh">
-    <the-header/>
-    <a-layout style="display: flex;
-     padding-top: 64px;">
+  <a-layout style="height: 100vh">
+    <the-header />
+    <a-layout style="padding-top: 64px;">
       <the-sider />
       <the-content />
     </a-layout>
