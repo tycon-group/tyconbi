@@ -4,7 +4,6 @@
            marginTop: '16px',
            marginRight: '16px',
            marginLeft: '16px',
-           padding: '16px',
            background: '#fff',
            overflow: 'scroll' }"
   >
