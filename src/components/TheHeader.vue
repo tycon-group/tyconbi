@@ -26,15 +26,17 @@
         <a-input v-model:value="value" placeholder="请输入查询内容">
         </a-input>
       </div>
-      <div class="avatar">
+      <div v-if="logged" class="avatar">
         <a-avatar alt="Avatar"/>
       </div>
+      <div v-else class="login">
+        <router-link to="/login" ondragstart="return false">
+          <a-button type="primary">
+            登陆
+          </a-button>
+        </router-link>
+      </div>
     </div>
-    <router-link to="/login" ondragstart="return false">
-      <a-button type="primary">
-        登陆
-      </a-button>
-    </router-link>
   </a-layout-header>
 </template>
 
@@ -49,6 +51,7 @@ export default {
   data() {
     return {
       value: 30,
+      logged: true,
     };
   },
   methods: {},
@@ -119,6 +122,10 @@ export default {
 }
 
 .avatar{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.login{
   margin-left: 20px;
   margin-right: 20px;
 }
