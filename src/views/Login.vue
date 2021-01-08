@@ -2,6 +2,14 @@
   <div class="page">
     <div class="forms">
       <a-form layout="vertical" :model="form" v-bind="formItemLayout" >
+        <a-form-item style="font-size: 16px; text-align: start">
+<!--          这里要传值，判断没登录-->
+          <router-link to="/" ondragstart="return false">
+            <a-button >
+              <span style="color: #1890ff">返回首页</span>
+            </a-button>
+          </router-link>
+        </a-form-item>
         <a-form-item style="font-size: 26px; text-align: start">
           <span>Welcome Tycon BI</span>
         </a-form-item>

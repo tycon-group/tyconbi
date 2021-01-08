@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       value: 30,
-      logged: true,
+      logged: false,
     };
   },
   methods: {},
