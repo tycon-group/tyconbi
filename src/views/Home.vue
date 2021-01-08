@@ -24,9 +24,6 @@ export default {
     TheHeader,
     TheSider,
     BaseLayout,
-
   },
 };
 </script>
-<style scoped>
-</style>
