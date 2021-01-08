@@ -6,16 +6,19 @@
         <base-button-right class="button-item" >其他部门</base-button-right>
       </div>
       <div class="user-list">
-        <base-worklog-user-list-item>
-        </base-worklog-user-list-item>
-        <base-worklog-user-list-item>
-        </base-worklog-user-list-item>
-        <base-worklog-user-list-item>
-        </base-worklog-user-list-item>
-        <base-worklog-user-list-item>
-        </base-worklog-user-list-item>
-        <base-worklog-user-list-item>
-        </base-worklog-user-list-item>
+        <a-list item-layout="horizontal">
+          <base-worklog-user-list-item />
+          <template #loadMore>
+            <div
+              v-if="showLoadingMore"
+              :style="{ textAlign: 'center', marginTop: '12px',
+              height: '32px', lineHeight: '32px' }"
+            >
+              <a-spin v-if="loadingMore" />
+              <base-button-loading-more v-else @click="onLoadMore"/>
+            </div>
+          </template>
+        </a-list>
       </div>
     </div>
     <div class="content">
@@ -23,10 +26,19 @@
         <a-range-picker v-model:value="value3" @change="onChange" />
       </div>
       <div class="list-content">
-        <base-worklog-prew-list-item />
-        <base-worklog-prew-list-item />
-        <base-worklog-prew-list-item />
-        <base-worklog-prew-list-item />
+        <a-list item-layout="horizontal">
+          <base-worklog-prew-list-item/>
+          <template #loadMore>
+            <div
+              v-if="showLoadingMore"
+              :style="{ textAlign: 'center', marginTop: '12px',
+              height: '32px', lineHeight: '32px' }"
+            >
+              <a-spin v-if="loadingMore" />
+              <base-button-loading-more v-else @click="onLoadMore"/>
+            </div>
+          </template>
+        </a-list>
       </div>
     </div>
   </div>
@@ -37,9 +49,11 @@ import BaseButtonLeft from '../components/BaseButtonLeft.vue';
 import BaseButtonRight from '../components/BaseButtonRight.vue';
 import BaseWorklogUserListItem from '../components/BaseWorklogUserListItem.vue';
 import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
+import BaseButtonLoadingMore from '../components/BaseButtonLoadingMore.vue';
 
 export default {
   components: {
+    BaseButtonLoadingMore,
     BaseWorklogPrewListItem,
     BaseWorklogUserListItem,
     BaseButtonRight,
@@ -48,6 +62,10 @@ export default {
   data() {
     return {
       value3: [],
+      loading: true,
+      loadingMore: false,
+      showLoadingMore: true,
+      data: [],
     };
   },
   methods: {
