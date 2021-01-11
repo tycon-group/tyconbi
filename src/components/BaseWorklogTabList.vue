@@ -23,7 +23,7 @@ import BaseWorklogUserListItem from './BaseWorklogUserListItem.vue';
 import BaseButtonLoadingMore from './BaseButtonLoadingMore.vue';
 
 export default {
-  name: 'base-tab-list',
+  name: 'base-worklog-tab-list',
   props: ['deptKey'],
   data() {
     return {
