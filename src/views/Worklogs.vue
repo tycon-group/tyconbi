@@ -2,23 +2,31 @@
   <div class="contanier">
     <div class="navigation">
       <div class="button-group">
-        <base-button-left class="button-item" >本部门</base-button-left>
-        <base-button-right class="button-item" >其他部门</base-button-right>
-      </div>
-      <div class="user-list">
-        <a-list item-layout="horizontal">
-          <base-worklog-user-list-item />
-          <template #loadMore>
-            <div
-              v-if="showLoadingMore"
-              :style="{ textAlign: 'center', marginTop: '12px',
+        <a-tabs type="card"
+                defaultActiveKey="1"
+                tabPosition="top"
+                size="small"
+                tabBarStyle="">
+          <a-tab-pane key="1" tab="本部门">
+            <div class="user-list">
+              <a-list item-layout="horizontal">
+                <base-worklog-user-list-item />
+                <template #loadMore>
+                  <div
+                    v-if="showLoadingMore"
+                    :style="{ textAlign: 'center', marginTop: '12px',
               height: '32px', lineHeight: '32px' }"
-            >
-              <a-spin v-if="loadingMore" />
-              <base-button-loading-more v-else @click="onLoadMore"/>
+                  >
+                    <a-spin v-if="loadingMore" />
+                    <base-button-loading-more v-else @click="onLoadMore"/>
+                  </div>
+                </template>
+              </a-list>
             </div>
-          </template>
-        </a-list>
+          </a-tab-pane>
+          <a-tab-pane key="2" tab="其他部门">
+          </a-tab-pane>
+        </a-tabs>
       </div>
     </div>
     <div class="content">
@@ -45,8 +53,6 @@
 </template>
 
 <script>
-import BaseButtonLeft from '../components/BaseButtonLeft.vue';
-import BaseButtonRight from '../components/BaseButtonRight.vue';
 import BaseWorklogUserListItem from '../components/BaseWorklogUserListItem.vue';
 import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
 import BaseButtonLoadingMore from '../components/BaseButtonLoadingMore.vue';
@@ -56,8 +62,6 @@ export default {
     BaseButtonLoadingMore,
     BaseWorklogPrewListItem,
     BaseWorklogUserListItem,
-    BaseButtonRight,
-    BaseButtonLeft,
   },
   data() {
     return {
@@ -105,12 +109,10 @@ export default {
   margin-bottom: 10px;
   background: white;
 }
-.button-item{
-  width: 50%;
-}
-.user-list{
-  padding-top: 32px;
-}
+
+/*.user-list{*/
+/*  padding-top: 16px;*/
+/*}*/
 .list-content {
   background: #F6F6F6;
   width: 100%;
