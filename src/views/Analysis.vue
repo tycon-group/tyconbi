@@ -7,9 +7,41 @@
 <!--      内容区域-->
       <div class="header">
 <!--        分布图和成员信息-->
+        <a-tabs type="card"
+                defaultActiveKey="1"
+                tabPosition="top"
+                size="small"
+                tabBarStyle="">
+          <a-tab-pane key="1" tab="分布图">
+            Content of Tab Pane 1
+          </a-tab-pane>
+          <a-tab-pane key="2" tab="成员信息">
+            Content of Tab Pane 2
+          </a-tab-pane>
+        </a-tabs>
       </div>
       <div class="footer">
 <!--        Toolbar和列表-->
+        <div>toolbar</div>
+        <div>
+          <a-tabs size="small">
+            <a-tab-pane key="1" tab="总览">
+              Content of Tab Pane 1
+            </a-tab-pane>
+            <a-tab-pane key="2" tab="工作能力">
+              Content of Tab Pane 2
+            </a-tab-pane>
+            <a-tab-pane key="3" tab="工作态度">
+              Content of Tab Pane 3
+            </a-tab-pane>
+             <a-tab-pane key="4" tab="发展潜力">
+              Content of Tab Pane 3
+            </a-tab-pane>
+             <a-tab-pane key="5" tab="突出贡献">
+              Content of Tab Pane 3
+            </a-tab-pane>
+          </a-tabs>
+        </div>
       </div>
     </div>
   </div>
@@ -45,13 +77,14 @@ export default {
     flex-direction: column;
     padding: 16px 16px 0;
     flex: auto;
-    align-items: flex-start;
     overflow: auto;
   }
   .header {
     height: 272px;
-    background: #13c2c2;
+    /*background: #13c2c2;*/
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
   .footer {
     flex: auto;
