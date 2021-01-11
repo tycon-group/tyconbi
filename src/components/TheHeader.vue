@@ -10,10 +10,10 @@
       <div class="deadline">
         <span>本月考评进度：</span>
         <div class="process-group">
-          <span>16天</span>
+          <span>{{ deadline }}天</span>
           <div>
             <a-progress  :stroke-color="{'0%': '#24A4F0','100%': '#00CCBF'}"
-                         :percent="50"
+                         :percent=percent
                          size="small"
                          :show-info="false"
                          status="active" />
@@ -27,35 +27,48 @@
     <template #main>
     </template>
     <template #footer>
-      <div class="search_bar">
-        <a-input v-model:value="value" placeholder="请输入查询内容">
+      <SearchOutlined style="color: white; font-size: 26px"
+                      v-if="!ifShowSearchInput" v-on:click="showSearchInput"/>
+      <div class="search_bar" v-else>
+        <a-input v-model:value="searchValue" placeholder="请输入查询内容">
         </a-input>
       </div>
-        <div class="avatar">
-          <router-link to="/login" ondragstart="return false">
-          <a-avatar alt="Avatar"/>
-          </router-link>
-        </div>
+      <div class="avatar">
+        <router-link to="/login" ondragstart="return false">
+          <a-avatar alt="Avatar" size="30px"/>
+        </router-link>
+      </div>
     </template>
   </base-layout-header>
 </template>
 
 <script>
-import { TrophyFilled } from '@ant-design/icons-vue';
+import {
+  TrophyFilled,
+  SearchOutlined,
+} from '@ant-design/icons-vue';
 import BaseLayoutHeader from './BaseLayoutHeader.vue';
 
 export default {
   components: {
     BaseLayoutHeader,
     TrophyFilled,
+    SearchOutlined,
   },
   name: 'the-header',
   data() {
     return {
-      value: 30,
+      deadline: 20,
+      percent: 80,
+      searchValue: '',
+      ifShowSearchInput: false,
     };
   },
-  methods: {},
+  methods: {
+    showSearchInput() {
+      this.ifShowSearchInput = true;
+    },
+  },
 };
 </script>
 
