@@ -22,7 +22,30 @@
       </div>
       <div class="footer">
 <!--        Toolbar和列表-->
-        <div>toolbar</div>
+        <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
+<!--          选择时间区间-->
+          <a-range-picker v-model:value="value3" style="width: 240px;"/>
+<!--          选择年度 -->
+          <a-select
+            v-model:value="value1"
+            style="width: 120px; margin-left: 24px"
+            @focus="focus"
+            ref="select"
+          >
+            <a-select-option value="jack">
+              Jack
+            </a-select-option>
+            <a-select-option value="lucy">
+              Lucy
+            </a-select-option>
+            <a-select-option value="disabled" disabled>
+              Disabled
+            </a-select-option>
+            <a-select-option value="Yiminghe">
+              yiminghe
+            </a-select-option>
+          </a-select>
+        </div>
         <div>
           <a-tabs size="small">
             <a-tab-pane key="1" tab="总览">
@@ -53,6 +76,8 @@ export default {
   },
   data() {
     return {
+      value1: 'lucy',
+      value3: [],
     };
   },
 };
@@ -88,7 +113,7 @@ export default {
   }
   .footer {
     flex: auto;
-    background: #40a9ff;
+    /*background: #40a9ff;*/
     width: 100%;
   }
 </style>
