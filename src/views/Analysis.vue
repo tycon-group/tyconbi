@@ -1,7 +1,9 @@
 <template>
   <div class="contanier">
     <div class="navigation">
-<!--      组织架构-->
+      <span  style="font-size: 14px; margin-bottom: 16px;">组织架构</span>
+      <div>tree</div>
+<!--      组织架构-->s
     </div>
     <div class="content">
 <!--      内容区域-->
@@ -94,8 +96,11 @@ export default {
     width: 274px;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: start;
     overflow: auto;
     background: #a0d911;
+    padding: 16px;
   }
   .content {
     display: flex;
