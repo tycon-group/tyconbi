@@ -2,23 +2,18 @@
   <div class="contanier">
     <div class="navigation">
       <div class="button-group">
-        <base-button-left class="button-item" >本部门</base-button-left>
-        <base-button-right class="button-item" >其他部门</base-button-right>
-      </div>
-      <div class="user-list">
-        <a-list item-layout="horizontal">
-          <base-worklog-user-list-item />
-          <template #loadMore>
-            <div
-              v-if="showLoadingMore"
-              :style="{ textAlign: 'center', marginTop: '12px',
-              height: '32px', lineHeight: '32px' }"
-            >
-              <a-spin v-if="loadingMore" />
-              <base-button-loading-more v-else @click="onLoadMore"/>
-            </div>
-          </template>
-        </a-list>
+        <a-tabs type="card"
+                defaultActiveKey="1"
+                tabPosition="top"
+                size="small"
+                tabBarStyle="">
+          <a-tab-pane key="1" tab="本部门">
+            <base-tab-list :deptKey = 1 />
+          </a-tab-pane>
+          <a-tab-pane key="2" tab="其他部门">
+            <base-tab-list :deptKey = 2 />
+          </a-tab-pane>
+        </a-tabs>
       </div>
     </div>
     <div class="content">
@@ -45,9 +40,7 @@
 </template>
 
 <script>
-import BaseButtonLeft from '../components/BaseButtonLeft.vue';
-import BaseButtonRight from '../components/BaseButtonRight.vue';
-import BaseWorklogUserListItem from '../components/BaseWorklogUserListItem.vue';
+import BaseTabList from '../components/BaseTabList.vue';
 import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
 import BaseButtonLoadingMore from '../components/BaseButtonLoadingMore.vue';
 
@@ -55,22 +48,21 @@ export default {
   components: {
     BaseButtonLoadingMore,
     BaseWorklogPrewListItem,
-    BaseWorklogUserListItem,
-    BaseButtonRight,
-    BaseButtonLeft,
+    BaseTabList,
   },
   data() {
     return {
-      value3: [],
       loading: true,
       loadingMore: false,
       showLoadingMore: true,
+      value3: [],
       data: [],
     };
   },
   methods: {
-    handleChange(value) {
-      console.log(`selected ${value}`);
+    onChange() {
+    },
+    onLoadMore() {
     },
   },
 };
@@ -105,12 +97,7 @@ export default {
   margin-bottom: 10px;
   background: white;
 }
-.button-item{
-  width: 50%;
-}
-.user-list{
-  padding-top: 32px;
-}
+
 .list-content {
   background: #F6F6F6;
   width: 100%;
