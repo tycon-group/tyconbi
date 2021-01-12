@@ -18,22 +18,11 @@
     </div>
     <div class="content">
       <div class="tool-bar">
+<!--        日期选择器-->
         <a-range-picker v-model:value="value3" @change="onChange" />
       </div>
       <div class="list-content">
-        <a-list item-layout="horizontal">
-          <base-worklog-prew-list-item/>
-          <template #loadMore>
-            <div
-              v-if="showLoadingMore"
-              :style="{ textAlign: 'center', marginTop: '12px',
-              height: '32px', lineHeight: '32px' }"
-            >
-              <a-spin v-if="loadingMore" />
-              <base-button-loading-more v-else @click="onLoadMore"/>
-            </div>
-          </template>
-        </a-list>
+        <base-worklog-prew-list />
       </div>
     </div>
   </div>
@@ -41,14 +30,12 @@
 
 <script>
 import BaseWorklogUserList from '../components/BaseWorklogUserList.vue';
-import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
-import BaseButtonLoadingMore from '../components/BaseButtonLoadingMore.vue';
+import BaseWorklogPrewList from '../components/BaseWorklogPrewList.vue';
 
 export default {
   components: {
-    BaseButtonLoadingMore,
-    BaseWorklogPrewListItem,
     BaseWorklogUserList,
+    BaseWorklogPrewList,
   },
   data() {
     return {

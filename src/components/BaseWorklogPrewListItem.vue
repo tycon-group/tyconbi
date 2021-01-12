@@ -1,12 +1,13 @@
 <template>
   <div style="display: flex;
-              margin: 0 0 1px;">
+              margin: 0 0 1px;
+              box-shadow: 10px 0 0.1rem #c2c2c2;">
       <div style="padding: 12px 16px;">
         <span style="font-size: 14px;">
-          2020/10/10 18:09
+          {{ worklogitem.createdTime }}
         </span>
         <span style="font-size: 14px; margin-left: 20px;">
-          项目经理面试
+          {{ worklogitem.infos }}
         </span>
       </div>
   </div>
@@ -15,5 +16,6 @@
 <script>
 export default {
   name: 'base-worklog-prew-list-item',
+  props: ['worklogitem'],
 };
 </script>
