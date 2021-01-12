@@ -7,30 +7,36 @@
           {{ worklogitem.createdTime }}
         </span>
         <span style="font-size: 14px; margin-left: 20px;">
-          {{ worklogitem.infos }}
+          {{ this.infos.content }}
         </span>
       </div>
   </div>
   <a-drawer
     title="日志详情"
-    width="50%"
+    width="640"
     placement="right"
     :closable="false"
     :visible="visible"
     :after-visible-change="afterVisibleChange"
     @close="onClose"
   >
-    {{ worklogitem.infos }}
+    <base-worklog-drawer :worklogitem="this.worklogitem"/>
   </a-drawer>
 </template>
 
 <script>
+import BaseWorklogDrawer from './BaseWorklogDrawer.vue';
+
 export default {
   name: 'base-worklog-prew-list-item',
+  components: {
+    BaseWorklogDrawer,
+  },
   props: ['worklogitem'],
   data() {
     return {
       visible: false,
+      infos: this.worklogitem.plan[0],
     };
   },
   methods: {
