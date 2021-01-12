@@ -2,7 +2,7 @@
   <div class="user-list">
     <a-list item-layout="horizontal">
       <div v-for="item in userWorklog" :key="item.id">
-        <base-worklog-user-list-item :worklogitem=item />
+        <base-worklog-user-list-item :userworklogitem=item />
       </div>
       <template #loadMore>
         <div
