@@ -1,14 +1,15 @@
 <template>
   <div class="page">
     <div class="left">
-      <div style="height: 30px; width: 100%; text-align: start">
+      <div style="height: 30px; width: 100%; text-align: start; margin-bottom: 50px">
         <router-link to='/' ondragstart="return false">
           <a-button >
             <span style="color: #1890ff">返回首页</span>
           </a-button>
         </router-link>
       </div>
-      <div style="height: 30px; width: 100%; font-size: 26px; text-align: start">
+      <div style="height: 30px; width: 100%; font-size: 26px; text-align: start;
+      margin-bottom: 16px">
         <span>{{ title }}</span>
       </div>
       <div style="height: 210px;width: 100%">
@@ -32,34 +33,30 @@
               v-model:value="form.password"
               maxlength="18"/>
           </a-form-item>
-          <a-form-item
-            style="font-size: 14px; text-align: start;">
+          <div style="font-size: 14px; display: flex;
+            align-items: center;
+            justify-content: space-between">
             <a-button
               type="primary"
               html-type="submit"
-              style="width: 115px; height: 30px" @click="handleSubmit(user)">
+              style="width: 160px; height: 40px" @click="handleSubmit(user)">
               <span>登录</span>
             </a-button>
             <a
               href="https://www.baidu.com"
-              style=" padding-left: 220px;font-size: 14px; color: #8F9399">
+              style="font-size: 14px; color: #8F9399">
               忘记密码</a>
-          </a-form-item>
+          </div>
         </a-form>
       </div>
-      <div style="display: flex; flex-direction: row; height: 50px; margin-top: 50px; width: 100%">
-        <div class="items">
-          <img class="imgs" src="../assets/logo_anti_white.png" alt="图标"/>
-        </div>
-        <div class="items" style="margin-left: 32px;">
-          <img class="imgs" src="#" alt="图标"/>
-        </div>
-        <div class="items" style="margin-left: 32px;">
-          <img class="imgs" src="#" alt="图标"/>
-        </div>
-        <div class="items" style="margin-left: 32px;">
-          <img class="imgs" src="#" alt="图标"/>
-        </div>
+      <div style="display: flex;
+      flex-direction: row;
+      height: 50px;
+      margin-top: 75px;
+      width: 100%">
+        <base-app-icon :path="require('@/assets/logo.png')"/>
+        <base-app-icon />
+        <base-app-icon />
       </div>
     </div>
     <div class="right">
@@ -72,10 +69,13 @@
   </div>
 </template>
 <script>
+import BaseAppIcon from '../components/BaseAppIcon.vue';
+
 export default {
+  components: { BaseAppIcon },
   data() {
     return {
-      title: 'Welcome Tycon BI',
+      title: 'Welcome tyconBI',
       form: {
         username: '',
         password: '',
@@ -117,8 +117,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding-left: 90px;
-  padding-top: 200px;
+  padding-left: 80px;
+  padding-top: 100px;
 }
 .right{
   width: 400px;
@@ -137,20 +137,6 @@ export default {
 .bdPic{
   background: #2c3e50;
   width: 500px;
-}
-
-.items {
-  width: 50px;
-  height: 50px;
-  background-color: #cdcdcd;
-}
-.imgs {
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 </style>

@@ -8,10 +8,10 @@
                 size="small"
                 tabBarStyle="">
           <a-tab-pane key="1" tab="本部门">
-            <base-tab-list :deptKey = 1 />
+            <base-worklog-tab-list :deptKey = 1 />
           </a-tab-pane>
           <a-tab-pane key="2" tab="其他部门">
-            <base-tab-list :deptKey = 2 />
+            <base-worklog-tab-list :deptKey = 2 />
           </a-tab-pane>
         </a-tabs>
       </div>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import BaseTabList from '../components/BaseTabList.vue';
+import BaseWorklogTabList from '../components/BaseWorklogTabList.vue';
 import BaseWorklogPrewListItem from '../components/BaseWorklogPrewListItem.vue';
 import BaseButtonLoadingMore from '../components/BaseButtonLoadingMore.vue';
 
@@ -48,7 +48,7 @@ export default {
   components: {
     BaseButtonLoadingMore,
     BaseWorklogPrewListItem,
-    BaseTabList,
+    BaseWorklogTabList,
   },
   data() {
     return {
