@@ -102,7 +102,7 @@ export default {
 
 .cont {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #F0F2F5;
   margin-top: 8px;
   padding: 8px 16px;
