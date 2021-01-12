@@ -34,10 +34,12 @@ export default {
           plan: [
             {
               id: 1,
+              flag: true,
               content: 'plan1项目经理面试-胡运涛(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
             {
               id: 2,
+              flag: false,
               content: 'plan2项目经理面试-胡运涛(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
