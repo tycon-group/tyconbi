@@ -24,23 +24,6 @@ export default {
   props: ['worklogitem'],
   data() {
     return {
-      userWorklog: [
-        {
-          name: '顾晓群',
-          surplus: 12,
-          whole: 22,
-        },
-        {
-          name: '陈颖蓓',
-          surplus: 1,
-          whole: 12,
-        },
-        {
-          name: '施维雯',
-          surplus: 20,
-          whole: 22,
-        },
-      ],
     };
   },
 };
