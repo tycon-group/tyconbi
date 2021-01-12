@@ -54,7 +54,7 @@
       <span class="title">备注：</span>
       <div class="cont_right">
         <a-textarea
-          v-model="textarea_value"
+          v-model:value="textarea_value"
           placeholder="评分不为3分，则必须写明理由！"
           :auto-size="{ minRows: 6, maxRows: 12, }"
         />
