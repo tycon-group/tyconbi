@@ -1,7 +1,7 @@
 <template>
   <div class="contanier">
     <div class="navigation">
-      <div class="button-group">
+      <div class="tab-group">
         <a-tabs type="card"
                 defaultActiveKey="1"
                 tabPosition="top"
@@ -89,7 +89,7 @@ export default {
   align-items: flex-start;
   overflow: auto;
 }
-.button-group{
+.tab-group{
   display: flex;
   position: fixed;
   width: 178px;

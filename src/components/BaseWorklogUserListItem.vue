@@ -3,7 +3,8 @@
                 flex-direction: column;
                 align-items: flex-start;
                 margin-top: 16px;
-                text-align: left; background-color: #42b983">
+                text-align: left;
+                box-shadow: 10px 0 0.1rem #c2c2c2;">
       <a-badge :count= worklogitem.surplus :offset="[-8, 10]">
         <div style="padding: 12px 16px; width: 178px;">
           <div style="font-size: 14px; margin-bottom: 8px">
