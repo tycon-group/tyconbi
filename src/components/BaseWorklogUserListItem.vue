@@ -1,11 +1,5 @@
 <template>
-    <div class="listItem"
-         style="display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-top: 16px;
-                text-align: left;
-                box-shadow: 0 0 10px #F3F3F3;">
+    <div class="listUserItem">
       <a-badge :count= userworklogitem.surplus :offset="[-8, 10]">
         <div style="padding: 12px 16px; width: 178px;">
           <div style="font-size: 14px; margin-bottom: 8px">
@@ -31,7 +25,24 @@ export default {
 </script>
 
 <style>
-.listItem :hover{
+.listUserItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 16px;
+  text-align: left;
+  border-radius:4px;
+  border: 1px solid #F0F2F5;
+  box-sizing: border-box;
+}
+
+.listUserItem :hover{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border-radius:4px;
+  box-shadow: 0 0 10px #F3F3F3;
   color: #1890ff;
 }
 </style>
