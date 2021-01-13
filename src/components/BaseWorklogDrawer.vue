@@ -48,7 +48,7 @@
             {{ worklogitem.commit.commitTime }}
           </div>
         </div>
-        <div style="font-size: 14px; margin-top: 9px;">
+        <div style="font-size: 14px; margin-top: 8px;">
           {{ worklogitem.commit.commitContent }}
         </div>
       </div>
@@ -71,7 +71,9 @@
       </div>
       <div class="footer_btn">
         <a-button :disabled="mark_value !== 3 && textarea_value === ''"
-                  @click="submitOneTime" type="primary">提交
+                  @click="submitOneTime"
+                  style="width: 80px; height: 40px; border-radius:4px;
+                   background-color: #0080CC; color: #FFFFFF;">提交
         </a-button>
       </div>
     </div>
