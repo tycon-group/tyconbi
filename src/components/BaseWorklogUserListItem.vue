@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex;
+    <div class="listItem" style="display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 margin-top: 16px;
@@ -28,3 +28,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.listItem :hover{
+  color: #1890ff;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;
+  <div class="listItem" style="display: flex;
               margin: 0 0 1px;
               box-shadow: 10px 0 0.1rem #c2c2c2;" @click="showDrawer">
       <div style="padding: 12px 16px;">
@@ -52,3 +52,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.listItem :hover{
+  color: #1890ff;
+}
+</style>
