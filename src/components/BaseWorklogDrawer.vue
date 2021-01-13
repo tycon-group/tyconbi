@@ -9,7 +9,7 @@
       </div>
       <div style="
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 background-color: #F0F2F5;
                 padding: 8px 16px;"
            v-for="planItem in worklogitem.plan" :key="planItem.id">
