@@ -28,19 +28,29 @@
     <div class="items">
       <span class="title">工作记录：</span>
       <div class="cont">
-        1
+        {{ worklogitem.dayLog }}
       </div>
     </div>
     <div class="items">
       <span class="title">工作小结：</span>
       <div class="cont">
-        1
+        {{ worklogitem.dayUnit }}
       </div>
     </div>
     <div class="items">
       <span class="title">评阅记录：</span>
       <div class="cont">
-        1
+        <div style="font-size: 12px; display: flex; flex-direction: row;">
+          <div>
+            {{ worklogitem.commit.commitPerson }} ({{ worklogitem.commit.dept }})
+          </div>
+          <div style="color: #8F9399; margin-left: 15px;">
+            {{ worklogitem.commit.commitTime }}
+          </div>
+        </div>
+        <div style="font-size: 14px; margin-top: 9px;">
+          {{ worklogitem.commit.commitContent }}
+        </div>
       </div>
     </div>
     <div class="items">
@@ -101,8 +111,6 @@ export default {
 }
 
 .cont {
-  display: flex;
-  flex-direction: row;
   background-color: #F0F2F5;
   margin-top: 8px;
   padding: 8px 16px;

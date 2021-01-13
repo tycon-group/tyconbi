@@ -29,7 +29,6 @@ export default {
       showLoadingMore: true,
       worklog: [
         {
-          name: '顾晓群',
           createdTime: '2020/11/10 17:48',
           plan: [
             {
@@ -43,9 +42,16 @@ export default {
               content: 'plan2项目经理面试-胡运涛(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
+          dayLog: '这是当日工作记录',
+          dayUnit: '这是当日小结',
+          commit: {
+            commitPerson: '蒋玲玲',
+            dept: '人事行政部',
+            commitTime: '2020-11-11 12:25',
+            commitContent: '土建造价还需要继续招聘，等总工确定后，在跟进这个职位',
+          },
         },
         {
-          name: '顾晓群',
           createdTime: '2020/11/11 13:48',
           plan: [
             {
@@ -57,9 +63,16 @@ export default {
               content: 'plan2项目经理面试-胡运涛1111222(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
+          dayLog: '这是当日工作记录',
+          dayUnit: '这是当日小结',
+          commit: {
+            commitPerson: '蒋玲玲',
+            dept: '人事行政部',
+            commitTime: '2020-11-12 12:25',
+            commitContent: '土建造价还需要继续招聘，等总工确定后，在跟进这个职位',
+          },
         },
         {
-          name: '顾晓群',
           createdTime: '2020/11/12 17:48',
           plan: [
             {
@@ -71,9 +84,16 @@ export default {
               content: 'plan2项目经理面试-胡运涛22222(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
+          dayLog: '这是当日工作记录',
+          dayUnit: '这是当日小结',
+          commit: {
+            commitPerson: '蒋玲玲',
+            dept: '人事行政部',
+            commitTime: '2020-11-12 22:25',
+            commitContent: '土建造价还需要继续招聘，等总工确定后，在跟进这个职位',
+          },
         },
         {
-          name: '顾晓群',
           createdTime: '2020/11/13 20:48',
           plan: [
             {
@@ -85,9 +105,16 @@ export default {
               content: 'plan2项目经理面试-胡运涛4444444(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
+          dayLog: '这是当日工作记录',
+          dayUnit: '这是当日小结',
+          commit: {
+            commitPerson: '蒋玲玲',
+            dept: '人事行政部',
+            commitTime: '2020-11-13 21:25',
+            commitContent: '土建造价还需要继续招聘3，等总工确定后，在跟进这个职位',
+          },
         },
         {
-          name: '顾晓群',
           createdTime: '2020/11/15 10:48',
           plan: [
             {
@@ -99,6 +126,14 @@ export default {
               content: 'plan2项目经理面试-胡运涛666666(可考虑施工经理，待本人反馈是否接受)，周虎',
             },
           ],
+          dayLog: '这是当日工作记录',
+          dayUnit: '这是当日小结',
+          commit: {
+            commitPerson: '蒋玲玲',
+            dept: '人事行政部',
+            commitTime: '2020-11-15 12:25',
+            commitContent: '土建造价还需要继续招聘，等总工确定后，在跟进这个职位',
+          },
         },
       ],
     };
