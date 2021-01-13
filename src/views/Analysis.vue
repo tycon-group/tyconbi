@@ -2,8 +2,8 @@
   <div class="contanier">
     <div class="navigation">
       <span  style="font-size: 14px; margin-bottom: 16px;">组织架构</span>
-      <div>tree</div>
-<!--      组织架构-->s
+      <div><base-company-menu /></div>
+<!--      组织架构-->
     </div>
     <div class="content">
 <!--      内容区域-->
@@ -73,8 +73,11 @@
 </template>
 
 <script>
+import BaseCompanyMenu from '../components/BaseCompanyMenu.vue';
+
 export default {
   components: {
+    BaseCompanyMenu,
   },
   data() {
     return {
