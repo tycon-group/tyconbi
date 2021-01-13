@@ -115,7 +115,7 @@ export default {
 .cont {
   background-color: #F0F2F5;
   margin-top: 8px;
-  padding: 8px 16px;
+  padding: 8px 24px;
 }
 
 .items {
