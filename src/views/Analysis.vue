@@ -15,7 +15,6 @@
                 size="small"
                 tabBarStyle="">
           <a-tab-pane key="1" tab="分布图">
-            Content of Tab Pane 1
           </a-tab-pane>
           <a-tab-pane key="2" tab="成员信息">
             Content of Tab Pane 2
@@ -74,10 +73,12 @@
 
 <script>
 import BaseCompanyMenu from '../components/BaseCompanyMenu.vue';
+// import BasePersonAttr from '../components/BasePersonAttr.vue';
 
 export default {
   components: {
     BaseCompanyMenu,
+    // BasePersonAttr,
   },
   data() {
     return {
@@ -110,6 +111,8 @@ export default {
     padding: 16px 16px 0;
     flex: auto;
     overflow: auto;
+    border-radius:4px;
+    box-shadow: 0 0 10px #F3F3F3;
   }
   .header {
     height: 272px;
@@ -117,6 +120,9 @@ export default {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 16px;
+    border-radius:4px;
+    box-shadow: 0 0 10px #F3F3F3;
   }
   .footer {
     flex: auto;
