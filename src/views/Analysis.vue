@@ -2,7 +2,7 @@
   <div class="contanier">
     <div class="navigation">
       <span  style="font-size: 14px; margin-bottom: 16px;">组织架构</span>
-      <div><base-company-menu /></div>
+      <div style="width: 100%;  background-color: #1890ff"><base-company-menu /></div>
 <!--      组织架构-->
     </div>
     <div class="content">
@@ -92,7 +92,7 @@ export default {
   .contanier {
     display: flex;
     justify-content: flex-start;
-    height: 100%;
+    height:100%;
   }
   .navigation {
     /*background: white;*/
@@ -102,8 +102,8 @@ export default {
     flex-direction: column;
     align-items: start;
     overflow: auto;
-    background: #a0d911;
     padding: 16px;
+    background-color: #42b983;
   }
   .content {
     display: flex;
