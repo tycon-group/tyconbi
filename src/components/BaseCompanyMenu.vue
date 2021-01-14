@@ -23,6 +23,7 @@ export default {
     return {
       value: undefined,
       treeData: [],
+      empData: [],
       empIDCom: '',
     };
   },
@@ -32,7 +33,7 @@ export default {
       this.$http.get(url)
         .then((res) => {
           this.empData = res.data.data;
-          console.log(res.data.data);
+          console.log(res.data.data, '0000');
         })
         .catch((error) => {
           console.log(error);
@@ -40,12 +41,14 @@ export default {
     },
   },
   mounted() {
-    this.empIDCom = 'A00074';
+    this.empIDCom = 'A00134';
+    console.log(this.empIDCom, '1111');
     setTimeout(() => {
       const url = `https://tyconcps.cn:4399/hr/listOrgAndEmp?empID=${this.empIDCom}`;
       this.$http.get(url)
         .then((res) => {
           this.treeData = res.data.data;
+          console.log(this.treeData, '2222');
         })
         .catch((error) => {
           console.log(error);
