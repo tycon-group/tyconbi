@@ -2,14 +2,12 @@
   <div>
     <a-tree-select
       v-model:value="value"
-      showSearch
+      show-search
       style="width: 100%"
       :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
       :tree-data="treeData"
       placeholder="请选择需要查看的组织"
       :replace-fields="{ title: 'name', key: 'id', value: 'id', children: 'child' }"
-      @change="tsChange"
-      @select="tsSelect"
       treeNodeFilterProp="title"
     >
     </a-tree-select>

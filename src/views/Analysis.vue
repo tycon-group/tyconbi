@@ -103,7 +103,6 @@ export default {
     align-items: start;
     overflow: auto;
     padding: 16px;
-    background-color: #42b983;
   }
   .content {
     display: flex;
