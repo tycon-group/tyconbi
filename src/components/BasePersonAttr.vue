@@ -13,7 +13,7 @@
         <base-diploma-plot />
       </a-tab-pane>
       <a-tab-pane key="3" tab="性别分布">
-
+        <base-gender-plot />
       </a-tab-pane>
       <a-tab-pane key="4" tab="在职分布">
 
@@ -24,10 +24,12 @@
 <script>
 import BaseAgePlot from './BaseAgePlot.vue';
 import BaseDiplomaPlot from './BaseDiplomaPlot.vue';
+import BaseGenderPlot from './BaseGenderPlot.vue';
 
 export default {
   name: 'base-person-attr',
   components: {
+    BaseGenderPlot,
     BaseDiplomaPlot,
     BaseAgePlot,
   },
