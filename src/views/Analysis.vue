@@ -13,8 +13,10 @@
                 defaultActiveKey="1"
                 tabPosition="top"
                 size="small"
-                tabBarStyle="">
+                tabBarStyle=""
+                style="width: 100%">
           <a-tab-pane key="1" tab="分布图">
+            <base-person-attr />
           </a-tab-pane>
           <a-tab-pane key="2" tab="成员信息">
             Content of Tab Pane 2
@@ -73,12 +75,12 @@
 
 <script>
 import BaseCompanyMenu from '../components/BaseCompanyMenu.vue';
-// import BasePersonAttr from '../components/BasePersonAttr.vue';
+import BasePersonAttr from '../components/BasePersonAttr.vue';
 
 export default {
   components: {
+    BasePersonAttr,
     BaseCompanyMenu,
-    // BasePersonAttr,
   },
   data() {
     return {

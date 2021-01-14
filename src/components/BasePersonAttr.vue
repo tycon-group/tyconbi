@@ -1,13 +1,13 @@
 <template>
-  <div style="width: 500px">
+  <div style="width: 100%;">
     <a-tabs
       :tab-position="mode"
-      :style="{ height: '200px' }"
+      :style="{ height: '200px', width: '100%',}"
       @prevClick="callback"
       @nextClick="callback"
     >
       <a-tab-pane key="1" tab="年龄分布">
-
+        <base-age-plot />
       </a-tab-pane>
       <a-tab-pane key="2" tab="学历分布">
 
@@ -22,9 +22,13 @@
   </div>
 </template>
 <script>
+import BaseAgePlot from './BaseAgePlot.vue';
 
 export default {
   name: 'base-person-attr',
+  components: {
+    BaseAgePlot,
+  },
   data() {
     return {
       mode: 'top',
@@ -35,5 +39,6 @@ export default {
       console.log(val);
     },
   },
+
 };
 </script>
