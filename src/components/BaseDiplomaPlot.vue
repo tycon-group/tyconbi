@@ -1,36 +1,32 @@
 <template>
-  <div id="ageColumn" style="height: 136px; width: 100%;"></div>
+  <div id="container" style="height: 136px; width: 100%;"></div>
 </template>
 
 <script>
 import { Column } from '@antv/g2plot';
 
 export default {
-  name: 'base-age-plot',
+  name: 'base-diploma-plot',
   mounted() {
     const data = [
       {
-        type: '小于25岁',
-        sales: 17,
+        type: '高中及以下',
+        sales: 8,
       },
       {
-        type: '25～34岁',
-        sales: 48,
-      },
-      {
-        type: '35～44岁',
+        type: '大专',
         sales: 21,
       },
       {
-        type: '45～55岁',
-        sales: 17,
+        type: '本科',
+        sales: 41,
       },
       {
-        type: '55岁以上',
-        sales: 10,
+        type: '研究生及以上',
+        sales: 5,
       },
     ];
-    const columnPlot = new Column('ageColumn', {
+    const columnPlot = new Column('container', {
       data,
       xField: 'type',
       yField: 'sales',
