@@ -44,7 +44,7 @@
         <div>
           <a-tabs size="small">
             <a-tab-pane key="1" tab="总览">
-              Content of Tab Pane 1
+              <base-total-list />
             </a-tab-pane>
             <a-tab-pane key="2" tab="工作能力">
               Content of Tab Pane 2
@@ -68,9 +68,11 @@
 <script>
 import BaseCompanyMenu from '../components/BaseCompanyMenu.vue';
 import BasePersonAttr from '../components/BasePersonAttr.vue';
+import BaseTotalList from '../components/dept/BaseTotalList.vue';
 
 export default {
   components: {
+    BaseTotalList,
     BasePersonAttr,
     BaseCompanyMenu,
   },
@@ -170,6 +172,7 @@ export default {
   .navigation {
     /*background: white;*/
     width: 274px;
+    min-width: 274px;
     background-color: #0080CC;
     height: 100%;
     display: flex;
