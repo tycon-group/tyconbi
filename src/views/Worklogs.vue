@@ -64,6 +64,7 @@ export default {
 .navigation {
   background: white;
   width: 178px;
+  min-width: 178px;
   height: 100%;
   display: flex;
   overflow: auto;

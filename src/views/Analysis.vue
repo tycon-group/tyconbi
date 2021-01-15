@@ -98,8 +98,9 @@ export default {
     height:100%;
   }
   .navigation {
-    /*background: white;*/
+    background: white;
     width: 274px;
+    min-width: 274px;
     height: 100%;
     display: flex;
     flex-direction: column;

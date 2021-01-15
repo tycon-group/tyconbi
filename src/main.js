@@ -12,4 +12,4 @@ app.use(api);
 app.use(store).use(router).mount('#app');
 app.config.productionTip = false;
 
-app.prototype.$api = api;
+// app.prototype.$api = api;
