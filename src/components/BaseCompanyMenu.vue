@@ -952,15 +952,5 @@ export default {
 </script>
 
 <style>
-/*不定义定义滑块，则为隐藏*/
-/**设置滚动条的样式**/
-::-webkit-scrollbar{
-  width:10px;
-  height:20px;
-}
-/**滚动槽**/
-::-webkit-scrollbar-track{
-  box-shadow:inset 0 0 3px #dcdcdc;
-  border-radius:10px;
-}
+
 </style>
