@@ -78,9 +78,9 @@ export default {
 }
 .tab-group{
   display: flex;
-  position: fixed;
+  /*position: fixed;*/
   width: 178px;
-  z-index: 2;
+  /*z-index: 2;*/
   margin-bottom: 10px;
   background: white;
 }
