@@ -16,7 +16,7 @@
         <base-gender-plot />
       </a-tab-pane>
       <a-tab-pane key="4" tab="在职分布">
-
+        <base-work-year-plot/>
       </a-tab-pane>
     </a-tabs>
   </div>
@@ -25,10 +25,12 @@
 import BaseAgePlot from './BaseAgePlot.vue';
 import BaseDiplomaPlot from './BaseDiplomaPlot.vue';
 import BaseGenderPlot from './BaseGenderPlot.vue';
+import BaseWorkYearPlot from './BaseWorkYearPlot.vue';
 
 export default {
   name: 'base-person-attr',
   components: {
+    BaseWorkYearPlot,
     BaseGenderPlot,
     BaseDiplomaPlot,
     BaseAgePlot,
