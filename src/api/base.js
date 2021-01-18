@@ -1,7 +1,7 @@
 // 接口域名管理
 const base = {
-  v1: 'https://xxx/api/v1',
-  v2: 'https://xxx/api/v2',
+  sso: 'https://tyconcps.cn:8888/',
+  bi: 'https://tyconcps.cn:4399/',
 };
 
 export default base;
