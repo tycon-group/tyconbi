@@ -1,5 +1,5 @@
 <template>
-  infos～
+  <base-person-attr />
   <div class="footer">
     <!--        Toolbar和列表-->
     <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
@@ -21,14 +21,35 @@
       </a-select>
     </div>
     <div>
-      图表～
+      <a-tabs size="small">
+        <a-tab-pane key="1" tab="总览">
+          总揽
+        </a-tab-pane>
+        <a-tab-pane key="2" tab="工作能力">
+          Content of Tab Pane 2
+        </a-tab-pane>
+        <a-tab-pane key="3" tab="工作态度">
+          Content of Tab Pane 3
+        </a-tab-pane>
+        <a-tab-pane key="4" tab="发展潜力">
+          Content of Tab Pane 3
+        </a-tab-pane>
+        <a-tab-pane key="5" tab="突出贡献">
+          Content of Tab Pane 3
+        </a-tab-pane>
+      </a-tabs>
     </div>
   </div>
 </template>
 
 <script>
+import BasePersonAttr from './BasePersonAttr.vue';
+
 export default {
   name: 'base-person',
+  components: {
+    BasePersonAttr,
+  },
 };
 </script>
 
