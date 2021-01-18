@@ -2,7 +2,7 @@
   <div style="width: 100%;">
     <a-tabs
       :tab-position="mode"
-      :style="{ height: '200px', width: '100%',}"
+      :style="{ height: '200px', width: '100%', backgroundColor: 'red',}"
       @prevClick="callback"
       @nextClick="callback"
     >
