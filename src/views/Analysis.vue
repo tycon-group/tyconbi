@@ -17,49 +17,51 @@
                 style="width: 100%">
           <a-tab-pane key="1" tab="分布图">
             <base-person-attr />
+            <div class="footer">
+              <!--        Toolbar和列表-->
+              <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
+                <!--          选择时间区间-->
+                <a-range-picker v-model:value="value3" style="width: 240px;"/>
+                <!--          选择年度 -->
+                <a-select
+                  v-model:value="value1"
+                  style="width: 120px; margin-left: 24px"
+                  @focus="focus"
+                  ref="select"
+                >
+                  <a-select-option
+                    v-for="selectItem in dataResources"
+                    :key="selectItem.id"
+                    :value="selectItem.value">
+                    {{ selectItem.name }}
+                  </a-select-option>
+                </a-select>
+              </div>
+              <div v-show="false">
+                <a-tabs size="small">
+                  <a-tab-pane key="1" tab="总览">
+                    <base-total-list />
+                  </a-tab-pane>
+                  <a-tab-pane key="2" tab="工作能力">
+                    Content of Tab Pane 2
+                  </a-tab-pane>
+                  <a-tab-pane key="3" tab="工作态度">
+                    Content of Tab Pane 3
+                  </a-tab-pane>
+                  <a-tab-pane key="4" tab="发展潜力">
+                    Content of Tab Pane 3
+                  </a-tab-pane>
+                  <a-tab-pane key="5" tab="突出贡献">
+                    Content of Tab Pane 3
+                  </a-tab-pane>
+                </a-tabs>
+              </div>
+            </div>
           </a-tab-pane>
           <a-tab-pane key="2" tab="成员信息">
             Content of Tab Pane 2
           </a-tab-pane>
         </a-tabs>
-      </div>
-      <div class="footer">
-<!--        Toolbar和列表-->
-        <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
-<!--          选择时间区间-->
-          <a-range-picker v-model:value="value3" style="width: 240px;"/>
-<!--          选择年度 -->
-          <a-select
-            v-model:value="value1"
-            style="width: 120px; margin-left: 24px"
-            @focus="focus"
-            ref="select"
-          >
-            <a-select-option
-              v-for="selectItem in dataResources" :key="selectItem.id" :value="selectItem.value">
-              {{ selectItem.name }}
-            </a-select-option>
-          </a-select>
-        </div>
-        <div>
-          <a-tabs size="small">
-            <a-tab-pane key="1" tab="总览">
-              <base-total-list />
-            </a-tab-pane>
-            <a-tab-pane key="2" tab="工作能力">
-              Content of Tab Pane 2
-            </a-tab-pane>
-            <a-tab-pane key="3" tab="工作态度">
-              Content of Tab Pane 3
-            </a-tab-pane>
-             <a-tab-pane key="4" tab="发展潜力">
-              Content of Tab Pane 3
-            </a-tab-pane>
-             <a-tab-pane key="5" tab="突出贡献">
-              Content of Tab Pane 3
-            </a-tab-pane>
-          </a-tabs>
-        </div>
       </div>
     </div>
   </div>
@@ -173,7 +175,7 @@ export default {
     /*background: white;*/
     width: 274px;
     min-width: 274px;
-    background-color: #0080CC;
+    /*background-color: #0080CC;*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -184,6 +186,7 @@ export default {
   .content {
     display: flex;
     flex-direction: column;
+    background-color: red;
     padding: 16px 16px 0;
     flex: auto;
     overflow: auto;
@@ -191,8 +194,8 @@ export default {
     box-shadow: 0 0 10px #F3F3F3;
   }
   .header {
-    height: 272px;
-    /*background: #13c2c2;*/
+    height: 100%;
+    background: #13c2c2;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -202,7 +205,7 @@ export default {
   }
   .footer {
     flex: auto;
-    /*background: #40a9ff;*/
+    background: #40a9ff;
     width: 100%;
   }
 </style>
