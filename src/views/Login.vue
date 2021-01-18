@@ -70,6 +70,8 @@
 </template>
 <script>
 import BaseAppIcon from '../components/BaseAppIcon.vue';
+// eslint-disable-next-line import/no-cycle
+import api from '../api/index';
 
 export default {
   components: { BaseAppIcon },
@@ -83,16 +85,15 @@ export default {
     };
   },
   methods: {
-    handleSubmit(user) {
-      const param = new URLSearchParams();
-      param.append('username', this.forms.userName);
-      param.append('password', this.forms.password);
-      const instance = this.$http.create({ headers: { 'content-type': 'application/x-www-form-urlencoded' } });
-      instance.post('https://tyconcps.cn:8888/auth-token/', param).then((response) => {
-        console.log(response);
+    handleSubmit() {
+      api.sso.getToken({
+        username: this.form.username,
+        password: this.form.password,
+      }).then((res) => {
+        console.log(res);
         this.$message.success('登录成功');
-        const data1 = response.data;
-        console.log(data1, 'wewwwewe', user);
+        const token = res.data;
+        console.log(token, 'wewwwewe');
         this.$router.push('/');
       }).catch((error) => {
         console.log(error);
