@@ -13,15 +13,15 @@ const sso = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getToken(params) {
-    return axios.post(`${base.sso}/auth-token/`, qs.stringify(params));
+    return axios.post(`${base.sso}auth-token/`, qs.stringify(params));
   },
   // 刷新Token
   refreshToken(params) {
-    return axios.post(`${base.sso}/token-refresh/`, qs.stringify(params));
+    return axios.post(`${base.sso}token-refresh/`, qs.stringify(params));
   },
   // 验证Token
   verifyToken(params) {
-    return axios.post(`${base.sso}/token-verify/`, qs.stringify(params));
+    return axios.post(`${base.sso}token-verify/`, qs.stringify(params));
   },
 };
 
