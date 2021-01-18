@@ -2,24 +2,7 @@
   <base-person-attr />
   <div class="footer">
     <!--        Toolbar和列表-->
-    <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
-      <!--          选择时间区间-->
-      <a-range-picker v-model:value="value3" style="width: 240px;"/>
-      <!--          选择年度 -->
-      <a-select
-        v-model:value="value1"
-        style="width: 120px; margin-left: 24px"
-        @focus="focus"
-        ref="select"
-      >
-        <a-select-option
-          v-for="selectItem in dataResources"
-          :key="selectItem.id"
-          :value="selectItem.value">
-          {{ selectItem.name }}
-        </a-select-option>
-      </a-select>
-    </div>
+    <base-toolbar />
     <div>
       <a-tabs size="small">
         <a-tab-pane key="1" tab="总览">
@@ -44,10 +27,12 @@
 
 <script>
 import BasePersonAttr from './BasePersonAttr.vue';
+import BaseToolbar from './BaseToolbar.vue';
 
 export default {
   name: 'base-person',
   components: {
+    BaseToolbar,
     BasePersonAttr,
   },
 };
