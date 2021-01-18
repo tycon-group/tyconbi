@@ -2,7 +2,7 @@
   <div style="width: 100%;">
     <a-tabs
       :tab-position="mode"
-      :style="{ height: '200px', width: '100%', backgroundColor: 'red',}"
+      :style="{ height: '200px', width: '100%',}"
       @prevClick="callback"
       @nextClick="callback"
     >
@@ -28,7 +28,7 @@ import BaseGenderPlot from './BaseGenderPlot.vue';
 import BaseWorkYearPlot from './BaseWorkYearPlot.vue';
 
 export default {
-  name: 'base-person-attr',
+  name: 'base-dept-attr',
   components: {
     BaseWorkYearPlot,
     BaseGenderPlot,
