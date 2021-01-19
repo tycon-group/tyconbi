@@ -9,7 +9,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getAllWorklogs() {
-    return axios.get(`${base.bi}worklogs/`);
+    return axios.get(`${base.bi}wl/worklogs/`);
   },
   /**
    * 获取日志
@@ -17,14 +17,14 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getTheWorklog(id) {
-    return axios.get(`${base.bi}worklogs/${id}/`);
+    return axios.get(`${base.bi}wl/worklogs/${id}/`);
   },
   /**
    * 获取所有评分
    * @returns {Promise<AxiosResponse<any>>}
    */
   getAllScores() {
-    return axios.get(`${base.bi}scores/`);
+    return axios.get(`${base.bi}wl/scores/`);
   },
   /**
    * 获取日志的分数
@@ -32,7 +32,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getTheScore(id) {
-    return axios.get(`${base.bi}scores/${id}/`);
+    return axios.get(`${base.bi}wl/scores/${id}/`);
   },
   /**
    * 获取下属的所有日志
@@ -40,7 +40,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getMyUndoneWorklogs(id) {
-    return axios.get(`${base.bi}myUndoneWorklogs/${id}/`);
+    return axios.get(`${base.bi}wl/myUndoneWorklogs/${id}/`);
   },
   /**
    * 获取我的所有日志
@@ -48,7 +48,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getMyAllWorklogs(id) {
-    return axios.get(`${base.bi}myAllWorklogs/${id}/`);
+    return axios.get(`${base.bi}wl/myAllWorklogs/${id}/`);
   },
   /**
    * 上传文件
@@ -56,7 +56,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   doUpload(param) {
-    return axios.post(`${base.bi}doUpload/`, param);
+    return axios.post(`${base.bi}wl/doUpload/`, param);
   },
   /**
    * 分析上传的日志压缩包
@@ -65,7 +65,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   doAnalyse(id, params) {
-    return axios.post(`${base.bi}doAnalyse/${id}/`, qs.stringify(params));
+    return axios.post(`${base.bi}wl/doAnalyse/${id}/`, qs.stringify(params));
   },
 };
 
