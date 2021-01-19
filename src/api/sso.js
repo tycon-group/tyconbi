@@ -9,8 +9,8 @@ const sso = {
   // 申请Token
   /**
    * 获取Token
-   * @param 结构形式的参数
    * @returns {Promise<AxiosResponse<any>>}
+   * @param params
    */
   getToken(params) {
     return axios.post(`${base.sso}auth-token/`, qs.stringify(params));
