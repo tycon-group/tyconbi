@@ -12,8 +12,9 @@
         v-for="personItem in personData" :key="personItem.id" :tab="personItem.zh_name">
         <div style="display: flex; padding-left: 16px;">
           <div style="width: 77px; height: 112px;">
-            <div style="height: 64px; width: 64px; margin: 0 auto; border-radius:50%;">
-              <img src="../assets/logo.png" height="64" width="64" alt="头像" /></div>
+            <div style="height: 64px; width: 64px; margin: 0 auto;">
+              <img :src="personItem.img" style="border-radius:50%;"
+                   height="64" width="64" alt="头像" /></div>
             <div style="font-size: 14px; text-align: center">
               {{ personItem.en_name }}</div>
             <div style="font-size: 16px; color: #8F9399; text-align: center">
@@ -54,6 +55,7 @@ export default {
       personData: [
         {
           id: 1,
+          img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2F50%2Fv2-095b2db945e2d3e0644ccbb26eab8ed8_hd.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613631322&t=81de6352bc510f6314f05e20ad16fc44',
           en_name: 'Annie',
           zh_name: '蒋玲玲',
           gender: '女',
@@ -65,6 +67,7 @@ export default {
         },
         {
           id: 2,
+          img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201412%2F15%2F20141215151225_kQSkZ.thumb.700_0.jpeg&refer=http%3A%2F%2Fcdn.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613631322&t=cf4dcf10f4123c9c47399a3f8ef084ac',
           en_name: 'Kunyu',
           zh_name: '于坤',
           gender: '女',
@@ -76,6 +79,7 @@ export default {
         },
         {
           id: 3,
+          img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3351113425,3755484207&fm=26&gp=0.jpg',
           en_name: 'Three',
           zh_name: '张思睿',
           gender: '女',
