@@ -1,12 +1,12 @@
 <template>
-  <div style="width: 100%; border-radius:4px; box-shadow: 0 0 10px #F3F3F3;">
+  <div style="width: 100%; padding-bottom: 8px; border-radius:4px; box-shadow: 0 0 10px #F3F3F3;">
     <a-tabs
       :tab-position="mode"
       :style="{ height: '200px', width: '100%',}"
       :tabBarStyle="{textAlign: 'left'}"
-      v-model:value="this.nameValue"
       @prevClick="callback"
       @nextClick="callback"
+      v-model:value="this.nameValue"
     >
       <a-tab-pane
         v-for="personItem in personData" :key="personItem.id" :tab="personItem.zh_name">

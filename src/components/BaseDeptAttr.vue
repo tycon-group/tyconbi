@@ -1,11 +1,11 @@
 <template>
-  <div style="width: 100%; border-radius:4px; box-shadow: 0 0 10px #F3F3F3;">
+  <div style="width: 100%; padding-bottom: 8px; border-radius:4px; box-shadow: 0 0 10px #F3F3F3;">
     <a-tabs
       :tab-position="mode"
       :style="{ height: '200px', width: '100%',}"
+      :tabBarStyle="{textAlign: 'left'}"
       @prevClick="callback"
       @nextClick="callback"
-      :tabBarStyle="{textAlign: 'left'}"
     >
       <a-tab-pane key="1" tab="年龄分布">
         <base-age-plot />
