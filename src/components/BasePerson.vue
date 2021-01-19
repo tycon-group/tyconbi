@@ -9,7 +9,7 @@
           <div style="margin-bottom: 20px; text-align: start;
            font-size: 16px; font-weight: bold;">综合分析</div>
           <div id="totalRadar"
-               style="padding-bottom: 16px; height: 175px; width: 100%"></div>
+               style="height: 175px; width: 212px"></div>
         </a-tab-pane>
         <a-tab-pane key="2" tab="工作能力">
           Content of Tab Pane 2
@@ -42,19 +42,17 @@ export default {
   },
   mounted() {
     const data = [
-      { name: 'G2', star: 10371 },
-      { name: 'G6', star: 7380 },
-      { name: 'F2', star: 7414 },
-      { name: 'L7', star: 2140 },
-      { name: 'X6', star: 660 },
-      { name: 'AVA', star: 885 },
-      { name: 'G2Plot', star: 1626 },
+      { name: '工作能力', star: 5371 },
+      { name: '工作态度', star: 7380 },
+      { name: '发展潜力', star: 7414 },
+      { name: '遵纪守法', star: 2140 },
+      { name: '突出贡献', star: 6160 },
     ];
     const radarPlot = new Radar('totalRadar', {
       data: data.map((d) => ({ ...d, star: Math.sqrt(d.star) })),
       xField: 'name',
       yField: 'star',
-      appendPadding: [0, 10, 0, 10],
+      appendPadding: [0, 25, 0, 25],
       meta: {
         star: {
           alias: 'star 数量',
