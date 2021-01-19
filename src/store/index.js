@@ -11,6 +11,7 @@ export default createStore({
      * @param token
      */
     updateToken(state, token) {
+      console.log(`store更新token:${token}`);
       state.token = token;
     },
   },

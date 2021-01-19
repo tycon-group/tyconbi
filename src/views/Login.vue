@@ -92,8 +92,9 @@ export default {
       }).then((res) => {
         console.log(res);
         this.$message.success('登录成功');
-        const token = res.data;
-        console.log(token, 'wewwwewe');
+        const mytoken = `JWT ${res.data.token}`;
+        console.log(`token=${mytoken}`);
+        this.$store.commit('updateToken', mytoken);
         this.$router.push('/');
       }).catch((error) => {
         console.log(error);
