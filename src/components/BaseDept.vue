@@ -49,7 +49,5 @@ export default {
   flex: auto;
   width: 100%;
   padding-top: 16px;
-  border-radius:4px;
-  box-shadow: 0 0 10px #F3F3F3;
 }
 </style>
