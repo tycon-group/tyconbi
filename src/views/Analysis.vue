@@ -13,7 +13,7 @@
                 defaultActiveKey="1"
                 tabPosition="top"
                 size="small"
-                tabBarStyle=""
+                :tabBarStyle="{textAlign: 'left'}"
                 style="width: 100%">
           <a-tab-pane key="1" tab="分布图">
             <BaseDept />

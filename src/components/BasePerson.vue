@@ -4,12 +4,12 @@
     <!--        Toolbar和列表-->
     <base-toolbar />
     <div>
-      <a-tabs size="small">
+      <a-tabs size="small"
+              :tabBarStyle="{textAlign: 'left'}">
         <a-tab-pane key="1" tab="总览" style="padding-left: 16px;">
           <div style="margin-bottom: 20px; text-align: start;
            font-size: 16px; font-weight: bold;">综合分析</div>
-          <div id="totalRadar"
-               style="height: 175px; width: 212px"></div>
+          <div id="totalRadar" style="height: 175px; width: 212px"></div>
         </a-tab-pane>
         <a-tab-pane key="2" tab="工作能力">
           Content of Tab Pane 2

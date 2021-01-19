@@ -5,6 +5,7 @@
       :style="{ height: '200px', width: '100%',}"
       @prevClick="callback"
       @nextClick="callback"
+      :tabBarStyle="{textAlign: 'left'}"
     >
       <a-tab-pane key="1" tab="年龄分布">
         <base-age-plot />
