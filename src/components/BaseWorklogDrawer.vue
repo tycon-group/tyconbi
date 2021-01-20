@@ -13,12 +13,9 @@
                 background-color: #F0F2F5;
                 padding: 8px 16px;"
            v-for="planItem in worklogitem.plan" :key="planItem.id">
-        <div style="background-color: green; width: 16px; height: 16px"
-             v-if="planItem.flag === true">
-          Y
-        </div>
-        <div style="background-color: red; width: 16px; height: 16px" v-else>
-          N
+        <div style="margin-right: 8px">
+          <CheckCircleFilled style="font-size: 16px; color: #52C41B" v-if="planItem.flag === true"/>
+          <ClockCircleFilled  style="font-size: 16px" v-else/>
         </div>
         <div>
           {{ planItem.content }}
@@ -81,8 +78,14 @@
 </template>
 
 <script>
+import { CheckCircleFilled, ClockCircleFilled } from '@ant-design/icons-vue';
+
 export default {
   name: 'base-worklog-drawer',
+  components: {
+    CheckCircleFilled,
+    ClockCircleFilled,
+  },
   props: ['worklogitem'],
   data() {
     return {
@@ -116,6 +119,7 @@ export default {
   background-color: #F0F2F5;
   margin-top: 8px;
   padding: 8px 24px;
+  font-size: 14px;
 }
 
 .items {
