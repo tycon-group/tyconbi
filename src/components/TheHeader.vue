@@ -10,7 +10,9 @@
       <div class="deadline">
         <span>本月考评进度：</span>
         <div class="process-group">
-          <span>{{ deadline }}天</span>
+          <span>
+            <HourglassOutlined style="margin-right: 4px" spin="true"/>
+            {{ deadline }}天</span>
           <div>
             <a-progress  :stroke-color="{'0%': '#24A4F0','100%': '#00CCBF'}"
                          :percent=percent
@@ -46,20 +48,20 @@
 import {
   TrophyFilled,
   SearchOutlined,
+  HourglassOutlined,
 } from '@ant-design/icons-vue';
 import BaseLayoutHeader from './BaseLayoutHeader.vue';
 
 export default {
   components: {
     BaseLayoutHeader,
+    HourglassOutlined,
     TrophyFilled,
     SearchOutlined,
   },
   name: 'the-header',
   data() {
     return {
-      deadline: 20,
-      percent: 80,
       searchValue: '',
       ifShowSearchInput: false,
     };
@@ -67,6 +69,26 @@ export default {
   methods: {
     showSearchInput() {
       this.ifShowSearchInput = true;
+    },
+  },
+  computed: {
+    deadline() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const d = new Date(year, month, 0);
+      const days = d.getDate();
+      const thisday = date.getDate();
+      return days - thisday;
+    },
+    percent() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const d = new Date(year, month, 0);
+      const days = d.getDate();
+      const thisday = date.getDate();
+      return (thisday / days) * 100;
     },
   },
 };
