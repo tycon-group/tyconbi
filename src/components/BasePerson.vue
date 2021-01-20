@@ -51,7 +51,7 @@
           </div>
         </a-tab-pane>
         <a-tab-pane key="3" tab="工作态度">
-          Content of Tab Pane 3
+          <base-attitude-plot />
         </a-tab-pane>
         <a-tab-pane key="4" tab="发展潜力">
           Content of Tab Pane 3
@@ -69,10 +69,12 @@ import BasePersonAttr from './BasePersonAttr.vue';
 import BaseToolbar from './BaseToolbar.vue';
 import BaseTotalPlot from './plot/BaseTotalPlot.vue';
 import BaseWorklogPlot from './plot/BaseWorklogPlot.vue';
+import BaseAttitudePlot from './plot/BaseAttitudePlot.vue';
 
 export default {
   name: 'base-person',
   components: {
+    BaseAttitudePlot,
     BaseWorklogPlot,
     BaseTotalPlot,
     BaseToolbar,
