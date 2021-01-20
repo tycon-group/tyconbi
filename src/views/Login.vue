@@ -61,7 +61,7 @@
     </div>
     <div class="right">
       <div class="bdPic"
-           style="width: 400px; height: 530px; background-color: #FFFFFF;">
+           style="width: 400px; height: 478px; background-color: #FFFFFF;">
         <img src="../assets/bd_right.png"
              style=" height: 100%; width: 100%;" alt="背景图"/>
       </div>
