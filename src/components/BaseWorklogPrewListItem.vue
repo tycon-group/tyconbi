@@ -2,15 +2,15 @@
   <div class="listItem" style="display: flex;
               margin: 0 0 1px;
               box-shadow: 10px 0 0.1rem #c2c2c2;" @click="showDrawer">
-      <div style="padding: 12px 16px; align-items: center">
+      <div style="padding: 12px 16px; text-align: justify">
         <span>
-          <img src="../assets/1分.png" style="height: 12px; width: 26px; margin-right: 8px">
+          <img src="../assets/1分.png" style="height: 12px; width: 26px; margin-right: 10px">
         </span>
         <span style="font-size: 14px;">
           {{ worklogitem.createdTime }}
         </span>
-        <span style="font-size: 14px; margin-left: 20px;">
-          {{ this.infos.content }}
+        <span style="font-size: 14px; margin-left: 10px;">
+          {{ this.infos.content }}s
         </span>
       </div>
   </div>
