@@ -60,7 +60,7 @@
           <base-contribution-plot />
         </a-tab-pane>
         <a-tab-pane key="5" tab="遵纪守法">
-          Content of Tab Pane 5
+          <base-law-plot />
         </a-tab-pane>
       </a-tabs>
     </div>
@@ -74,10 +74,12 @@ import BaseTotalPlot from './plot/BaseTotalPlot.vue';
 import BaseWorklogPlot from './plot/BaseWorklogPlot.vue';
 import BaseAttitudePlot from './plot/BaseAttitudePlot.vue';
 import BaseContributionPlot from './plot/BaseContributionPlot.vue';
+import BaseLawPlot from './plot/BaseLawPlot.vue';
 
 export default {
   name: 'base-person',
   components: {
+    BaseLawPlot,
     BaseContributionPlot,
     BaseAttitudePlot,
     BaseWorklogPlot,
