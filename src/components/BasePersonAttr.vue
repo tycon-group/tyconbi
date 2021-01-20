@@ -15,26 +15,26 @@
             <div style="height: 64px; width: 64px; margin: 0 auto;">
               <img :src="personItem.img" style="border-radius:50%;"
                    height="64" width="64" alt="头像" /></div>
-            <div style="font-size: 14px; text-align: center">
+            <div style="font-size: 14px; text-align: center; color: #303133">
               {{ personItem.en_name }}</div>
             <div style="font-size: 16px; color: #8F9399; text-align: center">
               {{ personItem.zh_name }}</div>
           </div>
           <div
             style="width: 142px; font-size: 14px; margin-left: 24px;">
-            <div style="text-align: start">
+            <div style="text-align: start; color: #303133">
               性别: <span style="color: #8F9399">{{ personItem.gender }}</span></div>
-            <div style="margin-top: 16px; text-align: start">
+            <div style="margin-top: 16px; text-align: start; color: #303133">
               出生年月: <span style="color: #8F9399">{{ personItem.birthday }}</span></div>
-            <div style="margin-top: 16px; text-align: start">
+            <div style="margin-top: 16px; text-align: start; color: #303133">
               学历: <span style="color: #8F9399">{{ personItem.education }}</span></div>
           </div>
           <div style="width: 262px; font-size: 14px; margin-left: 16px;">
-            <div style="text-align: start;">
+            <div style="text-align: start; color: #303133">
               职位: <span style="color: #8F9399">{{ personItem.position[0] }}</span></div>
-            <div style="margin-top: 16px; text-align: start">
+            <div style="margin-top: 16px; text-align: start; color: #303133">
               在职工龄: <span style="color: #8F9399">{{ personItem.yearForWork }}</span></div>
-            <div style="margin-top: 16px; text-align: start">
+            <div style="margin-top: 16px; text-align: start; color: #303133">
               连续工龄: <span style="color: #8F9399">{{ personItem.yearInCompany }}</span></div>
           </div>
         </div>
