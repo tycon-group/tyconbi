@@ -2,7 +2,7 @@
   <div class="contanier">
     <div class="navigation">
       <span  style="font-size: 14px; margin-bottom: 16px;">组织架构</span>
-      <div style="width: 100%;  background-color: #1890ff"><base-company-menu /></div>
+      <div style="width: 100%;"><base-company-menu /></div>
 <!--      组织架构-->
     </div>
     <div class="content">
@@ -13,61 +13,15 @@
                 defaultActiveKey="1"
                 tabPosition="top"
                 size="small"
-                tabBarStyle=""
+                :tabBarStyle="{textAlign: 'left'}"
                 style="width: 100%">
           <a-tab-pane key="1" tab="分布图">
-            <base-person-attr />
+            <BaseDept />
           </a-tab-pane>
           <a-tab-pane key="2" tab="成员信息">
-            Content of Tab Pane 2
+            <BasePerson />
           </a-tab-pane>
         </a-tabs>
-      </div>
-      <div class="footer">
-<!--        Toolbar和列表-->
-        <div class="toolbar" style="height: 40px; display: flex; justify-content: start">
-<!--          选择时间区间-->
-          <a-range-picker v-model:value="value3" style="width: 240px;"/>
-<!--          选择年度 -->
-          <a-select
-            v-model:value="value1"
-            style="width: 120px; margin-left: 24px"
-            @focus="focus"
-            ref="select"
-          >
-            <a-select-option value="jack">
-              Jack
-            </a-select-option>
-            <a-select-option value="lucy">
-              Lucy
-            </a-select-option>
-            <a-select-option value="disabled" disabled>
-              Disabled
-            </a-select-option>
-            <a-select-option value="Yiminghe">
-              yiminghe
-            </a-select-option>
-          </a-select>
-        </div>
-        <div>
-          <a-tabs size="small">
-            <a-tab-pane key="1" tab="总览">
-              Content of Tab Pane 1
-            </a-tab-pane>
-            <a-tab-pane key="2" tab="工作能力">
-              Content of Tab Pane 2
-            </a-tab-pane>
-            <a-tab-pane key="3" tab="工作态度">
-              Content of Tab Pane 3
-            </a-tab-pane>
-             <a-tab-pane key="4" tab="发展潜力">
-              Content of Tab Pane 3
-            </a-tab-pane>
-             <a-tab-pane key="5" tab="突出贡献">
-              Content of Tab Pane 3
-            </a-tab-pane>
-          </a-tabs>
-        </div>
       </div>
     </div>
   </div>
@@ -75,17 +29,17 @@
 
 <script>
 import BaseCompanyMenu from '../components/BaseCompanyMenu.vue';
-import BasePersonAttr from '../components/BasePersonAttr.vue';
+import BaseDept from '../components/BaseDept.vue';
+import BasePerson from '../components/BasePerson.vue';
 
 export default {
   components: {
-    BasePersonAttr,
+    BasePerson,
+    BaseDept,
     BaseCompanyMenu,
   },
   data() {
     return {
-      value1: 'lucy',
-      value3: [],
     };
   },
 };
@@ -98,9 +52,10 @@ export default {
     height:100%;
   }
   .navigation {
-    background: white;
+    /*background: white;*/
     width: 274px;
     min-width: 274px;
+    /*background-color: #0080CC;*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -118,18 +73,12 @@ export default {
     box-shadow: 0 0 10px #F3F3F3;
   }
   .header {
-    height: 272px;
-    /*background: #13c2c2;*/
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 16px;
     border-radius:4px;
     box-shadow: 0 0 10px #F3F3F3;
-  }
-  .footer {
-    flex: auto;
-    /*background: #40a9ff;*/
-    width: 100%;
   }
 </style>
