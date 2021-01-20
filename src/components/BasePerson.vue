@@ -12,7 +12,8 @@
           <base-total-plot />
         </a-tab-pane>
         <a-tab-pane key="2" tab="工作能力">
-          Content of Tab Pane 2
+          <base-worklog-plot />
+          <div style="background-color: #ff425d; height: 72px">dsada</div>
         </a-tab-pane>
         <a-tab-pane key="3" tab="工作态度">
           Content of Tab Pane 3
@@ -33,10 +34,12 @@
 import BasePersonAttr from './BasePersonAttr.vue';
 import BaseToolbar from './BaseToolbar.vue';
 import BaseTotalPlot from './plot/BaseTotalPlot.vue';
+import BaseWorklogPlot from './plot/BaseWorklogPlot.vue';
 
 export default {
   name: 'base-person',
   components: {
+    BaseWorklogPlot,
     BaseTotalPlot,
     BaseToolbar,
     BasePersonAttr,
