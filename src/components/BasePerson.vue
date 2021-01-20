@@ -13,7 +13,42 @@
         </a-tab-pane>
         <a-tab-pane key="2" tab="工作能力">
           <base-worklog-plot />
-          <div style="background-color: #ff425d; height: 72px">dsada</div>
+          <div style="display: flex; justify-content: space-around; height: 72px; margin-top: 4px;">
+            <div style="width: 42px;">
+              <div style="font-size: 14px; font-weight: bold;">日志数</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">12</div>
+            </div>
+            <div style="width: 70px;">
+              <div style="font-size: 14px; font-weight: bold;">日志补写数</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">0</div>
+            </div>
+            <div style="width: 70px;">
+              <div style="font-size: 14px; font-weight: bold;">日志评论数</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">0</div>
+            </div>
+            <div style="width: 42px;">
+              <div style="font-size: 14px; font-weight: bold;">高评数</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">12</div>
+            </div>
+            <div style="width: 140px;">
+              <div style="font-size: 14px; font-weight: bold;">日志评分数</div>
+              <div style="margin-top: 16px; display: flex; justify-content: space-around;">
+                <div style="display: flex; height: 33px;
+                 text-align: center;">
+                  <div style="padding-top: 10px; font-size: 12px;">直属：</div>
+                  <div style="font-size: 24px; color: #0080CC;">8</div>
+                </div>
+                <div style="display:flex; height: 33px; text-align: center;">
+                  <div style="padding-top: 10px; font-size: 12px;">人事：</div>
+                  <div style="font-size: 24px; color: #0080CC;">4</div>
+                </div>
+              </div>
+            </div>
+            <div style="width: 42px;">
+              <div style="font-size: 14px; font-weight: bold;">低评数</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">12</div>
+            </div>
+          </div>
         </a-tab-pane>
         <a-tab-pane key="3" tab="工作态度">
           Content of Tab Pane 3
@@ -30,7 +65,6 @@
 </template>
 
 <script>
-
 import BasePersonAttr from './BasePersonAttr.vue';
 import BaseToolbar from './BaseToolbar.vue';
 import BaseTotalPlot from './plot/BaseTotalPlot.vue';
