@@ -55,7 +55,6 @@ export default {
       data: [uvBillData, transformData],
       xField: 'time',
       yField: ['value', 'count'],
-      seriesField: 'name',
       geometryOptions: [
         {
           geometry: 'column',

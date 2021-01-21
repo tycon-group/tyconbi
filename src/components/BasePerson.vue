@@ -3,7 +3,7 @@
   <div class="footer">
     <!--        Toolbar和列表-->
     <base-toolbar />
-    <div>
+    <div style=" padding-left: 8px;">
       <a-tabs size="small"
               :tabBarStyle="{textAlign: 'left'}">
         <a-tab-pane key="0" tab="总览" style="padding-left: 16px;">
@@ -54,7 +54,7 @@
           <base-attitude-plot />
         </a-tab-pane>
         <a-tab-pane key="3" tab="发展潜力">
-          Content of Tab Pane 3
+          <base-potential-plot />
         </a-tab-pane>
         <a-tab-pane key="4" tab="突出贡献">
           <base-contribution-plot />
@@ -75,10 +75,12 @@ import BaseWorklogPlot from './plot/BaseWorklogPlot.vue';
 import BaseAttitudePlot from './plot/BaseAttitudePlot.vue';
 import BaseContributionPlot from './plot/BaseContributionPlot.vue';
 import BaseLawPlot from './plot/BaseLawPlot.vue';
+import BasePotentialPlot from './plot/BasePotentialPlot.vue';
 
 export default {
   name: 'base-person',
   components: {
+    BasePotentialPlot,
     BaseLawPlot,
     BaseContributionPlot,
     BaseAttitudePlot,
