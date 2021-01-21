@@ -5,6 +5,7 @@
       :expanded-keys="expandedKeys"
       :auto-expand-parent="autoExpandParent"
       :tree-data="gData"
+      replaceFields="{children: 'child',title: 'name', key: 'name'}"
       blockNode="true"
       @expand="onExpand"
     >
