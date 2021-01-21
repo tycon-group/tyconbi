@@ -3,7 +3,7 @@
   <div class="footer">
     <!--        Toolbar和列表-->
     <base-toolbar />
-    <div>
+    <div style=" padding-left: 8px;">
       <a-tabs size="small"
               :tabBarStyle="{textAlign: 'left'}">
         <a-tab-pane key="0" tab="总览" style="padding-left: 16px;">

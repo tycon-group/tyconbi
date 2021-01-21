@@ -76,6 +76,8 @@ export default {
   flex: auto;
   align-items: flex-start;
   overflow: auto;
+  border-radius:4px;
+  box-shadow: 0 0 10px #F3F3F3;
 }
 .tab-group{
   display: flex;
