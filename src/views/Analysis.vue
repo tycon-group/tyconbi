@@ -78,7 +78,5 @@ export default {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 16px;
-    border-radius:4px;
-    box-shadow: 0 0 10px #F3F3F3;
   }
 </style>
