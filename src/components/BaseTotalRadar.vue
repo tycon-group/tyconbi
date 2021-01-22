@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import { Radar } from '@antv/g2plot';
-
 export default {
   name: 'base-total-radar',
   mounted() {
