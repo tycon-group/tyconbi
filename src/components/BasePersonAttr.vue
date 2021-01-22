@@ -4,7 +4,7 @@
     <a-tabs
       :tab-position="mode"
       :style="{ height: '200px', width: '100%',}"
-      :tabBarStyle="{textAlign: 'left'}"
+      :tabBarStyle="{textAlign: 'left', borderBottom: '0'}"
       @prevClick="callback"
       @nextClick="callback"
       v-model:value="this.nameValue"
