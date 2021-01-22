@@ -44,7 +44,8 @@ const worklog = {
   },
   /**
    * 获取我的所有日志
-   * @param id
+   * @param id , 这是使用者的ID，可以加上/?search=xxx/得到个人的所有日志
+   *
    * @returns {Promise<AxiosResponse<any>>}
    */
   getMyAllWorklogs(id) {
