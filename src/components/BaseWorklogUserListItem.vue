@@ -1,7 +1,8 @@
 <template>
+  <div style="display: flex; flex-direction: column; align-items: flex-start; width: 240px">
     <div class="listUserItem">
-      <a-badge :count= userworklogitem.count_of_commented :offset="[-8, 10]">
-        <div style="padding: 12px 16px; width: 178px;">
+      <a-badge :count=userworklogitem.count_of_commented show-zero>
+        <div style="padding: 12px 12px; width: 228px">
           <div style="font-size: 14px; margin-bottom: 8px">
             {{ userworklogitem.name }}
           </div>
@@ -11,6 +12,7 @@
         </div>
       </a-badge>
     </div>
+  </div>
 </template>
 
 <script>
@@ -29,10 +31,8 @@ export default {
 
 <style>
 .listUserItem {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin-top: 8px;
+  margin-bottom: 12px;
   text-align: left;
   border-radius:4px;
   border: 1px solid #F0F2F5;
