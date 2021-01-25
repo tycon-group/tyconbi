@@ -86,6 +86,8 @@ export default {
   /*position: fixed;*/
   width: 274px;
   /*z-index: 2;*/
+  padding-top: 8px;
+  padding-left: 8px;
   margin-bottom: 10px;
   background: white;
 }
