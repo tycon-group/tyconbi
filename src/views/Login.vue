@@ -93,6 +93,16 @@ export default {
         console.log(`token=${mytoken}`);
         this.$store.commit('updateToken', mytoken);
         this.$router.push('/');
+      }).then(() => {
+        const params = {
+          username: this.form.username,
+        };
+        api.hr.getAllEmployees(params).then((value) => {
+          const tempEMP = value.data.results[0];
+          this.$store.commit('updateUserID', tempEMP);
+        }).catch((error) => {
+          console.log(error);
+        });
       }).catch((error) => {
         console.log(error);
         this.$message.error('账号或密码错误');
