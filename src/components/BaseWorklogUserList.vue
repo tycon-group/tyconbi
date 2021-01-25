@@ -1,7 +1,7 @@
 <template>
   <div class="user-list">
     <a-list item-layout="horizontal">
-      <div v-for="item in userWorklog" :key="item.id">
+      <div v-for="item in userWorklog" :key="item.name">
         <base-worklog-user-list-item :userworklogitem=item />
       </div>
     </a-list>
@@ -20,8 +20,8 @@ export default {
       loading: true,
       loadingMore: false,
       showLoadingMore: true,
-      userWorklog: '',
-      count_of_writed: '',
+      userWorklog: [],
+      count_of_writed: 0,
     };
   },
   components: {
@@ -33,11 +33,7 @@ export default {
         type: 'direct',
       };
       api.worklog.getMyEmpWorklogsInfo('D00121', params).then((res) => {
-        const worklo = res.data.data;
-        console.log(res.data.data, '2222');
-        this.count_of_writed = worklo[1].count_of_writed;
-        this.userWorklog = worklo;
-        console.log(this.userWorklog);
+        this.userWorklog = res.data.data;
       }).catch((error) => {
         console.log(error);
       });

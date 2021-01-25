@@ -35,23 +35,6 @@ const worklog = {
     return axios.get(`${base.bi}wl/scores/${id}/`);
   },
   /**
-   * 获取下属的所有日志
-   * @param id
-   * @returns {Promise<AxiosResponse<any>>}
-   */
-  getMyUndoneWorklogs(id) {
-    return axios.get(`${base.bi}wl/myUndoneWorklogs/${id}/`);
-  },
-  /**
-   * 获取我的所有日志
-   * @param id , 这是使用者的ID，可以加上/?search=xxx/得到个人的所有日志
-   *
-   * @returns {Promise<AxiosResponse<any>>}
-   */
-  getMyAllWorklogs(id) {
-    return axios.get(`${base.bi}wl/myAllWorklogs/${id}/`);
-  },
-  /**
    * 上传文件
    * @param param 文件
    * @returns {Promise<AxiosResponse<any>>}
