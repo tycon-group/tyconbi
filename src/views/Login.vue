@@ -60,11 +60,8 @@
       </div>
     </div>
     <div class="right">
-      <div class="bdPic"
-           style="width: 400px; height: 478px; background-color: #FFFFFF;">
         <img src="../assets/bd_right.png"
-             style=" height: 100%; width: 100%;" alt="背景图"/>
-      </div>
+             style="height: 100%;" alt="背景图"/>
     </div>
   </div>
 </template>
@@ -123,7 +120,7 @@ export default {
   padding-top: 100px;
 }
 .right{
-  width: 400px;
+  height: 100vh;
   background: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -135,10 +132,4 @@ export default {
   border-style: solid;
   border-width: 0 0 1px;
 }
-
-.bdPic{
-  background: #2c3e50;
-  width: 500px;
-}
-
 </style>
