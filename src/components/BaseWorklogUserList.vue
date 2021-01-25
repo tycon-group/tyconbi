@@ -4,23 +4,12 @@
       <div v-for="item in userWorklog" :key="item.id">
         <base-worklog-user-list-item :userworklogitem=item />
       </div>
-      <template #loadMore>
-        <div
-          v-if="showLoadingMore"
-          :style="{ textAlign: 'center', marginTop: '12px',
-              height: '32px', lineHeight: '32px' }"
-        >
-          <a-spin v-if="loadingMore" />
-          <base-button-loading-more v-else @click="onLoadMore"/>
-        </div>
-      </template>
     </a-list>
   </div>
 </template>
 
 <script>
 import BaseWorklogUserListItem from './BaseWorklogUserListItem.vue';
-import BaseButtonLoadingMore from './BaseButtonLoadingMore.vue';
 
 export default {
   name: 'base-worklog-user-list',
@@ -68,7 +57,6 @@ export default {
     };
   },
   components: {
-    BaseButtonLoadingMore,
     BaseWorklogUserListItem,
   },
   created() {
