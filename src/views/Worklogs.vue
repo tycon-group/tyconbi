@@ -2,11 +2,13 @@
   <div class="contanier">
     <div class="navigation">
       <div class="tab-group">
-        <a-tabs type="card"
+        <a-tabs type="line"
                 defaultActiveKey="1"
                 tabPosition="top"
                 size="small"
-                tabBarStyle="">
+                tabBarGutter="60px"
+                :tabBarStyle="{textAlign: 'left', width: '228px',
+                 borderRadius: '6px', boxShadow: '0 2px 6px #F3F3F3'}">
           <a-tab-pane key="1" tab="本部门">
             <base-worklog-user-list :deptKey = 1 />
           </a-tab-pane>
@@ -63,8 +65,8 @@ export default {
 }
 .navigation {
   background: white;
-  width: 178px;
-  min-width: 178px;
+  width: 274px;
+  min-width: 274px;
   height: 100%;
   display: flex;
   overflow: auto;
@@ -82,7 +84,7 @@ export default {
 .tab-group{
   display: flex;
   /*position: fixed;*/
-  width: 178px;
+  width: 274px;
   /*z-index: 2;*/
   margin-bottom: 10px;
   background: white;
