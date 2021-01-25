@@ -10,6 +10,7 @@
 
 <script>
 import BaseWorklogUserListItem from './BaseWorklogUserListItem.vue';
+import api from '../api/index';
 
 export default {
   name: 'base-worklog-user-list',
@@ -20,56 +21,27 @@ export default {
       loadingMore: false,
       showLoadingMore: true,
       userWorklog: '',
-      userWorklog1: [
-        {
-          name: '顾晓群',
-          surplus: 12,
-          whole: 22,
-        },
-        {
-          name: '陈颖蓓',
-          surplus: 1,
-          whole: 12,
-        },
-        {
-          name: '施维雯',
-          surplus: 20,
-          whole: 22,
-        },
-      ],
-      userWorklog2: [
-        {
-          name: '顾晓群2',
-          surplus: 12,
-          whole: 22,
-        },
-        {
-          name: '陈颖蓓2',
-          surplus: 1,
-          whole: 12,
-        },
-        {
-          name: '施维雯2',
-          surplus: 20,
-          whole: 22,
-        },
-      ],
+      count_of_writed: '',
     };
   },
   components: {
     BaseWorklogUserListItem,
   },
   created() {
-    if (this.deptKey === 1) {
-      this.userWorklog = this.userWorklog1;
-    } else {
-      this.userWorklog = this.userWorklog2;
-    }
-  },
-  methods: {
-    onLoadMore() {
-      console.log('点击了加载更多。');
-    },
+    setTimeout(() => {
+      const params = {
+        type: 'direct',
+      };
+      api.worklog.getMyEmpWorklogsInfo('D00121', params).then((res) => {
+        const worklo = res.data.data;
+        console.log(res.data.data, '2222');
+        this.count_of_writed = worklo[1].count_of_writed;
+        this.userWorklog = worklo;
+        console.log(this.userWorklog);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }, 200);
   },
 };
 </script>

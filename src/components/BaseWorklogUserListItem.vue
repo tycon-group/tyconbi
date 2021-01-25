@@ -1,12 +1,12 @@
 <template>
     <div class="listUserItem">
-      <a-badge :count= userworklogitem.surplus :offset="[-8, 10]">
+      <a-badge :count= userworklogitem.count_of_commented :offset="[-8, 10]">
         <div style="padding: 12px 16px; width: 178px;">
           <div style="font-size: 14px; margin-bottom: 8px">
             {{ userworklogitem.name }}
           </div>
           <div style="font-size: 12px">
-            本月测评({{ userworklogitem.surplus}} / {{ userworklogitem.whole}})
+            本月测评({{ userworklogitem.count_of_commented}} / {{ userworklogitem.count_of_writed}})
           </div>
         </div>
       </a-badge>
@@ -20,6 +20,9 @@ export default {
   data() {
     return {
     };
+  },
+  mounted() {
+    console.log(this.userworklogitem, 'wewqeqweq');
   },
 };
 </script>

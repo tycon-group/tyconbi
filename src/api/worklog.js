@@ -68,6 +68,16 @@ const worklog = {
   doAnalyse(id, params) {
     return axios.post(`${base.bi}wl/doAnalyse/${id}/`, qs.stringify(params));
   },
+  /**
+   * 获取我的下属人员日志详情
+   * @param id , 这是使用者的ID，可以加上/?type=xxx，year,month得到个人的当前日志情况
+   *
+   * @param params
+   * @returns {Promise<AxiosResponse<any>>}
+   */
+  getMyEmpWorklogsInfo(id, params) {
+    return axios.get(`${base.bi}wl/myEmpWorklogsInfo/${id}/`, { params });
+  },
 };
 
 export default worklog;
