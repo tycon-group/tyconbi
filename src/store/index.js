@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     token: '',
+    userID: '',
   },
   mutations: {
     /**
@@ -14,9 +15,14 @@ export default createStore({
       console.log(`store更新token:${token}`);
       state.token = token;
     },
+    updateUserID(state, userID) {
+      console.log(`store更新userID:${userID}`);
+      state.userID = userID;
+    },
   },
   getters: {
     token: (state) => state.token,
+    userID: (state) => state.userID,
   },
   actions: {
   },

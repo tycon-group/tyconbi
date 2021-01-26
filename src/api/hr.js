@@ -8,8 +8,8 @@ const hr = {
    * 获取所有员工
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getAllEmployees() {
-    return axios.get(`${base.bi}hr/employees/`);
+  getAllEmployees(params) {
+    return axios.get(`${base.bi}hr/employees/`, { params });
   },
   /**
    * 获取员工
