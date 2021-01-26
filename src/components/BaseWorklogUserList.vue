@@ -35,9 +35,8 @@ export default {
       this.type = 'cross';
     }
     // 获取人员表
-    const empID = this.$store.state;
-    if (empID !== '') {
-      api.worklog.getMyEmpWorklogsInfo(empID, {
+    if (this.$store.state.empID !== '') {
+      api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
         type: this.type,
       }).then((res) => {
         this.userWorklog = res.data.data;
