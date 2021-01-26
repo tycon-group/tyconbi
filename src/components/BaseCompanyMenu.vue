@@ -23,8 +23,6 @@
 <script>
 import api from '../api';
 
-const gData = [];
-
 const dataList = [];
 const generateList = (data) => {
   // eslint-disable-next-line no-plusplus
@@ -37,7 +35,6 @@ const generateList = (data) => {
     }
   }
 };
-generateList(gData);
 
 const getParentKey = (key, tree) => {
   let parentKey;
@@ -59,7 +56,7 @@ export default {
   data() {
     return {
       expandedKeys: [],
-      gData,
+      gData: [],
       searchValue: '',
       autoExpandParent: true,
     };
@@ -74,7 +71,7 @@ export default {
       const expandedKeys = dataList
         .map((item) => {
           if (item.title.indexOf(value) > -1) {
-            return getParentKey(item.key, gData);
+            return getParentKey(item.key, this.gData);
           }
           return null;
         })
@@ -88,11 +85,11 @@ export default {
   },
   created() {
     setTimeout(() => {
-      const empID = 'D00121';
-      api.hr.getOrgTree(empID).then((res) => {
+      api.hr.getOrgTree(this.$store.state.empID).then((res) => {
         // eslint-disable-next-line no-const-assign
         console.log(res.data.data);
         this.gData = res.data.data;
+        generateList(this.gData);
       }).catch((error) => {
         console.log(error);
       });
