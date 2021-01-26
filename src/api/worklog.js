@@ -8,8 +8,8 @@ const worklog = {
    * 获取所有日志
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getAllWorklogs() {
-    return axios.get(`${base.bi}wl/worklogs/`);
+  getAllWorklogs(params) {
+    return axios.get(`${base.bi}wl/worklogs/`, { params });
   },
   /**
    * 获取日志

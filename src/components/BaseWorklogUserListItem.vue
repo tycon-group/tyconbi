@@ -2,7 +2,7 @@
   <div style="display: flex; flex-direction: column; align-items: flex-start; width: 240px">
     <div class="listUserItem">
       <a-badge :count=userworklogitem.count_of_commented show-zero>
-        <div style="padding: 12px 12px; width: 228px">
+        <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
           <div style="font-size: 14px; margin-bottom: 8px">
             {{ userworklogitem.name }}
           </div>
@@ -16,12 +16,27 @@
 </template>
 
 <script>
+import api from '../api/index';
+
 export default {
   name: 'base-worklog-user-list-item',
   props: ['userworklogitem'],
   data() {
     return {
     };
+  },
+  methods: {
+    ClickItem() {
+      this.$message.success('点击');
+      api.worklog.getAllWorklogs({
+        empname: this.userworklogitem.name,
+      }).then((value) => {
+        const a = value;
+        console.log(a);
+      }).catch((error) => {
+        console.log(error);
+      });
+    },
   },
 };
 </script>
