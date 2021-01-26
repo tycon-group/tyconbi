@@ -28,22 +28,23 @@ export default {
     BaseWorklogUserListItem,
   },
   created() {
-    setTimeout(() => {
-      //  判断组织
-      if (this.deptKey === 1) {
-        this.type = 'direct';
-      } else {
-        this.type = 'cross';
-      }
-      // 获取人员表
-      api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
+    //  判断组织
+    if (this.deptKey === 1) {
+      this.type = 'direct';
+    } else {
+      this.type = 'cross';
+    }
+    // 获取人员表
+    const empID = this.$store.state;
+    if (empID !== '') {
+      api.worklog.getMyEmpWorklogsInfo(empID, {
         type: this.type,
       }).then((res) => {
         this.userWorklog = res.data.data;
       }).catch((error) => {
         console.log(error);
       });
-    }, 200);
+    }
   },
 };
 </script>
