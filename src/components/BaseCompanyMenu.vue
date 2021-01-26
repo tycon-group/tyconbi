@@ -89,16 +89,16 @@ export default {
     },
   },
   created() {
-    setTimeout(() => {
+    if (this.$store.state.empID !== '') {
       api.hr.getOrgTree(this.$store.state.empID).then((res) => {
-        // eslint-disable-next-line no-const-assign
+      // eslint-disable-next-line no-const-assign
         console.log(res.data.data);
         this.gData = res.data.data;
         generateList(this.gData);
       }).catch((error) => {
         console.log(error);
       });
-    }, 200);
+    }
   },
 };
 </script>
