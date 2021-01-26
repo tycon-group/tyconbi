@@ -64,20 +64,12 @@ const hr = {
     return axios.get(`${base.bi}hr/listOrgAndEmp/`);
   },
   /**
-   * 获取部门和人员
+   * 获取组织架构树
    * @param id
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getTheOrgAndEmp(id) {
-    return axios.get(`${base.bi}hr/orgAndEmpDetail/${id}/`);
-  },
-  /**
-   * 使用Path获取组织
-   * @param path
-   * @returns {Promise<AxiosResponse<any>>}
-   */
-  getOrganizationByPath(path) {
-    return axios.get(`${base.bi}hr/organizations/path/${path}/`);
+  getOrgTree(id) {
+    return axios.get(`${base.bi}hr/orgTree/${id}/`);
   },
   /**
    * 获取所有的任职

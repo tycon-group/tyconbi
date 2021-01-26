@@ -5,7 +5,6 @@
       :expanded-keys="expandedKeys"
       :auto-expand-parent="autoExpandParent"
       :tree-data="gData"
-      replaceFields="{children: 'child',title: 'name', key: 'name'}"
       blockNode="true"
       @expand="onExpand"
     >
@@ -22,17 +21,9 @@
 </template>
 
 <script>
-const gData = [
-  {
-    key: '上海太江集团',
-    title: '上海太江集团',
-    children: [{
-      key: '上海太江信息科技有限公司',
-      title: '上海太江信息科技有限公司',
-      children: [],
-    }],
-  },
-];
+import api from '../api';
+
+const gData = [];
 
 const dataList = [];
 const generateList = (data) => {
@@ -94,6 +85,18 @@ export default {
         autoExpandParent: true,
       });
     },
+  },
+  created() {
+    setTimeout(() => {
+      const empID = 'D00121';
+      api.hr.getOrgTree(empID).then((res) => {
+        // eslint-disable-next-line no-const-assign
+        console.log(res.data.data);
+        this.gData = res.data.data;
+      }).catch((error) => {
+        console.log(error);
+      });
+    }, 200);
   },
 };
 </script>
