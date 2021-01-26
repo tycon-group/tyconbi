@@ -7,6 +7,7 @@
       :tree-data="gData"
       blockNode="true"
       @expand="onExpand"
+      @select="onSelect"
     >
       <template #title="{ title }">
         <span v-if="title.indexOf(searchValue) > -1">
@@ -81,6 +82,10 @@ export default {
         searchValue: value,
         autoExpandParent: true,
       });
+    },
+    onSelect(selectedKeys, info) {
+      this.$store.commit('updatePickOrgDataID', info.selectedNodes[0].props.data_id);
+      console.log(this.$store.state.pickOrgDataID);
     },
   },
   created() {
