@@ -87,25 +87,23 @@ export default {
         username: this.form.username,
         password: this.form.password,
       }).then((res) => {
-        console.log(res);
         this.$message.success('登录成功');
         const mytoken = `JWT ${res.data.token}`;
         console.log(`token=${mytoken}`);
         this.$store.commit('updateToken', mytoken);
-        this.$router.push('/');
-      }).then(() => {
-        const params = {
+        api.hr.getAllEmployees({
           username: this.form.username,
-        };
-        api.hr.getAllEmployees(params).then((value) => {
+          isOnStaff: true,
+        }).then((value) => {
           const tempEMP = value.data.results[0].empID;
-          this.$store.commit('updateUserID', tempEMP);
+          this.$store.commit('updateEmpID', tempEMP);
         }).catch((error) => {
           console.log(error);
         });
+        this.$router.push('/');
       }).catch((error) => {
         console.log(error);
-        this.$message.error('账号或密码错误');
+        this.$message.error('登陆失败');
       });
     },
   },
