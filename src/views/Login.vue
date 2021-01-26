@@ -98,7 +98,7 @@ export default {
           username: this.form.username,
         };
         api.hr.getAllEmployees(params).then((value) => {
-          const tempEMP = value.data.results[0];
+          const tempEMP = value.data.results[0].empID;
           this.$store.commit('updateUserID', tempEMP);
         }).catch((error) => {
           console.log(error);

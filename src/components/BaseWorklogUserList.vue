@@ -22,7 +22,6 @@ export default {
       showLoadingMore: true,
       type: '',
       userWorklog: [],
-      count_of_writed: 0,
     };
   },
   components: {
@@ -30,8 +29,8 @@ export default {
   },
   created() {
     setTimeout(() => {
-      // 获取使用者id
-
+      // 获取使用者id, 注意userId和userID，前者才是具体值
+      const userId = this.$store.state.userID;
       //  判断组织
       if (this.deptKey === 1) {
         this.type = 'direct';
@@ -42,7 +41,7 @@ export default {
         type: this.type,
       };
       // 获取人员表
-      api.worklog.getMyEmpWorklogsInfo('D00121', params).then((res) => {
+      api.worklog.getMyEmpWorklogsInfo(userId, params).then((res) => {
         this.userWorklog = res.data.data;
       }).catch((error) => {
         console.log(error);
