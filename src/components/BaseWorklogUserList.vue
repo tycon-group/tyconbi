@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 50px; min-width: 228px;">
+  <div style="margin-top: 42px; min-width: 228px;">
     <a-list item-layout="horizontal">
       <div v-for="item in userWorklog" :key="item.name">
         <base-worklog-user-list-item :userworklogitem=item />

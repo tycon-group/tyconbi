@@ -61,7 +61,7 @@ export default {
     flex-direction: column;
     align-items: start;
     overflow: auto;
-    padding: 16px;
+    padding: 8px;
   }
   .content {
     display: flex;

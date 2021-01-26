@@ -29,7 +29,7 @@ export default {
 <style>
 .listUserItem {
   margin-top: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   text-align: left;
   border-radius:4px;
   border: 1px solid #F0F2F5;
