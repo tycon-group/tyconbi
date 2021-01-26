@@ -66,10 +66,8 @@ export default {
 .navigation {
   background: white;
   width: 274px;
-  min-width: 274px;
+  display: flex;
   height: 100%;
-  flex: 1;
-  overflow: auto;
 }
 .content {
   display: flex;
@@ -82,13 +80,12 @@ export default {
   box-shadow: 0 0 10px #F3F3F3;
 }
 .tab-group{
-  display: flex;
-  /*position: fixed;*/
   width: 274px;
-  /*z-index: 2;*/
   padding-left: 8px;
   margin-bottom: 10px;
   background: white;
+  flex: 1;
+  overflow: auto;
 }
 
 .list-content {
