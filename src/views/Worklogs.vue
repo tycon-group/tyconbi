@@ -7,8 +7,8 @@
                 tabPosition="top"
                 size="small"
                 tabBarGutter="60px"
-                :tabBarStyle="{textAlign: 'left', width: '228px',
-                 borderRadius: '6px', boxShadow: '0 2px 6px #F3F3F3'}">
+                :tabBarStyle="{textAlign: 'left', width: '228px', position: 'fixed', zIndex:'2',
+                backgroundColor: 'white', borderRadius: '6px', boxShadow: '0 2px 6px #F3F3F3'}">
           <a-tab-pane key="1" tab="本部门">
             <base-worklog-user-list :deptKey = 1 />
           </a-tab-pane>
