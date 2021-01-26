@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align: start">
+  <div style="text-align: start; width: 228px">
     <a-input-search style="margin-bottom: 8px" placeholder="Search" @change="onChange" />
     <a-tree
       :expanded-keys="expandedKeys"
