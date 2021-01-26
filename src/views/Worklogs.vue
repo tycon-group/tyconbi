@@ -68,7 +68,7 @@ export default {
   width: 274px;
   min-width: 274px;
   height: 100%;
-  display: flex;
+  flex: 1;
   overflow: auto;
 }
 .content {
