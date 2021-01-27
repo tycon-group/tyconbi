@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex; flex-direction: column; align-items: flex-start; width: 240px">
     <div class="listUserItem">
-      <a-badge :count=this.realCount show-zero>
+      <a-badge :count=this.realCount>
         <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
           <div style="font-size: 14px; margin-bottom: 8px">
             {{ empworklogitem.name }}
