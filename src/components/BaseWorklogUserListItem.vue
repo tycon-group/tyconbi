@@ -33,10 +33,10 @@ export default {
     ClickItem() {
       this.$message.success('点击');
       api.worklog.getAllWorklogs({
-        empname: this.empworklogitem.name,
+        name: this.empworklogitem.name,
       }).then((value) => {
-        const a = value;
-        console.log(a);
+        const peopleAllWorklogs = value.data.results;
+        this.$store.commit('updatePeopleAllWorklogs', peopleAllWorklogs);
       }).catch((error) => {
         console.log(error);
       });
