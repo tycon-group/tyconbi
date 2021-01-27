@@ -1,13 +1,13 @@
 <template>
   <div style="display: flex; flex-direction: column; align-items: flex-start; width: 240px">
     <div class="listUserItem">
-      <a-badge :count=userworklogitem.count_of_commented show-zero>
+      <a-badge :count=this.realCount show-zero>
         <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
           <div style="font-size: 14px; margin-bottom: 8px">
-            {{ userworklogitem.name }}
+            {{ empworklogitem.name }}
           </div>
           <div style="font-size: 12px">
-            本月测评({{ userworklogitem.count_of_commented}} / {{ userworklogitem.count_of_writed}})
+            本月测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
           </div>
         </div>
       </a-badge>
@@ -20,16 +20,20 @@ import api from '../api/index';
 
 export default {
   name: 'base-worklog-user-list-item',
-  props: ['userworklogitem'],
+  props: ['empworklogitem'],
   data() {
     return {
+      realCount: 0,
     };
+  },
+  created() {
+    this.realCount = this.empworklogitem.count_of_commented - this.empworklogitem.count_of_scored;
   },
   methods: {
     ClickItem() {
       this.$message.success('点击');
       api.worklog.getAllWorklogs({
-        empname: this.userworklogitem.name,
+        empname: this.empworklogitem.name,
       }).then((value) => {
         const a = value;
         console.log(a);
