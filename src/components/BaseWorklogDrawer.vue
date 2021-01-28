@@ -1,7 +1,7 @@
 <template>
   <div class="drawer">
     <div>
-      <span class="title">撰写时间： </span>{{ worklogitem.createdTime }}
+      <span class="title">撰写时间： </span>{{ worklogitem.write_time }}
     </div>
     <div class="items">
       <div style="margin-bottom: 8px">
@@ -9,29 +9,33 @@
       </div>
       <div style="
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 background-color: #F0F2F5;
-                padding: 8px 16px;"
-           v-for="planItem in worklogitem.plan" :key="planItem.id">
-        <div style="margin-right: 8px">
-          <CheckCircleFilled style="font-size: 16px; color: #52C41B" v-if="planItem.flag === true"/>
-          <ClockCircleFilled  style="font-size: 16px" v-else/>
+                padding: 8px 16px;">
+        <div style="margin-right: 8px; display: flex;"
+             v-for="planItem in worklogitem.daily_plan.done" :key="planItem.index">
+          <CheckCircleFilled style="padding-top:3px; padding-left: 4px;
+             font-size: 16px; color: #52C41B" v-show="planItem !== ''"/>
+          <div style="padding-left: 8px;">{{ planItem }}</div>
         </div>
-        <div>
-          {{ planItem.content }}
+        <div style="margin-right: 8px; display: flex;"
+        v-for="planItem2 in worklogitem.daily_plan.undone" :key="planItem2.index">
+          <ClockCircleFilled  style="padding-top:3px; padding-left: 4px;
+          font-size: 16px" v-show="planItem2 !== ''"/>
+          <div style="padding-left: 8px">{{ planItem2 }}</div>
         </div>
       </div>
     </div>
     <div class="items">
       <span class="title">工作记录：</span>
-      <div class="cont">
-        {{ worklogitem.dayLog }}
+      <div class="cont" v-for="workItem in worklogitem.work_records" :key="workItem.index">
+        {{ workItem.data }}
       </div>
     </div>
     <div class="items">
       <span class="title">工作小结：</span>
       <div class="cont">
-        {{ worklogitem.dayUnit }}
+        {{ worklogitem.work_summary }}
       </div>
     </div>
     <div class="items">
@@ -39,14 +43,14 @@
       <div class="cont">
         <div style="font-size: 12px; display: flex; flex-direction: row;">
           <div>
-            {{ worklogitem.commit.commitPerson }} ({{ worklogitem.commit.dept }})
+            {{ worklogitem.comments.commentator }}
           </div>
           <div style="color: #8F9399; margin-left: 15px;">
-            {{ worklogitem.commit.commitTime }}
+            {{ worklogitem.comments.comment_time }}
           </div>
         </div>
         <div style="font-size: 14px; margin-top: 8px;">
-          {{ worklogitem.commit.commitContent }}
+          {{ worklogitem.comments.content }}
         </div>
       </div>
     </div>
@@ -63,7 +67,7 @@
         <a-textarea
           v-model:value="textarea_value"
           placeholder="评分不为3分，则必须写明理由！"
-          :auto-size="{ minRows: 6, maxRows: 12, }"
+          :auto-size="{ minRows: 6, maxRows: 12 }"
         />
       </div>
       <div class="footer_btn">
