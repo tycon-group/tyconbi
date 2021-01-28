@@ -11,7 +11,16 @@
                 display: flex;
                 flex-direction: column;
                 background-color: #F0F2F5;
-                padding: 8px 16px;">
+                padding: 8px 16px;
+                text-align: center;"
+           v-if="worklogitem.daily_plan.done[0] === '' && worklogitem.daily_plan.undone[0] === ''">
+        <span style="font-size:16px; color: #8F9399">暂无记录</span>
+      </div>
+      <div style="
+                display: flex;
+                flex-direction: column;
+                background-color: #F0F2F5;
+                padding: 8px 16px;" v-else>
         <div style="margin-right: 8px; display: flex;"
              v-for="planItem in worklogitem.daily_plan.done" :key="planItem.index">
           <CheckCircleFilled style="padding-top:3px; padding-left: 4px;
@@ -28,30 +37,41 @@
     </div>
     <div class="items">
       <span class="title">工作记录：</span>
-      <div class="cont" v-for="workItem in worklogitem.work_records" :key="workItem.index">
-        {{ workItem.data }}
+      <div class="cont" v-if="worklogitem.work_records[0].data !== ''">
+        <div v-for="workItem in worklogitem.work_records" :key="workItem.index">
+          <div>{{ workItem.data }}</div>
+        </div>
+      </div>
+      <div class="cont" style="text-align: center;" v-else>
+        <span style="font-size:16px; color: #8F9399">暂无记录</span>
       </div>
     </div>
     <div class="items">
       <span class="title">工作小结：</span>
-      <div class="cont">
+      <div class="cont" v-if="worklogitem.work_summary !== ''">
         {{ worklogitem.work_summary }}
+      </div>
+      <div class="cont" style="text-align: center;" v-else>
+        <span style="font-size:16px; color: #8F9399">暂无记录</span>
       </div>
     </div>
     <div class="items">
       <span class="title">评阅记录：</span>
-      <div class="cont">
+      <div class="cont" v-if="worklogitem.comments.length !== 0">
         <div style="font-size: 12px; display: flex; flex-direction: row;">
           <div>
-            {{ worklogitem.comments.commentator }}
+            {{ worklogitem.comments[0].commentator }}
           </div>
           <div style="color: #8F9399; margin-left: 15px;">
-            {{ worklogitem.comments.comment_time }}
+            {{ worklogitem.comments[0].comment_time }}
           </div>
         </div>
         <div style="font-size: 14px; margin-top: 8px;">
-          {{ worklogitem.comments.content }}
+          {{ worklogitem.comments[0].content }}
         </div>
+      </div>
+      <div class="cont" style="text-align: center;" v-else>
+        <span style="font-size:16px; color: #8F9399">暂无记录</span>
       </div>
     </div>
     <div class="items">
