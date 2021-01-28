@@ -20,6 +20,8 @@
 import BaseWorklogPrewListItem from './BaseWorklogPrewListItem.vue';
 import BaseButtonLoadingMore from './BaseButtonLoadingMore.vue';
 
+import api from '../api/index';
+
 export default {
   name: 'base-worklog-prew-list',
   data() {
@@ -136,11 +138,33 @@ export default {
           },
         },
       ],
+      peoplename: '',
     };
   },
   components: {
     BaseButtonLoadingMore,
     BaseWorklogPrewListItem,
+  },
+  watch: {
+    peopleName: {
+      handler(peopleName) {
+        api.worklog.getAllWorklogs({
+          name: peopleName,
+        }).then((value) => {
+          const peopleAllWorklogs = value.data.results;
+          console.log(peopleAllWorklogs);
+        }).catch((error) => {
+          console.log(error);
+        });
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+  computed: {
+    peopleName() {
+      return this.$store.state.peopleName;
+    },
   },
   methods: {
     onLoadMore() {

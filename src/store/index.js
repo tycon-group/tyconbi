@@ -4,6 +4,7 @@ export default createStore({
   state: {
     token: '',
     empID: '',
+    peopleName: '',
   },
   mutations: {
     /**
@@ -17,10 +18,14 @@ export default createStore({
     updateEmpID(state, empID) {
       state.empID = empID;
     },
+    updatePeopleName(state, peopleName) {
+      state.peopleName = peopleName;
+    },
   },
   getters: {
     token: (state) => state.token,
     empID: (state) => state.empID,
+    peopleName: (state) => state.peopleName,
   },
   actions: {
   },

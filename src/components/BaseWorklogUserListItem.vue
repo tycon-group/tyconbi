@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import api from '../api/index';
 
 export default {
   name: 'base-worklog-user-list-item',
@@ -31,15 +30,9 @@ export default {
   },
   methods: {
     ClickItem() {
-      this.$message.success('点击');
-      api.worklog.getAllWorklogs({
-        name: this.empworklogitem.name,
-      }).then((value) => {
-        const peopleAllWorklogs = value.data.results;
-        this.$store.commit('updatePeopleAllWorklogs', peopleAllWorklogs);
-      }).catch((error) => {
-        console.log(error);
-      });
+      this.$message.success(`点击${this.empworklogitem.name}`);
+      this.$store.commit('updatePeopleName', this.empworklogitem.name);
+      // console.log(this.$store.state.peopleName, 'ceshi测试');
     },
   },
 };
