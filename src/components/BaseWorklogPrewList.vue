@@ -138,7 +138,6 @@ export default {
           },
         },
       ],
-      peoplename: '',
     };
   },
   components: {
@@ -148,14 +147,19 @@ export default {
   watch: {
     peopleName: {
       handler(peopleName) {
-        api.worklog.getAllWorklogs({
-          name: peopleName,
-        }).then((value) => {
-          const peopleAllWorklogs = value.data.results;
-          console.log(peopleAllWorklogs);
-        }).catch((error) => {
-          console.log(error);
-        });
+        if (peopleName === '') {
+          this.worklog = [];
+        } else {
+          api.worklog.getAllWorklogs({
+            name: peopleName,
+          }).then((value) => {
+            const peopleAllWorklogs = value.data.results;
+            this.worklog = peopleAllWorklogs;
+            console.log(peopleAllWorklogs);
+          }).catch((error) => {
+            console.log(error);
+          });
+        }
       },
       deep: true,
       immediate: true,
