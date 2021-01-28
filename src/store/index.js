@@ -5,6 +5,7 @@ export default createStore({
     token: '',
     empID: '',
     peopleName: '',
+    type: '',
   },
   mutations: {
     /**
@@ -21,11 +22,15 @@ export default createStore({
     updatePeopleName(state, peopleName) {
       state.peopleName = peopleName;
     },
+    updateType(state, type) {
+      state.type = type;
+    },
   },
   getters: {
     token: (state) => state.token,
     empID: (state) => state.empID,
     peopleName: (state) => state.peopleName,
+    type: (state) => state.type,
   },
   actions: {
   },

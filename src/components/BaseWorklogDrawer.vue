@@ -123,8 +123,8 @@ export default {
     submitOneTime() {
       this.$message.success('提交被点击');
       const param = new URLSearchParams();
-      param.append('worklog', this.keyID);
-      param.append('type', this.type1s);
+      param.append('worklog', this.worklogitems.id);
+      param.append('type', this.$store.state.type);
       param.append('score', this.mark_value);
       param.append('remarks', this.textarea_value);
       param.append('author', this.username);

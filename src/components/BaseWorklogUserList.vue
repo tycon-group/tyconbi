@@ -35,9 +35,10 @@ export default {
       } else {
         this.type = 'cross';
       }
+      this.$store.commit('updateType', this.type);
       // 获取人员表
       api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
-        type: this.type,
+        type: this.$store.state.type,
       }).then((res) => {
         this.empWorklog = res.data.data;
       }).catch((error) => {
