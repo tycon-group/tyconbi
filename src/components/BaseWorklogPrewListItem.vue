@@ -7,10 +7,10 @@
           <img src="../assets/1分.png" style="height: 12px; width: 26px; margin-right: 10px">
         </span>
         <span style="font-size: 14px;">
-          {{ worklogitem.createdTime }}
+          {{ worklogitem.date }}
         </span>
         <span style="font-size: 14px; margin-left: 10px;">
-          {{ this.infos.content }}s
+          {{ this.dayPlan }}
         </span>
       </div>
   </div>
@@ -23,7 +23,7 @@
     :after-visible-change="afterVisibleChange"
     @close="onClose"
   >
-    <base-worklog-drawer :worklogitem="this.worklogitem"/>
+    <base-worklog-drawer :worklogitem="this.worklogitem.data"/>
   </a-drawer>
 </template>
 
@@ -39,8 +39,18 @@ export default {
   data() {
     return {
       visible: false,
-      infos: this.worklogitem.plan[0],
+      dayPlan: '',
     };
+  },
+  mounted() {
+    const dayPlans = this.worklogitem.data.daily_plan.done
+      .concat(this.worklogitem.data.daily_plan.undone);
+    if (dayPlans[0] === '') {
+      this.dayPlan = '当天未写计划～';
+    } else {
+      // eslint-disable-next-line prefer-destructuring
+      this.dayPlan = dayPlans[0];
+    }
   },
   methods: {
     afterVisibleChange(val) {
