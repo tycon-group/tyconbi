@@ -23,7 +23,7 @@
     :after-visible-change="afterVisibleChange"
     @close="onClose"
   >
-    <base-worklog-drawer :worklogitem="this.worklogitem.data"/>
+    <base-worklog-drawer :worklogitems="this.worklogitem"/>
   </a-drawer>
 </template>
 

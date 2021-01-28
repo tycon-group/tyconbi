@@ -110,17 +110,40 @@ export default {
     CheckCircleFilled,
     ClockCircleFilled,
   },
-  props: ['worklogitem'],
+  props: ['worklogitems'],
   data() {
     return {
       mark_value: 3,
       desc: ['1分', '2分', '3分', '4分', '5分'],
       textarea_value: '',
+      worklogitem: this.worklogitems.data,
     };
   },
   methods: {
     submitOneTime() {
       this.$message.success('提交被点击');
+      const param = new URLSearchParams();
+      param.append('worklog', this.keyID);
+      param.append('type', this.type1s);
+      param.append('score', this.mark_value);
+      param.append('remarks', this.textarea_value);
+      param.append('author', this.username);
+      const tokens = 'JWT my_token';
+      const instance = this.$http.create({ headers: { 'content-type': 'application/x-www-form-urlencoded', Authorization: tokens } });
+      instance.post('https://tyconcps.cn:4399/wl/scores/', param).then((response) => {
+        console.log(response);
+        this.$message.success('提交成功');
+        // window.location.reload(); // 一段空白
+        // this.$router.go(0);// 一段空白
+        // 跳转到不存在页面再返回当前页面
+        const NewPage = `_empty?time=${new Date().getTime() / 500}`;
+        this.$router.push(NewPage);
+        this.$router.go(-1);
+        console.log('运行到这里了');
+      }).catch((error) => {
+        console.log(error);
+        this.$message.error('提交失败，请重试！');
+      });
     },
   },
 };
