@@ -32,7 +32,6 @@ export default {
     ClickItem() {
       this.$message.success(`点击${this.empworklogitem.name}`);
       this.$store.commit('updatePeopleName', this.empworklogitem.name);
-      // console.log(this.$store.state.peopleName, 'ceshi测试');
     },
   },
 };
