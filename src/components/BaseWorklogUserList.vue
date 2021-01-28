@@ -1,8 +1,8 @@
 <template>
   <div style="margin-top: 42px; min-width: 228px;">
     <a-list item-layout="horizontal">
-      <div v-for="item in userWorklog" :key="item.name">
-        <base-worklog-user-list-item :userworklogitem=item />
+      <div v-for="item in empWorklog" :key="item.name">
+        <base-worklog-user-list-item :empworklogitem=item />
       </div>
     </a-list>
   </div>
@@ -21,7 +21,7 @@ export default {
       loadingMore: false,
       showLoadingMore: true,
       type: '',
-      userWorklog: [],
+      empWorklog: [],
     };
   },
   components: {
@@ -39,7 +39,7 @@ export default {
       api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
         type: this.type,
       }).then((res) => {
-        this.userWorklog = res.data.data;
+        this.empWorklog = res.data.data;
       }).catch((error) => {
         console.log(error);
       });
