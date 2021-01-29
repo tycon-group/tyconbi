@@ -27,24 +27,22 @@ export default {
   components: {
     BaseWorklogUserListItem,
   },
-  created() {
-    setTimeout(() => {
-      //  判断组织
-      if (this.deptKey === 1) {
-        this.type = 'direct';
-      } else {
-        this.type = 'cross';
-      }
-      this.$store.commit('updateType', this.type);
-      // 获取人员表
-      api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
-        type: this.$store.state.type,
-      }).then((res) => {
-        this.empWorklog = res.data.data;
-      }).catch((error) => {
-        console.log(error);
-      });
-    }, 200);
+  mounted() {
+    //  判断组织
+    if (this.deptKey === 1) {
+      this.type = 'direct';
+    } else {
+      this.type = 'cross';
+    }
+    this.$store.commit('updateType', this.type);
+    // 获取人员表,
+    api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
+      type: this.$store.state.type,
+    }).then((res) => {
+      this.empWorklog = res.data.data;
+    }).catch((error) => {
+      console.log(error);
+    });
   },
 };
 </script>

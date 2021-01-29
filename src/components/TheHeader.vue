@@ -37,7 +37,7 @@
       </div>
       <div class="avatar">
         <router-link to="/login" ondragstart="return false">
-          <a-avatar alt="Avatar" size="30px" @click="clickAvatar"/>
+          <a-avatar alt="Avatar" size="30px"/>
         </router-link>
       </div>
     </template>
@@ -69,14 +69,6 @@ export default {
   methods: {
     showSearchInput() {
       this.ifShowSearchInput = true;
-    },
-    clickAvatar() {
-      // 这里只是暂时解决方案，最终还是要设置函数控制
-      const defaults = '';
-      this.$store.commit('updateToken', defaults);
-      this.$store.commit('updateEmpID', defaults);
-      this.$store.commit('updatePeopleName', defaults);
-      this.$store.commit('updateType', defaults);
     },
   },
   computed: {
