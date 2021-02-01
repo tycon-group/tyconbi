@@ -27,6 +27,13 @@ const worklog = {
     return axios.get(`${base.bi}wl/scores/`);
   },
   /**
+   * 提交评分
+   * @returns {Promise<AxiosResponse<any>>}
+   */
+  postTheScores(param) {
+    return axios.post(`${base.bi}wl/scores/`, qs.stringify(param));
+  },
+  /**
    * 获取日志的分数
    * @param id
    * @returns {Promise<AxiosResponse<any>>}
@@ -40,7 +47,7 @@ const worklog = {
    * @returns {Promise<AxiosResponse<any>>}
    */
   doUpload(param) {
-    return axios.post(`${base.bi}wl/doUpload/`, param);
+    return axios.post(`${base.bi}wl/doUpload/`, qs.stringify(param));
   },
   /**
    * 分析上传的日志压缩包
