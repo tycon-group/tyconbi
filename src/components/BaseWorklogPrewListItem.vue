@@ -23,7 +23,7 @@
     :after-visible-change="afterVisibleChange"
     @close="onClose"
   >
-    <base-worklog-drawer :worklogitems="this.worklogitem"/>
+    <base-worklog-drawer :worklogitems="this.worklogitem" @closeDrawer="closeTheDrawer"/>
   </a-drawer>
 </template>
 
@@ -53,6 +53,9 @@ export default {
     }
   },
   methods: {
+    closeTheDrawer(vals) {
+      this.visible = vals;
+    },
     afterVisibleChange(val) {
       console.log('visible', val);
     },
