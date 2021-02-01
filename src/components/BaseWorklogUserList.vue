@@ -27,7 +27,7 @@ export default {
   components: {
     BaseWorklogUserListItem,
   },
-  mounted() {
+  created() {
     //  判断组织
     if (this.deptKey === 1) {
       this.type = 'direct';
@@ -35,14 +35,16 @@ export default {
       this.type = 'cross';
     }
     this.$store.commit('updateType', this.type);
-    // 获取人员表,
-    api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
-      type: this.$store.state.type,
-    }).then((res) => {
-      this.empWorklog = res.data.data;
-    }).catch((error) => {
-      console.log(error);
-    });
+    // 获取人员表
+    if (this.$store.state.empID !== '') {
+      api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
+        type: this.type,
+      }).then((res) => {
+        this.empWorklog = res.data.data;
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   },
 };
 </script>

@@ -57,11 +57,11 @@ const hr = {
     return axios.get(`${base.bi}hr/organizations/${id}/`);
   },
   /**
-   * 获取所有的组织和成员
+   * 获取组织画像
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getAllOrgAndEmp() {
-    return axios.get(`${base.bi}hr/listOrgAndEmp/`);
+  getOrgPortrait(id) {
+    return axios.get(`${base.bi}hr/orgPortrait/${id}`);
   },
   /**
    * 获取组织架构树
