@@ -75,7 +75,7 @@ instance.interceptors.request.use(
     // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
     // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
     console.log(store.state.token);
-    const { token } = store.state;
+    const { token } = store.state.token;
     if (token) {
       // eslint-disable-next-line no-param-reassign
       config.headers.Authorization = token;
@@ -88,7 +88,7 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
   // 请求成功
-  (res) => (res.status === 200 ? Promise.resolve(res) : Promise.reject(res)),
+  (res) => (res.status === 200 || res.status === 201 ? Promise.resolve(res) : Promise.reject(res)),
   // 请求失败
   // eslint-disable-next-line consistent-return
   (error) => {
