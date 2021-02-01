@@ -103,6 +103,7 @@
 
 <script>
 import { CheckCircleFilled, ClockCircleFilled } from '@ant-design/icons-vue';
+import api from '../api/index';
 
 export default {
   name: 'base-worklog-drawer',
@@ -117,28 +118,31 @@ export default {
       desc: ['1分', '2分', '3分', '4分', '5分'],
       textarea_value: '',
       worklogitem: this.worklogitems.data,
+      type: '',
     };
+  },
+  mounted() {
+    if (this.$store.state.type === 'direct') {
+      this.type = '直属评分';
+    } else {
+      this.type = '跨级评分';
+    }
   },
   methods: {
     submitOneTime() {
       this.$message.success('提交被点击');
-      const param = new URLSearchParams();
-      param.append('worklog', this.worklogitems.id);
-      param.append('type', this.$store.state.type);
-      param.append('score', this.mark_value);
-      param.append('remarks', this.textarea_value);
-      param.append('author', this.username);
-      const tokens = 'JWT my_token';
-      const instance = this.$http.create({ headers: { 'content-type': 'application/x-www-form-urlencoded', Authorization: tokens } });
-      instance.post('https://tyconcps.cn:4399/wl/scores/', param).then((response) => {
+      console.log(this.$store.state.username);
+      api.worklog.postTheScores({
+        worklog: this.worklogitems.id,
+        type: this.type,
+        score: this.mark_value,
+        remarks: this.textarea_value,
+        author: this.$store.state.username,
+      }).then((response) => {
         console.log(response);
         this.$message.success('提交成功');
-        // window.location.reload(); // 一段空白
-        // this.$router.go(0);// 一段空白
-        // 跳转到不存在页面再返回当前页面
-        const NewPage = `_empty?time=${new Date().getTime() / 500}`;
-        this.$router.push(NewPage);
-        this.$router.go(-1);
+        // 关闭抽屉
+        this.$emit('closeDrawer', false);
         console.log('运行到这里了');
       }).catch((error) => {
         console.log(error);
