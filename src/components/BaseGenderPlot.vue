@@ -7,27 +7,33 @@ import { Pie } from '@antv/g2plot';
 
 export default {
   name: 'base-gender-plot',
-  mounted() {
-    const data = [
-      { type: '男', value: 39 },
-      { type: '女', value: 15 },
-    ];
-
-    const piePlot = new Pie('genderPie', {
-      appendPadding: 10,
-      data,
-      angleField: 'value',
-      colorField: 'type',
-      radius: 0.9,
-      label: {
-        type: 'spider',
-        labelHeight: 28,
-        content: '{name}\n{percentage}',
-      },
-      interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
-    });
-
-    piePlot.render();
+  props: ['deptGender'],
+  watch: {
+    orgGender() {
+      const data = this.deptGender;
+      const piePlot = new Pie('genderPie', {
+        appendPadding: 10,
+        data,
+        angleField: 'value',
+        colorField: 'name',
+        radius: 0.9,
+        label: {
+          type: 'spider',
+          labelHeight: 28,
+          content: '{name}\n{percentage}',
+        },
+        interactions: [{ name: 'element-selected' }, { name: 'element-active' }],
+      });
+      piePlot.render();
+      setInterval(() => {
+        piePlot.changeData(this.deptGender);
+      }, 1000);
+    },
+  },
+  computed: {
+    orgGender() {
+      return this.deptGender;
+    },
   },
 };
 </script>

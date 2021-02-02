@@ -12,13 +12,13 @@
         <base-age-plot :deptAge="this.data.age"/>
       </a-tab-pane>
       <a-tab-pane key="2" tab="学历分布">
-        <base-diploma-plot />
+        <base-diploma-plot :deptEducation="this.data.education"/>
       </a-tab-pane>
       <a-tab-pane key="3" tab="性别分布">
-        <base-gender-plot />
+        <base-gender-plot :deptGender="this.data.gender"/>
       </a-tab-pane>
       <a-tab-pane key="4" tab="在职分布">
-        <base-work-year-plot/>
+        <base-work-year-plot :deptWorkingYear="this.data.workingyear"/>
       </a-tab-pane>
     </a-tabs>
   </div>
