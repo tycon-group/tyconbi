@@ -7,56 +7,50 @@ import { Column } from '@antv/g2plot';
 
 export default {
   name: 'base-diploma-plot',
-  mounted() {
-    const data = [
-      {
-        type: '高中及以下',
-        sales: 8,
-      },
-      {
-        type: '大专',
-        sales: 21,
-      },
-      {
-        type: '本科',
-        sales: 41,
-      },
-      {
-        type: '研究生及以上',
-        sales: 5,
-      },
-    ];
-    const columnPlot = new Column('container', {
-      data,
-      xField: 'type',
-      yField: 'sales',
-      label: {
-        // 可手动配置 label 数据标签位置
-        position: 'middle', // 'top', 'bottom', 'middle',
-        // 配置样式
-        style: {
-          fill: '#FFFFFF',
-          opacity: 0.6,
-        },
-      },
-      xAxis: {
+  props: ['deptEducation'],
+  watch: {
+    orgEducation() {
+      const data = this.deptEducation;
+      const columnPlot = new Column('container', {
+        data,
+        xField: 'name',
+        yField: 'value',
         label: {
-          autoHide: true,
-          autoRotate: false,
+          // 可手动配置 label 数据标签位置
+          position: 'middle', // 'top', 'bottom', 'middle',
+          // 配置样式
+          style: {
+            fill: '#FFFFFF',
+            opacity: 0.6,
+          },
         },
-      },
-      meta: {
-        type: {
-          alias: '类别',
+        xAxis: {
+          label: {
+            autoHide: true,
+            autoRotate: false,
+          },
         },
-        sales: {
-          alias: '数量',
+        meta: {
+          name: {
+            alias: '类别',
+          },
+          value: {
+            alias: '数量',
+          },
         },
-      },
-      minColumnWidth: 50,
-      maxColumnWidth: 50,
-    });
-    columnPlot.render();
+        minColumnWidth: 50,
+        maxColumnWidth: 50,
+      });
+      columnPlot.render();
+      setInterval(() => {
+        columnPlot.changeData(this.deptEducation);
+      }, 200);
+    },
+  },
+  computed: {
+    orgEducation() {
+      return this.deptEducation;
+    },
   },
 };
 </script>
