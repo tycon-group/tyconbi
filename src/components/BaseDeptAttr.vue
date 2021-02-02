@@ -9,7 +9,7 @@
       @nextClick="callback"
     >
       <a-tab-pane key="1" tab="年龄分布">
-        <a>{{ orgPortrait }}</a>
+        <a>{{ this.data }}</a>
         <base-age-plot />
       </a-tab-pane>
       <a-tab-pane key="2" tab="学历分布">
@@ -39,14 +39,18 @@ export default {
     BaseDiplomaPlot,
     BaseAgePlot,
   },
+  watch: {
+    orgPortrait: {
+      handler() {
+        api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
+          this.data = value.data;
+        });
+      },
+    },
+  },
   computed: {
     orgPortrait() {
-      // eslint-disable-next-line vue/no-async-in-computed-properties
-      api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
-        // eslint-disable-next-line no-const-assign
-        this.data = value.data;
-      });
-      return this.data;
+      return this.$store.state.pickOrgDataID;
     },
   },
   data() {
