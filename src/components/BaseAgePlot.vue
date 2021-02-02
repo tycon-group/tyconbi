@@ -7,60 +7,51 @@ import { Column } from '@antv/g2plot';
 
 export default {
   name: 'base-age-plot',
-  mounted() {
-    const data = [
-      {
-        type: '小于25岁',
-        sales: 17,
-      },
-      {
-        type: '25～34岁',
-        sales: 48,
-      },
-      {
-        type: '35～44岁',
-        sales: 21,
-      },
-      {
-        type: '45～55岁',
-        sales: 17,
-      },
-      {
-        type: '55岁以上',
-        sales: 10,
-      },
-    ];
-    const columnPlot = new Column('ageColumn', {
-      data,
-      xField: 'type',
-      yField: 'sales',
-      label: {
-        // 可手动配置 label 数据标签位置
-        position: 'middle', // 'top', 'bottom', 'middle',
-        // 配置样式
-        style: {
-          fill: '#FFFFFF',
-          opacity: 0.6,
-        },
-      },
-      xAxis: {
+  props: ['deptAge'],
+  watch: {
+    orgAge() {
+      console.log(this.deptAge, 'dadadasdadada');
+      const data = this.deptAge;
+      const columnPlot = new Column('ageColumn', {
+        data,
+        xField: 'name',
+        yField: 'value',
         label: {
-          autoHide: true,
-          autoRotate: false,
+          // 可手动配置 label 数据标签位置
+          position: 'middle', // 'top', 'bottom', 'middle',
+          // 配置样式
+          style: {
+            fill: '#FFFFFF',
+            opacity: 0.6,
+          },
         },
-      },
-      meta: {
-        type: {
-          alias: '类别',
+        xAxis: {
+          label: {
+            autoHide: true,
+            autoRotate: false,
+          },
         },
-        sales: {
-          alias: '数量',
+        meta: {
+          name: {
+            alias: '类别',
+          },
+          value: {
+            alias: '数量',
+          },
         },
-      },
-      minColumnWidth: 50,
-      maxColumnWidth: 50,
-    });
-    columnPlot.render();
+        minColumnWidth: 50,
+        maxColumnWidth: 50,
+      });
+      columnPlot.render();
+      setInterval(() => {
+        columnPlot.changeData(this.deptAge);
+      }, 200);
+    },
+  },
+  computed: {
+    orgAge() {
+      return this.deptAge;
+    },
   },
 };
 </script>

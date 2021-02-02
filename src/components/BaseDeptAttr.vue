@@ -9,8 +9,7 @@
       @nextClick="callback"
     >
       <a-tab-pane key="1" tab="年龄分布">
-        <a>{{ this.data }}</a>
-        <base-age-plot />
+        <base-age-plot :deptAge="this.data.age"/>
       </a-tab-pane>
       <a-tab-pane key="2" tab="学历分布">
         <base-diploma-plot />
@@ -44,8 +43,11 @@ export default {
       handler() {
         api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
           this.data = value.data;
+          console.log(this.data);
         });
       },
+      deep: true,
+      immediate: true,
     },
   },
   computed: {
