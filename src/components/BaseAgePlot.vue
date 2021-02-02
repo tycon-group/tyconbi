@@ -10,7 +10,6 @@ export default {
   props: ['deptAge'],
   watch: {
     orgAge() {
-      console.log(this.deptAge, 'dadadasdadada');
       const data = this.deptAge;
       const columnPlot = new Column('ageColumn', {
         data,
