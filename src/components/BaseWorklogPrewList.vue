@@ -27,6 +27,7 @@ import axios from '../request/index';
 
 export default {
   name: 'base-worklog-prew-list',
+  props: ['date'],
   data() {
     return {
       loading: true,
@@ -42,12 +43,34 @@ export default {
   },
   watch: {
     peopleName: {
-      handler(peopleName) {
-        if (peopleName === '') {
+      handler() {
+        if (this.peopleName === '') {
           this.worklog = [];
         } else {
           api.worklog.getAllWorklogs({
-            name: peopleName,
+            name: this.peopleName,
+            start_date: this.date[0],
+            end_date: this.date[1],
+          }).then((value) => {
+            this.worklog = value.data.results;
+            this.next = value.data.next;
+          }).catch((error) => {
+            console.log(error);
+          });
+        }
+      },
+      deep: true,
+      immediate: true,
+    },
+    date: {
+      handler() {
+        if (this.peopleName === '') {
+          this.worklog = [];
+        } else {
+          api.worklog.getAllWorklogs({
+            name: this.peopleName,
+            start_date: this.date[0],
+            end_date: this.date[1],
           }).then((value) => {
             this.worklog = value.data.results;
             this.next = value.data.next;
