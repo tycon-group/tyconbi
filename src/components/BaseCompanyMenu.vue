@@ -84,14 +84,16 @@ export default {
       });
     },
     onSelect(selectedKeys, info) {
-      this.$store.commit('updatePickOrgDataID', info.selectedNodes[0].props.data_id);
-      console.log(this.$store.state.pickOrgDataID);
+      if (selectedKeys.length !== 0) {
+        this.$store.commit('updatePickOrgDataID', info.selectedNodes[0].props.data_id);
+      } else {
+        this.$store.commit('updatePickOrgDataID', '');
+      }
     },
   },
   created() {
     if (this.$store.state.empID !== '') {
       api.hr.getOrgTree(this.$store.state.empID).then((res) => {
-        console.log(res.data.data);
         this.gData = res.data.data;
         generateList(this.gData);
       }).catch((error) => {

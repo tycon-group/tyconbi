@@ -41,10 +41,94 @@ export default {
   watch: {
     orgPortrait: {
       handler() {
-        api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
-          this.data = value.data;
-          console.log(this.data);
-        });
+        if (this.$store.state.pickOrgDataID !== '') {
+          api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
+            this.data = value.data;
+          });
+        } else {
+          this.data = {
+            countEmp: {
+              name: '总人数',
+              value: 0,
+            },
+            empList: {
+              name: '人员列表',
+              value: [],
+            },
+            gender: [
+              {
+                name: '男',
+                value: 0,
+              },
+              {
+                name: '女',
+                value: 0,
+              },
+            ],
+            education: [
+              {
+                name: '初中及以下',
+                value: 0,
+              },
+              {
+                name: '高中',
+                value: 0,
+              },
+              {
+                name: '本科（专科)',
+                value: 0,
+              },
+              {
+                name: '硕士及以上',
+                value: 0,
+              },
+            ],
+            age: [
+              {
+                name: '大于55岁',
+                value: 0,
+              },
+              {
+                name: '45~55岁',
+                value: 0,
+              },
+              {
+                name: '35~45岁',
+                value: 0,
+              },
+              {
+                name: '25~35岁',
+                value: 0,
+              },
+              {
+                name: '小于25岁',
+                value: 0,
+              },
+            ],
+            workingyear: [
+              {
+                name: '超过15年',
+                value: 0,
+              },
+              {
+                name: '10~15年',
+                value: 0,
+              },
+              {
+                name: '5~10年',
+                value: 0,
+              },
+              {
+                name: '1~5年',
+                value: 0,
+              },
+              {
+                name: '不满1年',
+                value: 0,
+              },
+            ],
+          };
+        }
       },
       deep: true,
       immediate: true,
