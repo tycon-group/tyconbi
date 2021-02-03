@@ -9,8 +9,10 @@
         :style="{ textAlign: 'center', marginTop: '12px',
             height: '32px', lineHeight: '32px' }"
       >
-        <a-spin v-if="loadingMore" />
-        <base-button-loading-more v-else @click="onLoadMore"/>
+        <div v-show="next !=='' && next !== null">
+           <a-spin v-if="loadingMore" />
+           <base-button-loading-more v-else @click="onLoadMore"/>
+        </div>
       </div>
     </template>
   </a-list>
@@ -21,6 +23,7 @@ import BaseWorklogPrewListItem from './BaseWorklogPrewListItem.vue';
 import BaseButtonLoadingMore from './BaseButtonLoadingMore.vue';
 
 import api from '../api/index';
+import axios from '../request/index';
 
 export default {
   name: 'base-worklog-prew-list',
@@ -29,6 +32,7 @@ export default {
       loading: true,
       loadingMore: false,
       showLoadingMore: true,
+      next: '',
       worklog: [],
     };
   },
@@ -45,9 +49,8 @@ export default {
           api.worklog.getAllWorklogs({
             name: peopleName,
           }).then((value) => {
-            const peopleAllWorklogs = value.data.results;
-            this.worklog = peopleAllWorklogs;
-            console.log(peopleAllWorklogs);
+            this.worklog = value.data.results;
+            this.next = value.data.next;
           }).catch((error) => {
             console.log(error);
           });
@@ -64,7 +67,17 @@ export default {
   },
   methods: {
     onLoadMore() {
-      console.log('点击了加载更多。');
+      this.loadingMore = true;
+      if (this.next) {
+        axios.get(this.next).then((value) => {
+          this.worklog = this.worklog.concat(value.data.results);
+          this.next = value.data.next;
+          this.loadingMore = false;
+          this.$nextTick(() => {
+            window.dispatchEvent(new Event('resize'));
+          });
+        });
+      }
     },
   },
 };
