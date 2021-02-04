@@ -6,10 +6,10 @@
         <span>
           <img src="../assets/1分.png" style="height: 12px; width: 26px; margin-right: 10px">
         </span>
-        <span style="font-size: 14px;">
+        <span style="font-size: 14px; font-weight:bold">
           {{ worklogitem.date }}
         </span>
-        <span style="font-size: 14px; margin-left: 10px;">
+        <span :class="color">
           {{ this.dayPlan }}
         </span>
       </div>
@@ -66,11 +66,29 @@ export default {
       this.visible = false;
     },
   },
+  computed: {
+    color() {
+      if (this.worklogitem.is_commented) {
+        return 'color';
+      }
+      return 'normal';
+    },
+  },
 };
 </script>
 
 <style>
 .listItem :hover{
-  color: #1890ff;
+  color: #0080CC;
+}
+.color {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #0080CC;
+  font-weight:bold;
+}
+.normal {
+  font-size: 14px;
+  margin-left: 10px;
 }
 </style>
