@@ -64,8 +64,7 @@ export default {
     closeTheDrawer(vals) {
       this.visible = vals;
     },
-    afterVisibleChange(val) {
-      console.log('visible', val);
+    afterVisibleChange() {
     },
     showDrawer() {
       this.visible = true;
