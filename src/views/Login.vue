@@ -99,6 +99,7 @@ export default {
           this.$store.commit('updateEmpID', tempEMP);
           const tempName = value.data.results[0].name;
           this.$store.commit('updateEmpName', tempName);
+          this.$store.commit('flushData');
         }).catch((error) => {
           console.log(error);
         });
