@@ -7,36 +7,36 @@
       :tabBarStyle="{textAlign: 'left', borderBottom: '0'}"
       @prevClick="callback"
       @nextClick="callback"
-      v-model:value="this.nameValue"
+      @change="tabChange"
     >
       <a-tab-pane
-        v-for="personItem in personData" :key="personItem.id" :tab="personItem.zh_name">
+        v-for="item in personData" :key="item" :tab="item">
         <div style="display: flex; padding-left: 16px;">
           <div style="width: 77px; height: 112px;">
             <div style="height: 64px; width: 64px; margin: 0 auto;">
-              <img :src="personItem.img" style="border-radius:50%;"
-                   height="64" width="64" alt="头像" /></div>
+              <img :src="this.personItems.avatar" style="border-radius:50%;"
+                   height="64" width="64" alt="暂无头像" /></div>
             <div style="font-size: 14px; text-align: center; color: #303133">
-              {{ personItem.en_name }}</div>
+              {{ this.personItems.enName }}</div>
             <div style="font-size: 16px; color: #8F9399; text-align: center">
-              {{ personItem.zh_name }}</div>
+              {{ this.personItems.name }}</div>
           </div>
           <div
             style="width: 142px; font-size: 14px; margin-left: 24px;">
             <div style="text-align: start; color: #303133">
-              性别: <span style="color: #8F9399">{{ personItem.gender }}</span></div>
+              性别: <span style="color: #8F9399">{{ this.gender }}</span></div>
             <div style="margin-top: 16px; text-align: start; color: #303133">
-              出生年月: <span style="color: #8F9399">{{ personItem.birthday }}</span></div>
+              出生年月: <span style="color: #8F9399">{{ this.dateOfBirth }}</span></div>
             <div style="margin-top: 16px; text-align: start; color: #303133">
-              学历: <span style="color: #8F9399">{{ personItem.education }}</span></div>
+              学历: <span style="color: #8F9399">{{ this.education }}</span></div>
           </div>
           <div style="width: 262px; font-size: 14px; margin-left: 16px;">
             <div style="text-align: start; color: #303133">
-              职位: <span style="color: #8F9399">{{ personItem.position[0] }}</span></div>
+              职位: <span style="color: #8F9399">{{ this.job }}</span></div>
             <div style="margin-top: 16px; text-align: start; color: #303133">
-              在职工龄: <span style="color: #8F9399">{{ personItem.yearForWork }}</span></div>
+              在职工龄: <span style="color: #8F9399">{{ this.yearInCompany }}</span></div>
             <div style="margin-top: 16px; text-align: start; color: #303133">
-              连续工龄: <span style="color: #8F9399">{{ personItem.yearInCompany }}</span></div>
+              连续工龄: <span style="color: #8F9399">{{ this.yearForWork }}</span></div>
           </div>
         </div>
       </a-tab-pane>
@@ -44,6 +44,7 @@
   </div>
 </template>
 <script>
+import api from '../api';
 
 export default {
   name: 'base-person-attr',
@@ -51,49 +52,140 @@ export default {
   },
   data() {
     return {
-      nameValue: '',
       mode: 'top',
-      personData: [
-        {
-          id: 1,
-          img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2F50%2Fv2-095b2db945e2d3e0644ccbb26eab8ed8_hd.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613631322&t=81de6352bc510f6314f05e20ad16fc44',
-          en_name: 'Annie',
-          zh_name: '蒋玲玲',
-          gender: '女',
-          birthday: 'xxxx-xx-xx',
-          education: '硕士',
-          position: ['人事总监', '太江集团部门负责人'],
-          yearForWork: 'xx',
-          yearInCompany: 'xx',
-        },
-        {
-          id: 2,
-          img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201412%2F15%2F20141215151225_kQSkZ.thumb.700_0.jpeg&refer=http%3A%2F%2Fcdn.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613631322&t=cf4dcf10f4123c9c47399a3f8ef084ac',
-          en_name: 'Kunyu',
-          zh_name: '于坤',
-          gender: '女',
-          birthday: 'xxxx-xx-xx',
-          education: '硕士',
-          position: ['太江集团负责人'],
-          yearForWork: 'xx',
-          yearInCompany: 'xx',
-        },
-        {
-          id: 3,
-          img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3351113425,3755484207&fm=26&gp=0.jpg',
-          en_name: 'Three',
-          zh_name: '张思睿',
-          gender: '女',
-          birthday: '1921-07-01',
-          education: '本科',
-          position: ['张家屯李家沟王家庄保安队长'],
-          yearForWork: '40年01月',
-          yearInCompany: '10年09月',
-        },
-      ],
+      personData: [],
+      personItems: {},
+      gender: '',
+      dateOfBirth: '',
+      education: '',
+      job: '',
+      yearForWork: '',
+      yearInCompany: '',
     };
   },
+  watch: {
+    orgPortrait: {
+      handler() {
+        if (this.$store.state.pickOrgDataID !== '') {
+          api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
+            if (value.data.empList.value.length !== 0) {
+              this.personData = value.data.empList.value;
+              api.hr.getAllEmployees({
+                name: this.personData[0],
+              }).then((v) => {
+                api.hr.getTheEmployee(v.data.results[0].empID).then((val) => {
+                  this.personItems = val.data;
+                  this.doneSomeThing();
+                }).catch((error) => {
+                  console.log(error);
+                });
+              }).catch((error) => {
+                console.log(error);
+              });
+            } else {
+              this.personData = ['暂无人员'];
+              // 这里让单个都是空值；
+              this.personItems = {};
+              console.log('缺少人员。');
+            }
+          });
+        } else {
+          this.personData = ['暂无人员'];
+          // 这里让单个都是空值；
+          this.personItems = {};
+          console.log('缺少组织号。');
+        }
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+  computed: {
+    orgPortrait() {
+      return this.$store.state.pickOrgDataID;
+    },
+  },
   methods: {
+    tabChange(activeKey) {
+      api.hr.getAllEmployees({
+        name: activeKey,
+      }).then((value) => {
+        api.hr.getTheEmployee(value.data.results[0].empID).then((val) => {
+          this.personItems = val.data;
+          this.doneSomeThing();
+        }).catch((error) => {
+          console.log(error);
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+    },
+    doneSomeThing() {
+      // 头像
+      // 性别
+      if (this.personItems.gender === 'M') {
+        this.gender = '男';
+      } else if (this.personItems.gender === 'W') {
+        this.gender = '女';
+      } else {
+        this.gender = '未知';
+      }
+      // 生日
+      if (this.personItems.dateOfBirth !== '') {
+        this.dateOfBirth = this.personItems.dateOfBirth;
+      } else {
+        this.dateOfBirth = '未知信息';
+      }
+      // 学历
+      if (this.personItems.education !== '') {
+        this.education = this.personItems.education;
+      } else {
+        this.education = '未知信息';
+      }
+      // 职位
+      if (this.personItems.job !== '') {
+        this.job = this.personItems.job;
+      } else {
+        this.job = '未知信息';
+      }
+      // 获取当天日期
+      const date1 = new Date();
+      // 连续工作时间
+      // 获取开始工作日期
+      const { dateOfStartWork } = this.personItems;
+      if (dateOfStartWork !== null) {
+        const date2 = new Date(dateOfStartWork);
+        // eslint-disable-next-line radix,no-mixed-operators,max-len
+        const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
+        const resM = monthCount % 12;
+        // eslint-disable-next-line radix
+        const resY = parseInt(monthCount / 12);
+        if (resY === 0 && resM === 0) {
+          this.yearForWork = '不足一个月';
+        } else {
+          this.yearForWork = `${resY}年${resM}月`;
+        }
+      } else {
+        this.yearForWork = '无开始工作信息';
+      }
+      // 在职工作年限
+      const { dateOfHire } = this.personItems;
+      if (dateOfHire !== null) {
+        const date2 = new Date(dateOfHire);
+        // eslint-disable-next-line radix,no-mixed-operators,max-len
+        const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
+        const resM = monthCount % 12;
+        // eslint-disable-next-line radix
+        const resY = parseInt(monthCount / 12);
+        if (resY === 0 && resM === 0) {
+          this.yearInCompany = '不足一个月';
+        } else {
+          this.yearInCompany = `${resY}年${resM}月`;
+        }
+      } else {
+        this.yearInCompany = '无入职时间信息';
+      }
+    },
     callback(val) {
       console.log(val);
     },
