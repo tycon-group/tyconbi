@@ -64,28 +64,30 @@ export default {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
-              if (this.personData.length !== 0) {
-                api.hr.getAllEmployees({
-                  name: this.personData[0],
-                }).then((v) => {
-                  api.hr.getTheEmployee(v.data.results[0].empID).then((val) => {
-                    this.personItems = val.data;
-                    this.doneSomeThing();
-                    console.log(val.data);
-                  }).catch((error) => {
-                    console.log(error);
-                  });
+              api.hr.getAllEmployees({
+                name: this.personData[0],
+              }).then((v) => {
+                api.hr.getTheEmployee(v.data.results[0].empID).then((val) => {
+                  this.personItems = val.data;
+                  this.doneSomeThing();
+                  console.log(val.data);
                 }).catch((error) => {
                   console.log(error);
                 });
-              } else {
-                this.personItems = [];
-              }
+              }).catch((error) => {
+                console.log(error);
+              });
             } else {
-              this.personData = ['暂无'];
-              console.log(this.personData);
+              this.personData = ['暂无人员'];
+              // 这里让单个都是空值；
+              this.personItems = {};
             }
           });
+        } else {
+          this.personData = ['暂无人员'];
+          // 这里让单个都是空值；
+          this.personItems = {};
+          console.log('缺少组织号。');
         }
       },
       deep: true,
