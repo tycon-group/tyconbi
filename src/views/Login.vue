@@ -97,6 +97,8 @@ export default {
         }).then((value) => {
           const tempEMP = value.data.results[0].empID;
           this.$store.commit('updateEmpID', tempEMP);
+          const tempName = value.data.results[0].name;
+          this.$store.commit('updateEmpName', tempName);
         }).catch((error) => {
           console.log(error);
         });

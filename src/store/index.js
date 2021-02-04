@@ -4,6 +4,7 @@ export default createStore({
   state: {
     token: '',
     empID: '',
+    name: '',
     peopleName: '',
     type: '',
     pickOrgDataID: '',
@@ -20,6 +21,9 @@ export default createStore({
     updateEmpID(state, empID) {
       state.empID = empID;
     },
+    updateEmpName(state, empName) {
+      state.name = empName;
+    },
     updatePeopleName(state, peopleName) {
       state.peopleName = peopleName;
     },
@@ -33,6 +37,7 @@ export default createStore({
   getters: {
     token: (state) => state.token,
     empID: (state) => state.empID,
+    name: (state) => state.name,
     peopleName: (state) => state.peopleName,
     type: (state) => state.type,
     pickOrgDataID: (state) => state.pickOrgDataID,

@@ -10,8 +10,17 @@
           {{ this.dayPlan.substr(0, 40) }}...
         </span>
         <span v-for="value in scores" :key="value.id">
-           <img :src="getImgUrl(value.score)"
-                style="height: 12px; width: 26px; margin: 0 12px">
+          <a-popover :title=value.author>
+            <template #content>
+              <p>{{ value.score }}</p>
+              <p>{{ value.remarks }}</p>
+              <a-button type="danger" @click="deleteScore(value)">
+                删除
+              </a-button>
+            </template>
+            <img :src="getImgUrl(value.score)"
+              style="height: 12px; width: 26px; margin: 0 12px">
+          </a-popover>
         </span>
       </div>
   </div>
@@ -65,6 +74,10 @@ export default {
       this.visible = vals;
     },
     afterVisibleChange() {
+      api.worklog.getMyScore(this.worklogitem.id)
+        .then((res) => {
+          this.scores = res.data.data;
+        });
     },
     showDrawer() {
       this.visible = true;
@@ -75,6 +88,13 @@ export default {
     getImgUrl(value) {
       // eslint-disable-next-line import/no-dynamic-require
       return require(`../assets/${value}分.png`);
+    },
+    deleteScore(score) {
+      api.worklog.deleteTheScore(score.id).then(() => {
+        api.worklog.getMyScore(this.worklogitem.id).then((res) => {
+          this.scores = res.data.data;
+        });
+      });
     },
   },
   computed: {

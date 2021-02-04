@@ -34,12 +34,12 @@ const worklog = {
     return axios.post(`${base.bi}wl/scores/`, qs.stringify(param));
   },
   /**
-   * 获取日志的分数
+   * 删除日志的分数
    * @param id
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getTheScore(id) {
-    return axios.get(`${base.bi}wl/scores/${id}/`);
+  deleteTheScore(id) {
+    return axios.delete(`${base.bi}wl/scores/${id}/`);
   },
   /**
    * 上传文件

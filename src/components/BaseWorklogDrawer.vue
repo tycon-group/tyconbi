@@ -131,12 +131,13 @@ export default {
   methods: {
     submitOneTime() {
       this.$message.success('提交被点击');
+      console.log(this.$store.state.name);
       api.worklog.postTheScores({
         worklog: this.worklogitems.id,
         type: this.type,
         score: this.mark_value,
         remarks: this.textarea_value,
-        author: this.$store.state.username,
+        author: this.$store.state.name,
       }).then(() => {
         this.$message.success('提交成功');
         // 关闭抽屉

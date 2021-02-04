@@ -86,7 +86,8 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
   // 请求成功
-  (res) => (res.status === 200 || res.status === 201 ? Promise.resolve(res) : Promise.reject(res)),
+  // eslint-disable-next-line max-len
+  (res) => ((res.status === 200 || res.status === 201 || res.status === 204) ? Promise.resolve(res) : Promise.reject(res)),
   // 请求失败
   // eslint-disable-next-line consistent-return
   (error) => {
