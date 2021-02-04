@@ -3,7 +3,7 @@
     <div class="listUserItem">
       <a-badge :count=this.realCount>
         <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
-          <div style="font-size: 14px; margin-bottom: 8px">
+          <div style="font-size: 14px; margin-bottom: 8px;">
             {{ empworklogitem.name }}
           </div>
           <div style="font-size: 12px">

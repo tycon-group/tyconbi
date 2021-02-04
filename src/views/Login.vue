@@ -89,7 +89,6 @@ export default {
       }).then((res) => {
         this.$message.success('登录成功');
         const mytoken = `JWT ${res.data.token}`;
-        console.log(`token=${mytoken}`);
         this.$store.commit('updateToken', mytoken);
         api.hr.getAllEmployees({
           username: this.form.username,
@@ -97,6 +96,11 @@ export default {
         }).then((value) => {
           const tempEMP = value.data.results[0].empID;
           this.$store.commit('updateEmpID', tempEMP);
+          const tempName = value.data.results[0].name;
+          this.$store.commit('updateEmpName', tempName);
+          this.$store.commit('updatePeopleName', '');
+          this.$store.commit('updateType', '');
+          this.$store.commit('updatePickOrgDataID', '');
         }).catch((error) => {
           console.log(error);
         });
