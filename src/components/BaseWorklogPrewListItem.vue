@@ -3,15 +3,15 @@
               margin: 0 0 1px;
               box-shadow: 10px 0 0.1rem #c2c2c2;" @click="showDrawer">
       <div style="padding: 12px 16px; text-align: justify">
-        <span v-for="value in scores" :key="value.id">
-           <img :src="getImgUrl(value.score)"
-                style="height: 12px; width: 26px; margin-right: 10px">
-        </span>
         <span style="font-size: 14px; font-weight:bold">
           {{ worklogitem.date }}
         </span>
         <span :class="color">
-          {{ this.dayPlan }}
+          {{ this.dayPlan.substr(0, 40) }}...
+        </span>
+        <span v-for="value in scores" :key="value.id">
+           <img :src="getImgUrl(value.score)"
+                style="height: 12px; width: 26px; margin: 0 12px">
         </span>
       </div>
   </div>
@@ -48,7 +48,6 @@ export default {
   created() {
     api.worklog.getMyScore(this.worklogitem.id).then((res) => {
       this.scores = res.data.data;
-      console.log(this.scores);
     });
   },
   mounted() {
