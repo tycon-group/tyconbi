@@ -20,7 +20,7 @@ const hr = {
     return axios.get(`${base.bi}hr/employees/${id}/`);
   },
   /**
-   * 获取下属
+   * 获取直属下属
    * @returns {Promise<AxiosResponse<any>>}
    */
   getUnderlings(id) {

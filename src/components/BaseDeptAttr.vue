@@ -148,7 +148,6 @@ export default {
   },
   methods: {
     tabClicks() {
-      console.log('uuuuuuu');
       if (this.$store.state.pickOrgDataID !== '') {
         api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
           this.data = value.data;
