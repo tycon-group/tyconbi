@@ -14,7 +14,7 @@
             <template #content>
               <p>{{ value.score }}</p>
               <p>{{ value.remarks }}</p>
-              <a-button type="danger" @click="deleteScore(value)">
+              <a-button type="danger" @click="deleteScore(value)" v-show="deleteable(value)">
                 删除
               </a-button>
             </template>
@@ -90,11 +90,23 @@ export default {
       return require(`../assets/${value}分.png`);
     },
     deleteScore(score) {
-      api.worklog.deleteTheScore(score.id).then(() => {
-        api.worklog.getMyScore(this.worklogitem.id).then((res) => {
-          this.scores = res.data.data;
+      api.worklog.deleteTheScore(score.id)
+        .then(() => {
+          api.worklog.getMyScore(this.worklogitem.id)
+            .then((res) => {
+              this.scores = res.data.data;
+            });
         });
-      });
+    },
+    deleteable(score) {
+      const d1 = Date.parse(score.comment_time);
+      const d2 = Date.now();
+      // eslint-disable-next-line radix
+      const hour = parseInt(d2 - d1) / 1000 / 60;
+      if (hour <= 24 && score.author === this.$store.state.name) {
+        return true;
+      }
+      return false;
     },
   },
   computed: {
