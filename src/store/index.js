@@ -33,11 +33,6 @@ export default createStore({
     updatePickOrgDataID(state, pickOrgDataID) {
       state.pickOrgDataID = pickOrgDataID;
     },
-    flushData(state) {
-      state.peoplename = '';
-      state.type = '';
-      state.pickOrgDataID = '';
-    },
   },
   getters: {
     token: (state) => state.token,
