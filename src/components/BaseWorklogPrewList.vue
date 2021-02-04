@@ -44,7 +44,6 @@ export default {
   watch: {
     peopleName: {
       handler() {
-        console.log(this.$store.state.peopleName);
         this.updateWorklog();
       },
       deep: true,
