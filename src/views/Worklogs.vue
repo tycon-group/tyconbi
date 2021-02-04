@@ -21,10 +21,10 @@
     <div class="content">
       <div class="tool-bar">
 <!--        日期选择器-->
-        <a-range-picker v-model:value="value3" @change="onChange" />
+        <a-range-picker v-model:value="date" @change="onChange" />
       </div>
       <div class="list-content">
-        <base-worklog-prew-list />
+        <base-worklog-prew-list :date="date"/>
       </div>
     </div>
   </div>
@@ -41,17 +41,12 @@ export default {
   },
   data() {
     return {
-      loading: true,
-      loadingMore: false,
-      showLoadingMore: true,
-      value3: [],
-      data: [],
+      date: ['', ''],
     };
   },
   methods: {
-    onChange() {
-    },
-    onLoadMore() {
+    onChange(date, dateString) {
+      this.date = dateString;
     },
   },
 };

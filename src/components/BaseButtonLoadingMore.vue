@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 10px 20px">
+  <div style="margin: 20px 20px; padding-bottom: 20px">
     <a-button block="true"
               style="font-size: 12px"
               type="default">
