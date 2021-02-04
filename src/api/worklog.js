@@ -20,11 +20,11 @@ const worklog = {
     return axios.get(`${base.bi}wl/worklogs/${id}/`);
   },
   /**
-   * 获取所有评分
+   * 获取单个日志评分
    * @returns {Promise<AxiosResponse<any>>}
    */
-  getAllScores() {
-    return axios.get(`${base.bi}wl/scores/`);
+  getMyScore(id) {
+    return axios.get(`${base.bi}wl/getMyScore/${id}/`);
   },
   /**
    * 提交评分

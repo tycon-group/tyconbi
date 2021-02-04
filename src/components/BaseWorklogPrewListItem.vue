@@ -3,8 +3,9 @@
               margin: 0 0 1px;
               box-shadow: 10px 0 0.1rem #c2c2c2;" @click="showDrawer">
       <div style="padding: 12px 16px; text-align: justify">
-        <span>
-          <img src="../assets/1分.png" style="height: 12px; width: 26px; margin-right: 10px">
+        <span v-for="value in scores" :key="value.id">
+           <img :src="getImgUrl(value.score)"
+                style="height: 12px; width: 26px; margin-right: 10px">
         </span>
         <span style="font-size: 14px; font-weight:bold">
           {{ worklogitem.date }}
@@ -29,6 +30,7 @@
 
 <script>
 import BaseWorklogDrawer from './BaseWorklogDrawer.vue';
+import api from '../api';
 
 export default {
   name: 'base-worklog-prew-list-item',
@@ -40,7 +42,14 @@ export default {
     return {
       visible: false,
       dayPlan: '',
+      scores: [],
     };
+  },
+  created() {
+    api.worklog.getMyScore(this.worklogitem.id).then((res) => {
+      this.scores = res.data.data;
+      console.log(this.scores);
+    });
   },
   mounted() {
     const dayPlans = this.worklogitem.data.daily_plan.done
@@ -64,6 +73,10 @@ export default {
     },
     onClose() {
       this.visible = false;
+    },
+    getImgUrl(value) {
+      // eslint-disable-next-line import/no-dynamic-require
+      return require(`../assets/${value}分.png`);
     },
   },
   computed: {
