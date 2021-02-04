@@ -44,40 +44,15 @@ export default {
   watch: {
     peopleName: {
       handler() {
-        if (this.peopleName === '') {
-          this.worklog = [];
-        } else {
-          api.worklog.getAllWorklogs({
-            name: this.peopleName,
-            start_date: this.date[0],
-            end_date: this.date[1],
-          }).then((value) => {
-            this.worklog = value.data.results;
-            this.next = value.data.next;
-          }).catch((error) => {
-            console.log(error);
-          });
-        }
+        console.log(this.$store.state.peopleName);
+        this.updateWorklog();
       },
       deep: true,
       immediate: true,
     },
     date: {
       handler() {
-        if (this.peopleName === '') {
-          this.worklog = [];
-        } else {
-          api.worklog.getAllWorklogs({
-            name: this.peopleName,
-            start_date: this.date[0],
-            end_date: this.date[1],
-          }).then((value) => {
-            this.worklog = value.data.results;
-            this.next = value.data.next;
-          }).catch((error) => {
-            console.log(error);
-          });
-        }
+        this.updateWorklog();
       },
       deep: true,
       immediate: true,
@@ -89,6 +64,22 @@ export default {
     },
   },
   methods: {
+    updateWorklog() {
+      if (this.peopleName === '') {
+        this.worklog = [];
+      } else {
+        api.worklog.getAllWorklogs({
+          name: this.peopleName,
+          start_date: this.date[0],
+          end_date: this.date[1],
+        }).then((value) => {
+          this.worklog = value.data.results;
+          this.next = value.data.next;
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+    },
     onLoadMore() {
       this.loadingMore = true;
       if (this.next) {
