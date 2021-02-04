@@ -22,6 +22,7 @@ export default {
       loading: true,
       type: '',
       empWorklog: [],
+      errorMeg: '',
     };
   },
   components: {
@@ -45,6 +46,9 @@ export default {
       }).catch((error) => {
         console.log(error);
       });
+    } else {
+      this.loading = false;
+      this.errorMeg = '请登陆后使用';
     }
   },
 };

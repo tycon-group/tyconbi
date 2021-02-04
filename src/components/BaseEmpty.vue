@@ -1,5 +1,5 @@
 <template>
-  <slot>Empty</slot>
+  <img src="../assets/NoContent.png">
 </template>
 
 <script>
