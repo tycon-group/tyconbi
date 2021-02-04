@@ -1,6 +1,8 @@
 <template>
   <div style="margin-top: 42px; min-width: 228px;">
-    <a-list item-layout="horizontal">
+    <a-list
+      :loading="loading"
+      item-layout="horizontal">
       <div v-for="item in empWorklog" :key="item.name">
         <base-worklog-user-list-item :empworklogitem=item />
       </div>
@@ -18,8 +20,6 @@ export default {
   data() {
     return {
       loading: true,
-      loadingMore: false,
-      showLoadingMore: true,
       type: '',
       empWorklog: [],
     };
@@ -41,6 +41,7 @@ export default {
         type: this.type,
       }).then((res) => {
         this.empWorklog = res.data.data;
+        this.loading = false;
       }).catch((error) => {
         console.log(error);
       });
