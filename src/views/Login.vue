@@ -98,9 +98,7 @@ export default {
           this.$store.commit('updateEmpID', tempEMP);
           const tempName = value.data.results[0].name;
           this.$store.commit('updateEmpName', tempName);
-          this.$store.commit('updatePeopleName', '');
-          this.$store.commit('updateType', '');
-          this.$store.commit('updatePickOrgDataID', '');
+          this.$store.commit('logout');
         }).catch((error) => {
           console.log(error);
         });

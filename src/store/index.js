@@ -39,6 +39,14 @@ export default createStore({
       state.pickOrgDataID = pickOrgDataID;
       window.sessionStorage.setItem('pickOrgDataID', pickOrgDataID);
     },
+    logout(state) {
+      state.peopleName = null;
+      state.type = 'direct';
+      state.pickOrgDataID = null;
+      window.sessionStorage.removeItem('peopleName');
+      window.sessionStorage.removeItem('type');
+      window.sessionStorage.removeItem('pickOrgDataID');
+    },
   },
   getters: {
     token: (state) => state.token,
