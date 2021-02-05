@@ -72,7 +72,7 @@ export default {
   watch: {
     orgPortrait: {
       handler() {
-        if (this.$store.state.pickOrgDataID !== '') {
+        if (this.$store.state.pickOrgDataID !== null) {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
