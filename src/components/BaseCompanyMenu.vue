@@ -87,7 +87,7 @@ export default {
       if (selectedKeys.length !== 0) {
         this.$store.commit('updatePickOrgDataID', info.selectedNodes[0].props.data_id);
       } else {
-        this.$store.commit('updatePickOrgDataID', '');
+        this.$store.commit('updatePickOrgDataID', null);
       }
     },
   },

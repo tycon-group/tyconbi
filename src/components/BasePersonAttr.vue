@@ -61,18 +61,19 @@ export default {
       mode: 'top',
       personData: [],
       personItems: {},
-      gender: '',
-      dateOfBirth: '',
-      education: '',
-      job: '',
-      yearForWork: '',
-      yearInCompany: '',
+      gender: null,
+      dateOfBirth: null,
+      education: null,
+      job: null,
+      yearForWork: null,
+      yearInCompany: null,
     };
   },
   watch: {
     orgPortrait: {
       handler() {
-        if (this.$store.state.pickOrgDataID !== '') {
+        console.log(this.$store.state.pickOrgDataID);
+        if (this.$store.state.pickOrgDataID !== null) {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
@@ -92,6 +93,7 @@ export default {
               this.personData = ['暂无人员'];
               // 这里让单个都是空值；
               this.personItems = {};
+              this.doneSomeThing();
               console.log('缺少人员。');
             }
           });
@@ -99,6 +101,7 @@ export default {
           this.personData = ['暂无人员'];
           // 这里让单个都是空值；
           this.personItems = {};
+          this.doneSomeThing();
           console.log('缺少组织号。');
         }
       },
@@ -137,19 +140,19 @@ export default {
         this.gender = '未知';
       }
       // 生日
-      if (this.personItems.dateOfBirth !== '') {
+      if (this.personItems.dateOfBirth !== null) {
         this.dateOfBirth = this.personItems.dateOfBirth;
       } else {
         this.dateOfBirth = '未知信息';
       }
       // 学历
-      if (this.personItems.education !== '') {
+      if (this.personItems.education !== null) {
         this.education = this.personItems.education;
       } else {
         this.education = '未知信息';
       }
       // 职位
-      if (this.personItems.job !== '') {
+      if (this.personItems.job !== null) {
         this.job = this.personItems.job;
       } else {
         this.job = '未知信息';
