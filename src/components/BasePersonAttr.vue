@@ -14,8 +14,12 @@
         <div style="display: flex; padding-left: 16px;">
           <div style="width: 77px; height: 112px;">
             <div style="height: 64px; width: 64px; margin: 0 auto;">
-              <img :src="this.personItems.avatar" style="border-radius:50%;"
-                   height="64" width="64" alt="暂无头像" /></div>
+              <a-avatar :size="64" :src="this.personItems.avatar">
+                <template #icon>
+                  <UserOutlined />
+                </template>
+              </a-avatar>
+            </div>
             <div style="font-size: 14px; text-align: center; color: #303133">
               {{ this.personItems.enName }}</div>
             <div style="font-size: 16px; color: #8F9399; text-align: center">
@@ -44,11 +48,13 @@
   </div>
 </template>
 <script>
+import { UserOutlined } from '@ant-design/icons-vue';
 import api from '../api';
 
 export default {
   name: 'base-person-attr',
   components: {
+    UserOutlined,
   },
   data() {
     return {
