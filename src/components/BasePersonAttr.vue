@@ -72,7 +72,6 @@ export default {
   watch: {
     orgPortrait: {
       handler() {
-        console.log(this.$store.state.pickOrgDataID);
         if (this.$store.state.pickOrgDataID !== null) {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
@@ -140,19 +139,19 @@ export default {
         this.gender = '未知';
       }
       // 生日
-      if (this.personItems.dateOfBirth !== null && this.personItems.dateOfBirth !== undefined) {
+      if (this.personItems.dateOfBirth !== '') {
         this.dateOfBirth = this.personItems.dateOfBirth;
       } else {
         this.dateOfBirth = '未知信息';
       }
       // 学历
-      if (this.personItems.education !== null && this.personItems.education !== undefined) {
+      if (this.personItems.education !== '') {
         this.education = this.personItems.education;
       } else {
         this.education = '未知信息';
       }
       // 职位
-      if (this.personItems.job !== null && this.personItems.job !== undefined) {
+      if (this.personItems.job !== '') {
         this.job = this.personItems.job;
       } else {
         this.job = '未知信息';
@@ -162,7 +161,7 @@ export default {
       // 连续工作时间
       // 获取开始工作日期
       const { dateOfStartWork } = this.personItems;
-      if (dateOfStartWork !== null && dateOfStartWork !== undefined) {
+      if (dateOfStartWork !== null) {
         const date2 = new Date(dateOfStartWork);
         // eslint-disable-next-line radix,no-mixed-operators,max-len
         const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
@@ -179,7 +178,7 @@ export default {
       }
       // 在职工作年限
       const { dateOfHire } = this.personItems;
-      if (dateOfHire !== null && dateOfHire !== undefined) {
+      if (dateOfHire !== null) {
         const date2 = new Date(dateOfHire);
         // eslint-disable-next-line radix,no-mixed-operators,max-len
         const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
