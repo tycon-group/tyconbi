@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     updateWorklog() {
-      if (this.peopleName === '') {
+      if (this.peopleName === null) {
         this.worklog = [];
       } else {
         api.worklog.getAllWorklogs({
