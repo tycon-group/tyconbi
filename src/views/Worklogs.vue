@@ -22,7 +22,7 @@
       <div class="tool-bar">
 <!--        日期选择器-->
         <a-range-picker v-model:value="date" @change="onChange" />
-        <div>{{ peopleName }}</div>
+        <div style="font-weight:bold; color: #24A4F0; font-size: 16px;">{{ peopleName }}</div>
       </div>
       <div class="list-content">
         <base-worklog-prew-list :date="date"/>
