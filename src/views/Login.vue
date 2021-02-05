@@ -88,6 +88,7 @@ export default {
         password: this.form.password,
       }).then((res) => {
         this.$message.success('登录成功');
+        this.$store.commit('logout');
         const mytoken = `JWT ${res.data.token}`;
         this.$store.commit('updateToken', mytoken);
         api.hr.getAllEmployees({
@@ -98,11 +99,10 @@ export default {
           this.$store.commit('updateEmpID', tempEMP);
           const tempName = value.data.results[0].name;
           this.$store.commit('updateEmpName', tempName);
-          this.$store.commit('logout');
+          this.$router.push('/');
         }).catch((error) => {
           console.log(error);
         });
-        this.$router.push('/');
       }).catch((error) => {
         console.log(error);
         this.$message.error('登陆失败');

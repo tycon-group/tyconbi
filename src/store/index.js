@@ -40,9 +40,15 @@ export default createStore({
       window.sessionStorage.setItem('pickOrgDataID', pickOrgDataID);
     },
     logout(state) {
+      state.token = null;
+      state.name = null;
+      state.empID = null;
       state.peopleName = null;
       state.type = 'direct';
       state.pickOrgDataID = null;
+      window.sessionStorage.removeItem('token');
+      window.sessionStorage.removeItem('name');
+      window.sessionStorage.removeItem('empID');
       window.sessionStorage.removeItem('peopleName');
       window.sessionStorage.removeItem('type');
       window.sessionStorage.removeItem('pickOrgDataID');
