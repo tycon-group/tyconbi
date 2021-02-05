@@ -133,7 +133,7 @@ export default {
       // 性别
       if (this.personItems.gender === 'M') {
         this.gender = '男';
-      } else if (this.personItems.gender === 'W') {
+      } else if (this.personItems.gender === 'F') {
         this.gender = '女';
       } else {
         this.gender = '未知';
