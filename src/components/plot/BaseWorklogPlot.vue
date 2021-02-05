@@ -10,49 +10,184 @@ export default {
   mounted() {
     const data = [
       {
-        name: 'AA',
-        month: '03',
-        count: 12,
+        name: '日志数',
+        month: '3月',
+        count: 0,
       },
       {
-        name: 'AA',
-        month: '04',
-        count: 10,
+        name: '高分数',
+        month: '3月',
+        count: 0,
       },
       {
-        name: 'AA',
-        month: '05',
+        name: '低分数',
+        month: '3月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '4月',
+        count: 0,
+      },
+      {
+        name: '高分数',
+        month: '4月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '4月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '5月',
+        count: 0,
+      },
+      {
+        name: '高分数',
+        month: '5月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '5月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '6月',
+        count: 5,
+      },
+      {
+        name: '高分数',
+        month: '6月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '6月',
         count: 1,
       },
       {
-        name: 'BB',
-        month: '03',
+        name: '日志数',
+        month: '7月',
+        count: 19,
+      },
+      {
+        name: '高分数',
+        month: '7月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '7月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '8月',
+        count: 21,
+      },
+      {
+        name: '高分数',
+        month: '8月',
+        count: 1,
+      },
+      {
+        name: '低分数',
+        month: '8月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '9月',
+        count: 22,
+      },
+      {
+        name: '高分数',
+        month: '9月',
+        count: 5,
+      },
+      {
+        name: '低分数',
+        month: '9月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '10月',
+        count: 18,
+      },
+      {
+        name: '高分数',
+        month: '10月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '10月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '11月',
+        count: 15,
+      },
+      {
+        name: '高分数',
+        month: '11月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '11月',
+        count: 0,
+      },
+      {
+        name: '日志数',
+        month: '12月',
+        count: 19,
+      },
+      {
+        name: '高分数',
+        month: '12月',
+        count: 1,
+      },
+      {
+        name: '低分数',
+        month: '12月',
+        count: 1,
+      },
+      {
+        name: '日志数',
+        month: '1月',
         count: 20,
       },
       {
-        name: 'BB',
-        month: '04',
-        count: 33,
-      },
-      {
-        name: 'BB',
-        month: '05',
+        name: '高分数',
+        month: '1月',
         count: 3,
       },
       {
-        name: 'CC',
-        month: '03',
-        count: 9,
+        name: '低分数',
+        month: '1月',
+        count: 0,
       },
       {
-        name: 'CC',
-        month: '04',
-        count: 16,
+        name: '日志数',
+        month: '2月',
+        count: 0,
       },
       {
-        name: 'CC',
-        month: '05',
-        count: 66,
+        name: '高分数',
+        month: '2月',
+        count: 0,
+      },
+      {
+        name: '低分数',
+        month: '2月',
+        count: 0,
       },
     ];
 
@@ -61,6 +196,7 @@ export default {
       xField: 'month',
       yField: 'count',
       seriesField: 'name',
+      color: ['orange', 'green', 'red'],
       yAxis: {
         label: {},
       },
