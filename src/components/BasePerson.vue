@@ -28,7 +28,7 @@ s<template>
             </div>
             <div style="width: 42px;">
               <div style="font-size: 14px; font-weight: bold;">高评数</div>
-              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">12</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">6</div>
             </div>
             <div style="width: 140px;">
               <div style="font-size: 14px; font-weight: bold;">日志评分数</div>
@@ -46,7 +46,7 @@ s<template>
             </div>
             <div style="width: 42px;">
               <div style="font-size: 14px; font-weight: bold;">低评数</div>
-              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">12</div>
+              <div style="margin-top: 16px; font-size: 24px; color: #0080CC">6</div>
             </div>
           </div>
         </a-tab-pane>

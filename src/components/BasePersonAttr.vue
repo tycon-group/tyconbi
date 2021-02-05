@@ -139,19 +139,19 @@ export default {
         this.gender = '未知';
       }
       // 生日
-      if (this.personItems.dateOfBirth !== '') {
+      if (this.personItems.dateOfBirth !== null && this.personItems.dateOfBirth !== undefined) {
         this.dateOfBirth = this.personItems.dateOfBirth;
       } else {
         this.dateOfBirth = '未知信息';
       }
       // 学历
-      if (this.personItems.education !== '') {
+      if (this.personItems.education !== null && this.personItems.education !== undefined) {
         this.education = this.personItems.education;
       } else {
         this.education = '未知信息';
       }
       // 职位
-      if (this.personItems.job !== '') {
+      if (this.personItems.job !== null && this.personItems.dateOfBirth !== undefined) {
         this.job = this.personItems.job;
       } else {
         this.job = '未知信息';
@@ -161,7 +161,7 @@ export default {
       // 连续工作时间
       // 获取开始工作日期
       const { dateOfStartWork } = this.personItems;
-      if (dateOfStartWork !== null) {
+      if (dateOfStartWork !== null && this.personItems.dateOfBirth !== undefined) {
         const date2 = new Date(dateOfStartWork);
         // eslint-disable-next-line radix,no-mixed-operators,max-len
         const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
@@ -178,7 +178,7 @@ export default {
       }
       // 在职工作年限
       const { dateOfHire } = this.personItems;
-      if (dateOfHire !== null) {
+      if (dateOfHire !== null && this.personItems.dateOfBirth !== undefined) {
         const date2 = new Date(dateOfHire);
         // eslint-disable-next-line radix,no-mixed-operators,max-len
         const monthCount = parseInt(date1.getFullYear() - date2.getFullYear()) * 12 - date2.getMonth() + date1.getMonth();
