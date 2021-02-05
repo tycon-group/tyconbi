@@ -22,6 +22,7 @@
       <div class="tool-bar">
 <!--        日期选择器-->
         <a-range-picker v-model:value="date" @change="onChange" />
+        <div>{{ peopleName }}</div>
       </div>
       <div class="list-content">
         <base-worklog-prew-list :date="date"/>
@@ -49,6 +50,11 @@ export default {
       this.date = dateString;
     },
   },
+  computed: {
+    peopleName() {
+      return this.$store.state.peopleName;
+    },
+  },
 };
 </script>
 
@@ -69,7 +75,6 @@ export default {
   flex-direction: column;
   padding: 16px 16px 0;
   flex: auto;
-  align-items: flex-start;
   overflow: auto;
   border-radius:4px;
   box-shadow: 0 0 10px #F3F3F3;
@@ -89,5 +94,9 @@ export default {
   flex: auto;
   overflow: auto;
   margin-top: 16px;
+}
+.tool-bar {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
