@@ -92,7 +92,7 @@ export default {
     },
   },
   created() {
-    if (this.$store.state.empID !== '') {
+    if (this.$store.state.empID !== null) {
       api.hr.getOrgTree(this.$store.state.empID).then((res) => {
         this.gData = res.data.data;
         generateList(this.gData);

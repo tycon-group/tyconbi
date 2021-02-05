@@ -42,7 +42,7 @@ export default {
   watch: {
     orgPortrait: {
       handler() {
-        if (this.$store.state.pickOrgDataID !== '') {
+        if (this.$store.state.pickOrgDataID !== null) {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             this.data = value.data;
           });
@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     tabClicks() {
-      if (this.$store.state.pickOrgDataID !== '') {
+      if (this.$store.state.pickOrgDataID !== null) {
         api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
           this.data = value.data;
         });

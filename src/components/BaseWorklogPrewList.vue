@@ -44,7 +44,6 @@ export default {
   watch: {
     peopleName: {
       handler() {
-        console.log(this.$store.state.peopleName);
         this.updateWorklog();
       },
       deep: true,
@@ -65,7 +64,7 @@ export default {
   },
   methods: {
     updateWorklog() {
-      if (this.peopleName === '') {
+      if (this.peopleName === null) {
         this.worklog = [];
       } else {
         api.worklog.getAllWorklogs({
