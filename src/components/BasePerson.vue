@@ -1,4 +1,4 @@
-<template>
+s<template>
   <base-person-attr />
   <div class="footer">
     <!--        Toolbar和列表-->

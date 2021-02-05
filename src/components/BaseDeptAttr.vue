@@ -42,6 +42,7 @@ export default {
   watch: {
     orgPortrait: {
       handler() {
+        console.log(this.$store.state.pickOrgDataID);
         if (this.$store.state.pickOrgDataID !== null) {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             this.data = value.data;
