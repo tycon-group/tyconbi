@@ -37,7 +37,11 @@
       </div>
       <div class="avatar">
         <router-link to="/login" ondragstart="return false">
-          <a-avatar alt="Avatar" size="30px"/>
+          <a-avatar alt="Avatar"
+                    size="30px"
+                    :style="{ backgroundColor: '#FFFFFF', verticalAlign: 'middle',
+                    color: '#0080CC'}"
+          >{{ username }}</a-avatar>
         </router-link>
       </div>
     </template>
@@ -89,6 +93,12 @@ export default {
       const days = d.getDate();
       const thisday = date.getDate();
       return (thisday / days) * 100;
+    },
+    username() {
+      if (this.$store.state.name === null) {
+        return '登陆';
+      }
+      return this.$store.state.name;
     },
   },
 };
