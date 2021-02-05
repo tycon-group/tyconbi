@@ -3,16 +3,16 @@
     <div class="navigation">
       <div class="tab-group">
         <a-tabs type="line"
-                defaultActiveKey="1"
+                :defaultActiveKey=type
                 tabPosition="top"
                 size="small"
                 tabBarGutter="60px"
                 :tabBarStyle="{textAlign: 'left', width: '228px', position: 'fixed', zIndex:'2',
                 backgroundColor: 'white', borderRadius: '6px', boxShadow: '0 2px 6px #F3F3F3'}">
-          <a-tab-pane key="1" tab="本部门">
+          <a-tab-pane key="direct" tab="本部门">
             <base-worklog-user-list :deptKey = 1 />
           </a-tab-pane>
-          <a-tab-pane key="2" tab="其他部门">
+          <a-tab-pane key="cross" tab="其他部门">
             <base-worklog-user-list :deptKey = 2 />
           </a-tab-pane>
         </a-tabs>
@@ -53,6 +53,9 @@ export default {
   computed: {
     peopleName() {
       return this.$store.state.peopleName;
+    },
+    type() {
+      return this.$store.state.type;
     },
   },
 };
