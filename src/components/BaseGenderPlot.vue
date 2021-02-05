@@ -27,7 +27,7 @@ export default {
       piePlot.render();
       setInterval(() => {
         piePlot.changeData(this.deptGender);
-      }, 1000);
+      }, 2000);
     },
   },
   computed: {
