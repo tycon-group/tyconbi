@@ -24,6 +24,14 @@
       </div>
     </template>
     <template #main>
+      <div v-show="showLogin">
+        <router-link to="/login" ondragstart="return false">
+           <a-alert
+           show-icon
+           message="请完成 登陆 操作后再继续"
+           type="error" />
+        </router-link>
+      </div>
     </template>
     <template #footer>
       <SearchOutlined style="color: white; font-size: 26px"
@@ -63,11 +71,15 @@ export default {
     return {
       searchValue: '',
       ifShowSearchInput: false,
+      visible: true,
     };
   },
   methods: {
     showSearchInput() {
       this.ifShowSearchInput = true;
+    },
+    handleClose() {
+      this.visible = false;
     },
   },
   computed: {
@@ -94,6 +106,9 @@ export default {
         return '登陆';
       }
       return this.$store.state.name;
+    },
+    showLogin() {
+      return this.$store.state.name === null;
     },
   },
 };
