@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      collapsed: true,
+      collapsed: false,
     };
   },
 };
