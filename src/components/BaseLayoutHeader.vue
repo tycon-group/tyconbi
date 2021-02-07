@@ -32,7 +32,7 @@ export default {
     align-items: center;
   }
   .header{
-    width: 580px;
+    width: 640px;
     display: flex;
     justify-content: flex-start;
     align-items: center;

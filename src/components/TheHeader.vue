@@ -8,11 +8,8 @@
            alt="logo">
       <span class="title">太江数据分析系统</span>
       <div class="deadline">
-        <span>本月考评进度：</span>
+        <span>本轮考评进度：</span>
         <div class="process-group">
-          <span>
-            <HourglassOutlined style="margin-right: 4px" spin="true"/>
-            {{ deadline }}天</span>
           <div>
             <a-progress  :stroke-color="{'0%': '#24A4F0','100%': '#00CCBF'}"
                          :percent=percent
@@ -21,8 +18,8 @@
                          status="active" />
           </div>
         </div>
-        <div>
-          <TrophyFilled />
+        <div style="color: white; margin-left: 10px">
+          <HourglassOutlined style="margin-right: 4px"/>{{ deadline }}天
         </div>
       </div>
     </template>
@@ -50,7 +47,6 @@
 
 <script>
 import {
-  TrophyFilled,
   SearchOutlined,
   HourglassOutlined,
 } from '@ant-design/icons-vue';
@@ -60,7 +56,6 @@ export default {
   components: {
     BaseLayoutHeader,
     HourglassOutlined,
-    TrophyFilled,
     SearchOutlined,
   },
   name: 'the-header',
@@ -116,7 +111,7 @@ export default {
 }
 .deadline {
   display: flex;
-  width: 400px;
+  width: 460px;
   height: 64px;
   margin-left: 20px;
 }
