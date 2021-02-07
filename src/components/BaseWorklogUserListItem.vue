@@ -7,7 +7,7 @@
             {{ empworklogitem.name }}
           </div>
           <div style="font-size: 12px">
-            本月测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
+            本次测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
           </div>
         </div>
       </a-badge>
