@@ -108,7 +108,7 @@ export default {
       return this.$store.state.name;
     },
     showLogin() {
-      return this.$store.state.name === null;
+      return this.$store.state.token === null;
     },
   },
 };
