@@ -30,7 +30,11 @@ export default {
   },
   methods: {
     ClickItem() {
-      this.$message.success(`点击${this.empworklogitem.name}`);
+      this.$message.success({
+        content: `刚刚点击了${this.empworklogitem.name}`,
+        duration: 1,
+        maxCount: 1,
+      });
       this.$store.commit('updatePeopleName', this.empworklogitem.name);
     },
   },
