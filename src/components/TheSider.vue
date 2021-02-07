@@ -8,14 +8,14 @@
   >
 <!--    这是菜单栏-->
     <a-menu mode="inline" :defaultSelectedKeys="[$route.path]">
-      <a-menu-item key="/worklogs" class="menu-item">
-        <router-link to="/worklogs" ondragstart="return false">
+      <a-menu-item key="/worklogs">
+        <router-link to="/worklogs" ondragstart="return false" class="menu-item">
             <FileWordOutlined />
             <span>日志</span>
         </router-link>
       </a-menu-item>
-      <a-menu-item key="/analysis" class="menu-item">
-        <router-link to="/analysis" ondragstart="return false">
+      <a-menu-item key="/analysis">
+        <router-link to="/analysis" ondragstart="return false" class="menu-item">
             <PieChartOutlined />
             <span>KPI分析</span>
         </router-link>
