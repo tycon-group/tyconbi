@@ -7,7 +7,7 @@
             {{ empworklogitem.name }}
           </div>
           <div style="font-size: 12px">
-            本月测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
+            本次测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
           </div>
         </div>
       </a-badge>
@@ -30,7 +30,11 @@ export default {
   },
   methods: {
     ClickItem() {
-      this.$message.success(`点击${this.empworklogitem.name}`);
+      this.$message.success({
+        content: `刚刚点击了${this.empworklogitem.name}`,
+        duration: 1,
+        maxCount: 1,
+      });
       this.$store.commit('updatePeopleName', this.empworklogitem.name);
     },
   },
