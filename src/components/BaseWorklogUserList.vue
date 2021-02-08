@@ -1,7 +1,6 @@
 <template>
   <div style="margin-top: 42px; min-width: 228px;">
     <a-list
-      :loading="loading"
       item-layout="horizontal">
       <div v-for="item in empWorklog" :key="item.name">
         <base-worklog-user-list-item :empworklogitem=item />
