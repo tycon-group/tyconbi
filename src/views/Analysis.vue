@@ -72,11 +72,4 @@ export default {
     border-radius:4px;
     box-shadow: 0 0 10px #F3F3F3;
   }
-  .header {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 16px;
-  }
 </style>

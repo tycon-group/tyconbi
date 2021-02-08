@@ -6,12 +6,10 @@
     <a-select
       v-model:value="value2"
       style="width: 120px; margin-left: 24px"
-      @focus="focus"
-      ref="select"
     >
       <a-select-option
         v-for="selectItem in dataResources"
-        :key="selectItem.id"
+        :key="selectItem.name"
         :value="selectItem.value">
         {{ selectItem.name }}
       </a-select-option>
@@ -27,8 +25,8 @@ export default {
   },
   data() {
     return {
-      value1: [],
-      value2: '',
+      value1: '2021',
+      value2: '全财年',
       dataResources: [
         {
           name: '全财年',

@@ -6,7 +6,7 @@
         <span style="font-size: 14px; font-weight:bold">
           {{ worklogitem.date }}
         </span>
-        <span :class="color">
+          <span :class="color">
           {{ this.dayPlan.substr(0, 40) }}...
         </span>
         <span v-for="value in scores" :key="value.id">
@@ -127,7 +127,6 @@ export default {
 .color {
   font-size: 14px;
   margin-left: 10px;
-  color: #0080CC;
   font-weight:bold;
 }
 .normal {
