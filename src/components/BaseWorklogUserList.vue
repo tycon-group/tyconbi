@@ -37,7 +37,7 @@ export default {
     }
     this.$store.commit('updateType', this.type);
     // 获取人员表
-    if (this.$store.state.empID !== '') {
+    if (this.$store.state.empID !== null) {
       api.worklog.getMyEmpWorklogsInfo(this.$store.state.empID, {
         type: this.type,
       }).then((res) => {
