@@ -101,7 +101,6 @@ export default {
           // 这里让单个都是空值；
           this.personItems = {};
           this.doneSomeThing();
-          console.log('缺少组织号。');
         }
       },
       deep: true,
