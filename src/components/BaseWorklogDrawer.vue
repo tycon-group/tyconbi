@@ -91,11 +91,15 @@
         />
       </div>
       <div class="footer_btn">
+        <a-tooltip placement="left"
+                   title="提示: 您只能评分一次，24小时内可删除，再次提交评分。"
+                   :get-popup-container="getPopupContainer">
         <a-button :disabled="mark_value !== 3 && textarea_value === ''"
                   @click="submitOneTime"
                   style="width: 80px; height: 40px; border-radius:4px;
                    background-color: #0080CC; color: #FFFFFF;">提交
         </a-button>
+        </a-tooltip>
       </div>
     </div>
   </div>
@@ -130,8 +134,6 @@ export default {
   },
   methods: {
     submitOneTime() {
-      this.$message.success('提交被点击');
-      console.log(this.$store.state.name);
       api.worklog.postTheScores({
         worklog: this.worklogitems.id,
         type: this.type,
@@ -139,12 +141,12 @@ export default {
         remarks: this.textarea_value,
         author: this.$store.state.name,
       }).then(() => {
-        this.$message.success('提交成功');
+        this.$message.success('评分成功');
         // 关闭抽屉
         this.$emit('closeDrawer', false);
       }).catch((error) => {
         console.log(error);
-        this.$message.error('提交失败，请重试！');
+        this.$message.error('评分失败');
       });
     },
   },
