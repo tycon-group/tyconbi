@@ -4,13 +4,7 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        publish: {
-          provider: 'github',
-          repo: 'https://github.com/tycon-group/tyconbi',
-          owner: 'tycon-group',
-          releaseType: 'release',
-          publishAutoUpdate: true,
-        },
+        publish: ['github'],
       },
     },
   },
