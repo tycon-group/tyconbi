@@ -2,14 +2,20 @@
   <div style="display: flex; flex-direction: column; align-items: flex-start; width: 240px">
     <div class="listUserItem">
       <a-badge :count=this.realCount>
-        <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
-          <div style="font-size: 14px; margin-bottom: 8px;">
-            {{ empworklogitem.name }}
+        <a-popover placement="rightTop">
+          <template #content>
+            <p>下方公式为：</p>
+            <p>日志被评阅数 / 本期日志总数</p>
+          </template>
+          <div style="padding: 12px 12px; width: 228px" @click="ClickItem">
+            <div style="font-size: 14px; margin-bottom: 8px;">
+              {{ empworklogitem.name }}
+            </div>
+            <div style="font-size: 12px">
+              本次测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
+            </div>
           </div>
-          <div style="font-size: 12px">
-            本次测评({{ empworklogitem.count_of_commented}} / {{ empworklogitem.count_of_writed}})
-          </div>
-        </div>
+        </a-popover>
       </a-badge>
     </div>
   </div>
