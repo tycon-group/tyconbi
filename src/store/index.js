@@ -25,7 +25,7 @@ export default createStore({
     },
     updateEmpName(state, empName) {
       state.name = empName;
-      window.sessionStorage.setItem('empName', empName);
+      window.sessionStorage.setItem('name', empName);
     },
     updatePeopleName(state, peopleName) {
       state.peopleName = peopleName;

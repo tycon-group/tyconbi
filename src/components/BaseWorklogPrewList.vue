@@ -82,7 +82,8 @@ export default {
     onLoadMore() {
       this.loadingMore = true;
       if (this.next) {
-        axios.get(this.next).then((value) => {
+        const newnext = this.next.replace(/http/, 'https');
+        axios.get(newnext).then((value) => {
           this.worklog = this.worklog.concat(value.data.results);
           this.next = value.data.next;
           this.loadingMore = false;

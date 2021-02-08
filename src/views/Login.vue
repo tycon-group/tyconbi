@@ -4,26 +4,26 @@
       <div style="height: 30px; width: 100%; text-align: start; margin-bottom: 50px">
         <router-link to='/' ondragstart="return false">
           <a-button >
-            <span style="color: #1890ff">返回首页</span>
+            <span style="color: #1890ff; font-size: 12px">返回首页</span>
           </a-button>
         </router-link>
       </div>
       <div style="height: 30px; width: 100%; font-size: 26px; text-align: start;
-      margin-bottom: 16px">
+      margin-bottom: 24px">
         <span>{{ title }}</span>
       </div>
       <div style="height: 210px;width: 100%">
         <a-form layout="vertical" :model="form" v-bind="formItemLayout" >
-          <a-form-item style="font-size: 16px; text-align: start">
-            <span>Username</span>
+          <a-form-item style="font-size: 12px; text-align: start">
+            <span>用户名</span>
             <a-input
               required
               class="inputs"
               v-model:value="form.username"
               maxlength="14"/>
           </a-form-item>
-          <a-form-item style="font-size: 16px; text-align: start">
-            <span>Password</span>
+          <a-form-item style="font-size: 12px; text-align: start">
+            <span>密码</span>
             <a-input
               required
               has-feedback
@@ -42,10 +42,12 @@
               style="width: 160px; height: 40px" @click="handleSubmit(user)">
               <span>登录</span>
             </a-button>
-            <a
-              href="https://www.baidu.com"
-              style="font-size: 14px; color: #8F9399">
-              忘记密码</a>
+            <a-tooltip>
+              <template #title>
+                请及时联系科技部重置密码
+              </template>
+              忘记密码
+            </a-tooltip>
           </div>
         </a-form>
       </div>
@@ -74,7 +76,7 @@ export default {
   components: { BaseAppIcon },
   data() {
     return {
-      title: 'Welcome tyconBI',
+      title: '欢迎使用 tyconBI',
       form: {
         username: '',
         password: '',
