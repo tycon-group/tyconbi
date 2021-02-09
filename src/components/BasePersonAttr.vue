@@ -14,11 +14,16 @@
         <div style="display: flex; padding-left: 16px;">
           <div style="width: 77px; height: 112px;">
             <div style="height: 64px; width: 64px; margin: 0 auto;">
-              <a-avatar :size="64" :src="this.personItems.avatar">
-                <template #icon>
-                  <UserOutlined />
+              <a-popover placement="top">
+                <template #content>
+                  工号为：<span style="font-weight: bold;">{{ this.empID }}</span>
                 </template>
-              </a-avatar>
+                <a-avatar :size="64" :src="this.personItems.avatar">
+                  <template #icon>
+                    <UserOutlined />
+                  </template>
+                </a-avatar>
+              </a-popover>
             </div>
             <div style="font-size: 14px; text-align: center; color: #303133">
               {{ this.personItems.enName }}</div>
@@ -61,6 +66,7 @@ export default {
       mode: 'top',
       personData: [],
       personItems: {},
+      empID: null,
       gender: null,
       dateOfBirth: null,
       education: null,
@@ -129,6 +135,12 @@ export default {
       });
     },
     doneSomeThing() {
+      // id号
+      if (this.personItems.empID !== null && this.personItems.empID !== undefined) {
+        this.empID = this.personItems.empID;
+      } else {
+        this.empID = '未知';
+      }
       // 头像
       // 性别
       if (this.personItems.gender === 'M') {
