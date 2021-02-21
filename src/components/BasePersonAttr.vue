@@ -83,7 +83,6 @@ export default {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
               //  首先这里存第一个人的empid，
-              console.log(this.personData[0][0]);
               this.$store.commit('updatePersonEmpID', this.personData[0][0]);
               // 这里是负责控制组织架构初始值和改变的方法，默认显示第一个人的信息
               api.hr.getTheEmployee(this.personData[0][0]).then((val) => {
