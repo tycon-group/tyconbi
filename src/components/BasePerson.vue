@@ -96,6 +96,20 @@ export default {
     BaseToolbar,
     BasePersonAttr,
   },
+  watch: {
+    personEmpId: {
+      handler() {
+        console.log(this.$store.state.personEmpID, '取到被选中人的empid');
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+  computed: {
+    personEmpId() {
+      return this.$store.state.personEmpID;
+    },
+  },
 };
 </script>
 

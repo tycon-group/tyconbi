@@ -8,6 +8,7 @@ export default createStore({
     peopleName: window.sessionStorage.getItem('peopleName'),
     type: window.sessionStorage.getItem('type'),
     pickOrgDataID: window.sessionStorage.getItem('pickOrgDataID'),
+    personEmpID: window.sessionStorage.getItem('personEmpID'),
   },
   mutations: {
     /**
@@ -39,6 +40,10 @@ export default createStore({
       state.pickOrgDataID = pickOrgDataID;
       window.sessionStorage.setItem('pickOrgDataID', pickOrgDataID);
     },
+    updatePersonEmpID(state, personEmpID) {
+      state.personEmpID = personEmpID;
+      window.sessionStorage.setItem('personEmpID', personEmpID);
+    },
     logout(state) {
       state.token = null;
       state.name = null;
@@ -46,12 +51,14 @@ export default createStore({
       state.peopleName = null;
       state.type = 'direct';
       state.pickOrgDataID = null;
+      state.personEmpID = null;
       window.sessionStorage.removeItem('token');
       window.sessionStorage.removeItem('name');
       window.sessionStorage.removeItem('empID');
       window.sessionStorage.removeItem('peopleName');
       window.sessionStorage.removeItem('type');
       window.sessionStorage.removeItem('pickOrgDataID');
+      window.sessionStorage.removeItem('personEmpID');
     },
   },
   getters: {
@@ -61,6 +68,7 @@ export default createStore({
     peopleName: (state) => state.peopleName,
     type: (state) => state.type,
     pickOrgDataID: (state) => state.pickOrgDataID,
+    personEmpID: (state) => state.personEmpID,
   },
   actions: {
   },

@@ -82,6 +82,9 @@ export default {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
+              //  首先这里存第一个人的empid，
+              console.log(this.personData[0][0]);
+              this.$store.commit('updatePersonEmpID', this.personData[0][0]);
               // 这里是负责控制组织架构初始值和改变的方法，默认显示第一个人的信息
               api.hr.getTheEmployee(this.personData[0][0]).then((val) => {
                 this.personItems = val.data;
@@ -91,7 +94,8 @@ export default {
               });
             } else {
               this.personData = ['暂无人员'];
-              // 这里让单个都是空值；
+              // 这里（组织架构下没人）让单个都是空值；
+              this.$store.commit('updatePersonEmpID', null);
               this.personItems = {};
               this.doneSomeThing();
               console.log('缺少人员。');
@@ -99,7 +103,8 @@ export default {
           });
         } else {
           this.personData = ['暂无人员'];
-          // 这里让单个都是空值；
+          // 这里(取消选中组织架构)让单个都是空值；
+          this.$store.commit('updatePersonEmpID', null);
           this.personItems = {};
           this.doneSomeThing();
         }
@@ -115,8 +120,10 @@ export default {
   },
   methods: {
     // 这里是通过内置方法获取tab的key，改变个人信息
+    // 其次这里再次存被查询者的empid
     tabChange(activeKey) {
       api.hr.getTheEmployee(activeKey).then((val) => {
+        this.$store.commit('updatePersonEmpID', activeKey);
         this.personItems = val.data;
         this.doneSomeThing();
       }).catch((error) => {
