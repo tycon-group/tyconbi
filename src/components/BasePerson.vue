@@ -18,19 +18,23 @@
            padding-top: 8px; background-color: #F0F2F5;">
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">日志数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">12</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_worklogs }}</div>
               </div>
               <div style="width: 70px;">
                 <div style="font-size: 14px; font-weight: bold;">日志补写数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">0</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_rewrote }}</div>
               </div>
               <div style="width: 70px;">
                 <div style="font-size: 14px; font-weight: bold;">日志评论数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">0</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_commented }}</div>
               </div>
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">高评数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">6</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_high_score }}</div>
               </div>
               <div style="width: 140px;">
                 <div style="font-size: 14px; font-weight: bold;">日志评分数</div>
@@ -38,17 +42,20 @@
                   <div style="display: flex; height: 33px;
                    text-align: center;">
                     <div style="padding-top: 8px; font-size: 12px;">直属：</div>
-                    <div style="font-size: 24px; color: #0080CC;">8</div>
+                    <div style="font-size: 24px; color: #0080CC;">
+                      {{ workLogList.count_of_scored }}</div>
                   </div>
                   <div style="display:flex; height: 33px; text-align: center;">
                     <div style="padding-top: 8px; font-size: 12px;">人事：</div>
-                    <div style="font-size: 24px; color: #0080CC;">4</div>
+                    <div style="font-size: 24px; color: #0080CC;">
+                      {{ workLogList.count_of_scored2 }}</div>
                   </div>
                 </div>
               </div>
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">低评数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">6</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_low_score }}</div>
               </div>
             </div>
             <div style="width: 32px; background-color: #0080CC; margin-top: 8px;
@@ -83,6 +90,7 @@ import BaseAttitudePlot from './plot/BaseAttitudePlot.vue';
 import BaseContributionPlot from './plot/BaseContributionPlot.vue';
 import BaseLawPlot from './plot/BaseLawPlot.vue';
 import BasePotentialPlot from './plot/BasePotentialPlot.vue';
+import api from '../api';
 
 export default {
   name: 'base-person',
@@ -96,10 +104,23 @@ export default {
     BaseToolbar,
     BasePersonAttr,
   },
+  data() {
+    return {
+      workLogList: {},
+    };
+  },
   watch: {
     personEmpId: {
       handler() {
-        console.log(this.$store.state.personEmpID, '取到被选中人的empid');
+        if (this.$store.state.personEmpID !== null) {
+          api.kpi.getWorklogMonthReportList(this.$store.state.personEmpID).then((val) => {
+            this.workLogList = val.data;
+          }).catch((error) => {
+            console.log(error);
+          });
+        } else {
+          this.workLogList = {};
+        }
       },
       deep: true,
       immediate: true,
