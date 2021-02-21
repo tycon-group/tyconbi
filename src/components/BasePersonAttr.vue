@@ -10,7 +10,7 @@
       @change="tabChange"
     >
       <a-tab-pane
-        v-for="item in personData" :key="item" :tab="item">
+        v-for="item in personData" :key="item[0]" :tab="item[1]">
         <div style="display: flex; padding-left: 16px;">
           <div style="width: 77px; height: 112px;">
             <div style="height: 64px; width: 64px; margin: 0 auto;">
@@ -82,15 +82,10 @@ export default {
           api.hr.getOrgPortrait(this.$store.state.pickOrgDataID).then((value) => {
             if (value.data.empList.value.length !== 0) {
               this.personData = value.data.empList.value;
-              api.hr.getAllEmployees({
-                name: this.personData[0],
-              }).then((v) => {
-                api.hr.getTheEmployee(v.data.results[0].empID).then((val) => {
-                  this.personItems = val.data;
-                  this.doneSomeThing();
-                }).catch((error) => {
-                  console.log(error);
-                });
+              // 这里是负责控制组织架构初始值和改变的方法，默认显示第一个人的信息
+              api.hr.getTheEmployee(this.personData[0][0]).then((val) => {
+                this.personItems = val.data;
+                this.doneSomeThing();
               }).catch((error) => {
                 console.log(error);
               });
@@ -119,16 +114,11 @@ export default {
     },
   },
   methods: {
+    // 这里是通过内置方法获取tab的key，改变个人信息
     tabChange(activeKey) {
-      api.hr.getAllEmployees({
-        name: activeKey,
-      }).then((value) => {
-        api.hr.getTheEmployee(value.data.results[0].empID).then((val) => {
-          this.personItems = val.data;
-          this.doneSomeThing();
-        }).catch((error) => {
-          console.log(error);
-        });
+      api.hr.getTheEmployee(activeKey).then((val) => {
+        this.personItems = val.data;
+        this.doneSomeThing();
       }).catch((error) => {
         console.log(error);
       });
