@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       fiscal_year: '',
+      lastMonth: '',
       value1: '',
       value2: '',
       dataResources: [
@@ -111,13 +112,25 @@ export default {
   created() {
     const year = new Date().getFullYear();
     const month = new Date().getMonth() + 1;
+    // 判断财年
     if (month >= 4 && month <= 12) {
       this.fiscal_year = year;
     } else {
       this.fiscal_year = year - 1;
     }
+    // 判断上一月
+    if (month === 1) {
+      this.lastMonth = '12';
+    } else {
+      this.lastMonth = (month - 1).toString();
+    }
     this.value1 = this.fiscal_year;
-    console.log(this.fiscal_year);
+    // eslint-disable-next-line no-plusplus
+    for (let m = 0; m <= this.dataResources.length - 1; m++) {
+      if (this.lastMonth === this.dataResources[m].value) {
+        this.value2 = this.dataResources[m].name;
+      }
+    }
   },
 };
 </script>
