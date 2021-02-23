@@ -1,11 +1,13 @@
 <template>
   <a-input-group style="display: flex; justify-content: start">
     <!--          输入财年-->
-    <a-input v-model:value="value1" style="width: 120px;" maxlength="4" addon-after="财年"/>
+    <a-input v-model:value="value1" style="width: 120px;" maxlength="4" addon-after="财年"
+             @change="onChange"/>
     <!--          选择年度 -->
     <a-select
       v-model:value="value2"
       style="width: 120px; margin-left: 24px"
+      @change="onChange"
     >
       <a-select-option
         v-for="selectItem in dataResources"
@@ -131,6 +133,17 @@ export default {
         this.value2 = this.dataResources[m].name;
       }
     }
+    this.$store.commit('updateFiscalYear', this.fiscal_year);
+    // 此处强转回数字
+    this.$store.commit('updateSelectTime', Number(this.lastMonth));
+    console.log(this.$store.state.fiscalYear, this.$store.state.selectTime);
+  },
+  methods: {
+    onChange() {
+      this.$store.commit('updateFiscalYear', this.value1);
+      this.$store.commit('updateSelectTime', this.value2);
+      console.log(this.$store.state.fiscalYear, this.$store.state.selectTime);
+    },
   },
 };
 </script>
