@@ -25,8 +25,9 @@ export default {
   },
   data() {
     return {
-      value1: '2021',
-      value2: '全财年',
+      fiscal_year: '',
+      value1: '',
+      value2: '',
       dataResources: [
         {
           name: '全财年',
@@ -106,6 +107,17 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    if (month >= 4 && month <= 12) {
+      this.fiscal_year = year;
+    } else {
+      this.fiscal_year = year - 1;
+    }
+    this.value1 = this.fiscal_year;
+    console.log(this.fiscal_year);
   },
 };
 </script>
