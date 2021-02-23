@@ -9,6 +9,8 @@ export default createStore({
     type: window.sessionStorage.getItem('type'),
     pickOrgDataID: window.sessionStorage.getItem('pickOrgDataID'),
     personEmpID: window.sessionStorage.getItem('personEmpID'),
+    fiscalYear: window.sessionStorage.getItem('fiscalYear'),
+    selectTime: window.sessionStorage.getItem('selectTime'),
   },
   mutations: {
     /**
@@ -44,6 +46,14 @@ export default createStore({
       state.personEmpID = personEmpID;
       window.sessionStorage.setItem('personEmpID', personEmpID);
     },
+    updateFiscalYear(state, fiscalYear) {
+      state.fiscalYear = fiscalYear;
+      window.sessionStorage.setItem('fiscalYear', fiscalYear);
+    },
+    updateSelectTime(state, selectTime) {
+      state.selectTime = selectTime;
+      window.sessionStorage.setItem('selectTime', selectTime);
+    },
     logout(state) {
       state.token = null;
       state.name = null;
@@ -52,6 +62,8 @@ export default createStore({
       state.type = 'direct';
       state.pickOrgDataID = null;
       state.personEmpID = null;
+      state.fiscalYear = null;
+      state.selectTime = null;
       window.sessionStorage.removeItem('token');
       window.sessionStorage.removeItem('name');
       window.sessionStorage.removeItem('empID');
@@ -59,6 +71,8 @@ export default createStore({
       window.sessionStorage.removeItem('type');
       window.sessionStorage.removeItem('pickOrgDataID');
       window.sessionStorage.removeItem('personEmpID');
+      window.sessionStorage.removeItem('fiscalYear');
+      window.sessionStorage.removeItem('selectTime');
     },
   },
   getters: {
@@ -69,6 +83,8 @@ export default createStore({
     type: (state) => state.type,
     pickOrgDataID: (state) => state.pickOrgDataID,
     personEmpID: (state) => state.personEmpID,
+    fiscalYear: (state) => state.fiscalYear,
+    selectTime: (state) => state.selectTime,
   },
   actions: {
   },
