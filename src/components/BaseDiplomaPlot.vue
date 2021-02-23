@@ -8,42 +8,15 @@ import { Column } from '@antv/g2plot';
 export default {
   name: 'base-diploma-plot',
   props: ['deptEducation'],
+  data() {
+    return {
+      tem: null,
+    };
+  },
   watch: {
     orgEducation() {
-      const data = this.deptEducation;
-      const columnPlot = new Column('container', {
-        data,
-        xField: 'name',
-        yField: 'value',
-        label: {
-          // 可手动配置 label 数据标签位置
-          position: 'middle', // 'top', 'bottom', 'middle',
-          // 配置样式
-          style: {
-            fill: '#FFFFFF',
-            opacity: 0.6,
-          },
-        },
-        xAxis: {
-          label: {
-            autoHide: true,
-            autoRotate: false,
-          },
-        },
-        meta: {
-          name: {
-            alias: '类别',
-          },
-          value: {
-            alias: '数量',
-          },
-        },
-        minColumnWidth: 50,
-        maxColumnWidth: 50,
-      });
-      columnPlot.render();
       setInterval(() => {
-        columnPlot.changeData(this.deptEducation);
+        this.tem.changeData(this.deptEducation);
       }, 200);
     },
   },
@@ -51,6 +24,41 @@ export default {
     orgEducation() {
       return this.deptEducation;
     },
+  },
+  mounted() {
+    const data = this.deptEducation;
+    const columnPlot = new Column('container', {
+      data,
+      xField: 'name',
+      yField: 'value',
+      label: {
+        // 可手动配置 label 数据标签位置
+        position: 'middle', // 'top', 'bottom', 'middle',
+        // 配置样式
+        style: {
+          fill: '#FFFFFF',
+          opacity: 0.6,
+        },
+      },
+      xAxis: {
+        label: {
+          autoHide: true,
+          autoRotate: false,
+        },
+      },
+      meta: {
+        name: {
+          alias: '类别',
+        },
+        value: {
+          alias: '数量',
+        },
+      },
+      minColumnWidth: 50,
+      maxColumnWidth: 50,
+    });
+    columnPlot.render();
+    this.tem = columnPlot;
   },
 };
 </script>
