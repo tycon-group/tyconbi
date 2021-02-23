@@ -219,7 +219,10 @@ export default {
             console.log(error);
           });
         } else {
-          this.workLogList = [];
+          const workLogPlot = [];
+          setInterval(() => {
+            this.tem.changeData(workLogPlot);
+          }, 200);
         }
       },
       deep: true,
