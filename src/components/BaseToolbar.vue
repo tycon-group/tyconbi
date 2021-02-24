@@ -139,7 +139,11 @@ export default {
   },
   methods: {
     onChange() {
-      this.$store.commit('updateFiscalYear', this.value1);
+      if (this.value1 === '') {
+        this.$store.commit('updateFiscalYear', null);
+      } else {
+        this.$store.commit('updateFiscalYear', this.value1);
+      }
       this.$store.commit('updateSelectTime', this.value2);
     },
   },
