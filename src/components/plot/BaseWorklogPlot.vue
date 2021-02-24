@@ -199,39 +199,7 @@ export default {
   watch: {
     personEmpId: {
       handler() {
-        if (this.$store.state.personEmpID !== '' && this.$store.state.fiscalYear !== undefined) {
-          api.kpi.getWorklogTrendPlot(this.$store.state.personEmpID, {
-            fiscal_year: this.$store.state.fiscalYear,
-          }).then((val) => {
-            //  日志总数
-            const workLogPlot1 = val.data.data[0];
-            //  日志高分
-            const workLogPlot2 = val.data.data[5];
-            //  日志低分
-            const workLogPlot3 = val.data.data[6];
-            const workLogPlot = this.changeList(workLogPlot1, workLogPlot2, workLogPlot3);
-            this.workLogPlot = workLogPlot;
-            // 这里更新渲染图表
-            setInterval(() => {
-              this.tem.changeData(this.workLogPlot);
-            }, 200);
-          }).catch((error) => {
-            this.workLogPlot = [];
-            console.log(error);
-          });
-        } else {
-          this.workLogPlot = [];
-          setInterval(() => {
-            this.tem.changeData(this.workLogPlot);
-          }, 200);
-        }
-      },
-      deep: true,
-      immediate: true,
-    },
-    fiscalYear: {
-      handler() {
-        if (this.$store.state.fiscalYear !== '' && this.$store.state.personEmpID !== null) {
+        if (this.$store.state.personEmpID !== null && this.$store.state.fiscalYear !== '') {
           api.kpi.getWorklogTrendPlot(this.$store.state.personEmpID, {
             fiscal_year: this.$store.state.fiscalYear,
           }).then((val) => {
@@ -264,10 +232,7 @@ export default {
   },
   computed: {
     personEmpId() {
-      return this.$store.state.personEmpID;
-    },
-    fiscalYear() {
-      return this.$store.state.fiscalYear;
+      return (this.$store.state.personEmpID, this.$store.state.fiscalYear);
     },
   },
   mounted() {
@@ -297,6 +262,7 @@ export default {
     this.tem = linePlot;
   },
   methods: {
+    // 将折线所需要的数组填值
     changeList(arr1, arr2, arr3) {
       // eslint-disable-next-line no-plusplus
       for (let a = 0; a <= 11; a++) {
