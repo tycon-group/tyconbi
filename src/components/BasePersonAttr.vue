@@ -3,6 +3,7 @@
    border-radius:4px; box-shadow: 0 0 10px #F3F3F3;">
     <a-tabs
       :tab-position="mode"
+      :activeKey="this.$store.state.personEmpID"
       :style="{ height: '200px', width: '100%',}"
       :tabBarStyle="{textAlign: 'left', borderBottom: '0'}"
       @prevClick="callback"
@@ -89,6 +90,7 @@ export default {
                 this.personItems = val.data;
                 this.doneSomeThing();
               }).catch((error) => {
+                this.personData = ['暂无人员'];
                 console.log(error);
               });
             } else {
