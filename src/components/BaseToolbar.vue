@@ -134,15 +134,13 @@ export default {
       }
     }
     this.$store.commit('updateFiscalYear', this.fiscal_year);
-    // 此处强转回数字
-    this.$store.commit('updateSelectTime', Number(this.lastMonth));
-    console.log(this.$store.state.fiscalYear, this.$store.state.selectTime);
+    // 此处不需要Number强转回数字
+    this.$store.commit('updateSelectTime', this.lastMonth);
   },
   methods: {
     onChange() {
       this.$store.commit('updateFiscalYear', this.value1);
       this.$store.commit('updateSelectTime', this.value2);
-      console.log(this.$store.state.fiscalYear, this.$store.state.selectTime);
     },
   },
 };
