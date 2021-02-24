@@ -137,7 +137,6 @@ export default {
               console.log(error);
             });
           } else {
-            console.log(typeof this.$store.state.selectTime);
             // 全程使用财年
             if (this.$store.state.selectTime >= 4 && this.$store.state.selectTime <= 12) {
               this.tempYear = this.$store.state.fiscalYear;
