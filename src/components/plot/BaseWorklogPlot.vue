@@ -199,7 +199,7 @@ export default {
   watch: {
     personEmpId: {
       handler() {
-        if (this.$store.state.personEmpID !== null && this.$store.state.fiscalYear !== '') {
+        if (this.$store.state.personEmpID !== null && this.$store.state.fiscalYear !== null) {
           api.kpi.getWorklogTrendPlot(this.$store.state.personEmpID, {
             fiscal_year: this.$store.state.fiscalYear,
           }).then((val) => {

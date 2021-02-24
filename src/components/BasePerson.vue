@@ -115,7 +115,7 @@ export default {
   watch: {
     personEmpId: {
       handler() {
-        if (this.$store.state.personEmpID !== null) {
+        if (this.$store.state.personEmpID !== null && this.$store.state.fiscalYear !== null) {
           if (this.timeList1.includes(this.$store.state.selectTime)) {
             api.kpi.getWorklogSemiannualReportList(this.$store.state.personEmpID, {
               semiannual: this.$store.state.selectTime,
@@ -137,13 +137,13 @@ export default {
               console.log(error);
             });
           } else {
+            console.log(typeof this.$store.state.selectTime);
             // 全程使用财年
             if (this.$store.state.selectTime >= 4 && this.$store.state.selectTime <= 12) {
               this.tempYear = this.$store.state.fiscalYear;
             } else {
-              this.tempYear = this.$store.state.fiscalYear + 1;
+              this.tempYear = Number(this.$store.state.fiscalYear) + 1; // 此处需要强调为数字相加
             }
-            console.log(this.tempYear);
             api.kpi.getWorklogMonthReportList(this.$store.state.personEmpID, {
               month: this.$store.state.selectTime,
               year: this.tempYear,
