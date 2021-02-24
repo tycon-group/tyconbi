@@ -107,17 +107,53 @@ export default {
   data() {
     return {
       workLogList: {},
+      tempYear: '',
+      timeList1: ['all', 'temp1st', 'temp2nd'],
+      timeList2: ['1st', '2nd', '3rd', '4th'],
     };
   },
   watch: {
     personEmpId: {
       handler() {
         if (this.$store.state.personEmpID !== null) {
-          api.kpi.getWorklogMonthReportList(this.$store.state.personEmpID).then((val) => {
-            this.workLogList = val.data;
-          }).catch((error) => {
-            console.log(error);
-          });
+          if (this.timeList1.includes(this.$store.state.selectTime)) {
+            api.kpi.getWorklogSemiannualReportList(this.$store.state.personEmpID, {
+              semiannual: this.$store.state.selectTime,
+              fiscal_year: this.$store.state.fiscalYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          } else if (this.timeList2.includes(this.$store.state.selectTime)) {
+            api.kpi.getWorklogQuarterReport(this.$store.state.personEmpID, {
+              quarter: this.$store.state.selectTime,
+              fiscal_year: this.$store.state.fiscalYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          } else {
+            // 全程使用财年
+            if (this.$store.state.selectTime >= 4 && this.$store.state.selectTime <= 12) {
+              this.tempYear = this.$store.state.fiscalYear;
+            } else {
+              this.tempYear = this.$store.state.fiscalYear + 1;
+            }
+            console.log(this.tempYear);
+            api.kpi.getWorklogMonthReportList(this.$store.state.personEmpID, {
+              month: this.$store.state.selectTime,
+              year: this.tempYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          }
         } else {
           this.workLogList = {};
         }
@@ -128,7 +164,9 @@ export default {
   },
   computed: {
     personEmpId() {
-      return this.$store.state.personEmpID;
+      return (this.$store.state.personEmpID,
+      this.$store.state.fiscalYear,
+      this.$store.state.selectTime);
     },
   },
 };

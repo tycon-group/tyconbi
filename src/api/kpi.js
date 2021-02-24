@@ -10,8 +10,8 @@ const kpi = {
    * @param params
    * @returns {Promise<AxiosResponse<any>>} 暂时不介入时间
    */
-  getWorklogMonthReportList(id) {
-    return axios.get(`${base.bi}kpi/worklog/reports/month/${id}/`);
+  getWorklogMonthReportList(id, params) {
+    return axios.get(`${base.bi}kpi/worklog/reports/month/${id}/`, { params });
   },
   /**
    * 获取季度日志情况
