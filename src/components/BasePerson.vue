@@ -18,19 +18,23 @@
            padding-top: 8px; background-color: #F0F2F5;">
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">日志数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">12</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_worklogs }}</div>
               </div>
               <div style="width: 70px;">
                 <div style="font-size: 14px; font-weight: bold;">日志补写数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">0</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_rewrote }}</div>
               </div>
               <div style="width: 70px;">
                 <div style="font-size: 14px; font-weight: bold;">日志评论数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">0</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_commented }}</div>
               </div>
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">高评数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">6</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_high_score }}</div>
               </div>
               <div style="width: 140px;">
                 <div style="font-size: 14px; font-weight: bold;">日志评分数</div>
@@ -38,17 +42,20 @@
                   <div style="display: flex; height: 33px;
                    text-align: center;">
                     <div style="padding-top: 8px; font-size: 12px;">直属：</div>
-                    <div style="font-size: 24px; color: #0080CC;">8</div>
+                    <div style="font-size: 24px; color: #0080CC;">
+                      {{ workLogList.count_of_scored }}</div>
                   </div>
                   <div style="display:flex; height: 33px; text-align: center;">
                     <div style="padding-top: 8px; font-size: 12px;">人事：</div>
-                    <div style="font-size: 24px; color: #0080CC;">4</div>
+                    <div style="font-size: 24px; color: #0080CC;">
+                      {{ workLogList.count_of_scored2 }}</div>
                   </div>
                 </div>
               </div>
               <div style="width: 42px;">
                 <div style="font-size: 14px; font-weight: bold;">低评数</div>
-                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">6</div>
+                <div style="margin-top: 8px; font-size: 24px; color: #0080CC">
+                  {{ workLogList.count_of_low_score }}</div>
               </div>
             </div>
             <div style="width: 32px; background-color: #0080CC; margin-top: 8px;
@@ -83,6 +90,7 @@ import BaseAttitudePlot from './plot/BaseAttitudePlot.vue';
 import BaseContributionPlot from './plot/BaseContributionPlot.vue';
 import BaseLawPlot from './plot/BaseLawPlot.vue';
 import BasePotentialPlot from './plot/BasePotentialPlot.vue';
+import api from '../api';
 
 export default {
   name: 'base-person',
@@ -95,6 +103,70 @@ export default {
     BaseTotalPlot,
     BaseToolbar,
     BasePersonAttr,
+  },
+  data() {
+    return {
+      workLogList: {},
+      tempYear: '',
+      timeList1: ['all', 'temp1st', 'temp2nd'],
+      timeList2: ['1st', '2nd', '3rd', '4th'],
+    };
+  },
+  watch: {
+    personEmpId: {
+      handler() {
+        if (this.$store.state.personEmpID !== null && this.$store.state.fiscalYear !== null) {
+          if (this.timeList1.includes(this.$store.state.selectTime)) {
+            api.kpi.getWorklogSemiannualReportList(this.$store.state.personEmpID, {
+              semiannual: this.$store.state.selectTime,
+              fiscal_year: this.$store.state.fiscalYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          } else if (this.timeList2.includes(this.$store.state.selectTime)) {
+            api.kpi.getWorklogQuarterReport(this.$store.state.personEmpID, {
+              quarter: this.$store.state.selectTime,
+              fiscal_year: this.$store.state.fiscalYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          } else {
+            // 全程使用财年
+            if (this.$store.state.selectTime >= 4 && this.$store.state.selectTime <= 12) {
+              this.tempYear = this.$store.state.fiscalYear;
+            } else {
+              this.tempYear = Number(this.$store.state.fiscalYear) + 1; // 此处需要强调为数字相加
+            }
+            api.kpi.getWorklogMonthReportList(this.$store.state.personEmpID, {
+              month: this.$store.state.selectTime,
+              year: this.tempYear,
+            }).then((val) => {
+              this.workLogList = val.data;
+            }).catch((error) => {
+              this.workLogList = {};
+              console.log(error);
+            });
+          }
+        } else {
+          this.workLogList = {};
+        }
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
+  computed: {
+    personEmpId() {
+      return (this.$store.state.personEmpID,
+      this.$store.state.fiscalYear,
+      this.$store.state.selectTime);
+    },
   },
 };
 </script>

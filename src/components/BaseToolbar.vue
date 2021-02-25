@@ -1,11 +1,13 @@
 <template>
   <a-input-group style="display: flex; justify-content: start">
     <!--          输入财年-->
-    <a-input v-model:value="value1" style="width: 120px;" maxlength="4" addon-after="财年"/>
+    <a-input v-model:value="value1" style="width: 120px;" maxlength="4" addon-after="财年"
+             @change="onChange"/>
     <!--          选择年度 -->
     <a-select
       v-model:value="value2"
       style="width: 120px; margin-left: 24px"
+      @change="onChange"
     >
       <a-select-option
         v-for="selectItem in dataResources"
@@ -25,8 +27,10 @@ export default {
   },
   data() {
     return {
-      value1: '2021',
-      value2: '全财年',
+      fiscal_year: '',
+      lastMonth: '',
+      value1: '',
+      value2: '',
       dataResources: [
         {
           name: '全财年',
@@ -106,6 +110,42 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    // 判断财年
+    if (month >= 4 && month <= 12) {
+      this.fiscal_year = year;
+    } else {
+      this.fiscal_year = year - 1;
+    }
+    // 判断上一月
+    if (month === 1) {
+      this.lastMonth = '12';
+    } else {
+      this.lastMonth = (month - 1).toString();
+    }
+    this.value1 = this.fiscal_year;
+    // eslint-disable-next-line no-plusplus
+    for (let m = 0; m <= this.dataResources.length - 1; m++) {
+      if (this.lastMonth === this.dataResources[m].value) {
+        this.value2 = this.dataResources[m].name;
+      }
+    }
+    this.$store.commit('updateFiscalYear', this.fiscal_year);
+    // 此处不需要Number强转回数字
+    this.$store.commit('updateSelectTime', this.lastMonth);
+  },
+  methods: {
+    onChange() {
+      if (this.value1 === '') {
+        this.$store.commit('updateFiscalYear', null);
+      } else {
+        this.$store.commit('updateFiscalYear', this.value1);
+      }
+      this.$store.commit('updateSelectTime', this.value2);
+    },
   },
 };
 </script>
