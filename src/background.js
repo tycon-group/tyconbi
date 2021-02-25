@@ -27,6 +27,7 @@ async function createWindow() {
     /* global __static */
     icon: path.join(__static, 'icon.png'),
   });
+  win.setMenu(null);
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
